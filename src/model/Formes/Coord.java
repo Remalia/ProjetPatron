@@ -1,4 +1,4 @@
-package ProjetPatron.model;
+package ProjetPatron.src.model.Formes;
 
 public class Coord {
 	

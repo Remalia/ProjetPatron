@@ -1,4 +1,4 @@
-package ProjetPatron.model;
+package ProjetPatron.src.model.Formes;
 
 import java.awt.Color;
 import java.util.*;
@@ -6,7 +6,7 @@ import java.util.*;
 public class Forme {
 	
 	private Color color;
-	private List<Coord> points = new ArrayList<>();
+	private List<Coord> points;
 	
 	protected Forme(Color color,List<Coord> points) {
 		this.color = color;

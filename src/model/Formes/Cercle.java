@@ -1,4 +1,4 @@
-package ProjetPatron.model;
+package ProjetPatron.src.model.Formes;
 
 import java.awt.Color;
 import java.util.*;
