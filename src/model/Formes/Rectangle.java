@@ -29,6 +29,10 @@ public class Rectangle extends Forme{
 	public void setLargeur(int largeur) {
 		this.largeur = largeur;
 	}
-	
-	
+
+	@Override
+	public void changerPoint(Coord point, float x, float y) {
+		super.changerPoint(point,x,y);
+		//TODO si on change un point changer celui non aligné en plus
+	}
 }
