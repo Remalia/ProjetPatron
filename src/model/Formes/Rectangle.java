@@ -3,36 +3,56 @@ package ProjetPatron.src.model.Formes;
 import java.awt.Color;
 import java.util.*;
 
+/***
+ * Permet la création et la gestion de rectangle
+ */
 public class Rectangle extends Forme{
 
 	private float longeur;
 	private float largeur;
-	
-	public Rectangle(Color color,List<Coord> pts,int longeur,int largeur) {
+
+	/***
+	 * Constructeur de rectangle
+	 * @param color la couleur du rectangle
+	 * @param pts la liste des 4 points de coordonées de rectangle
+	 */
+	public Rectangle(Color color,List<Coord> pts) {
 		super(color,pts);
-		this.largeur = largeur;
-		this.longeur = longeur;
+		calcLongeurLargeur();
 	}
 
+	/***
+	 * Permet de calculer la longeur et la largeur du rectangle et de l'assigner
+	 */
+	public void calcLongeurLargeur(){
+		//TODO calculer en fonction des pts
+	}
+
+	/***
+	 * Permet de récupérer la longeur du rectangle
+	 * @return la longeur du rectangle
+	 */
 	public float getLongeur() {
 		return longeur;
 	}
 
-	public void setLongeur(int longeur) {
-		this.longeur = longeur;
-	}
-
+	/***
+	 * Permet de récupérer la largeur du rectangle
+	 * @return la largeur du rectangle
+	 */
 	public float getLargeur() {
 		return largeur;
 	}
 
-	public void setLargeur(int largeur) {
-		this.largeur = largeur;
-	}
 
+	/***
+	 * Permet de changer la position d'un point mais aussi de réassigner son proche pour garder la forme de rectangle
+	 * @param point le point en question
+	 * @param x sa nouvelle position x
+	 * @param y sa nouvelle position y
+	 */
 	@Override
-	public void changerPoint(Coord point, float x, float y) {
-		super.changerPoint(point,x,y);
+	public void changePoint(Coord point, float x, float y) {
 		//TODO si on change un point changer celui non aligné en plus
 	}
 }

@@ -3,6 +3,9 @@ package ProjetPatron.src.model.Formes;
 import java.awt.Color;
 import java.util.*;
 
+/***
+ * Classe abstraite de forme permettant une gestion des hiérarchique de forme
+ */
 public abstract class Forme {
 	
 	private Color color;
@@ -52,11 +55,11 @@ public abstract class Forme {
 
 	/***
 	 * Permet de changer la position du point
-	 * @param point le point en quesiton
+	 * @param point le point en question
 	 * @param x sa nouvelle position x
 	 * @param y sa nouvelle position y
 	 */
-	public void changerPoint(Coord point, float x,float y){
+	public void changePoint(Coord point, float x,float y){
 		int temp = this.points.indexOf(point);
 		if(temp != -1){
 			Coord pointList = this.points.get(temp);

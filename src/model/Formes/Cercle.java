@@ -5,6 +5,9 @@ import java.util.*;
 
 import static java.lang.Math.abs;
 
+/***
+ * Permet la création et la gestion de Cercle
+ */
 public class Cercle extends Forme{
 
 	/***

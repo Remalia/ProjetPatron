@@ -8,6 +8,10 @@ import ProjetPatron.src.model.Action.Commandes.CommandHandler;
 public class MainModel {
 
     private CommandHandler ch;
+
+    /***
+     * Permet la création d'un mainModel
+     */
     public MainModel(){
         this.ch = new CommandHandler();
     }
