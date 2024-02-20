@@ -16,4 +16,5 @@ public class Triangle extends Forme {
 	public Triangle(Color color, List<Coord> points) {
 		super(color, points);
 	}
+	
 }

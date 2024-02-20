@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.util.*;
 
 /***
- * Classe abstraite de forme permettant une gestion des hiérarchique de forme
+ * Classe abstraite de forme permettant une gestion hiérarchique de forme
  */
 public abstract class Forme {
 	
