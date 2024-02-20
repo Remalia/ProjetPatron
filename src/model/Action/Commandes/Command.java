@@ -9,4 +9,5 @@ public interface Command {
     public void backtrack();
     public String writeCommand(boolean svg);
     public void readCommand();
+
 }

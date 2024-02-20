@@ -14,10 +14,11 @@ public class Rectangle extends Forme{
 	/***
 	 * Constructeur de rectangle
 	 * @param color la couleur du rectangle
-	 * @param pts la liste des 4 points de coordonées de rectangle
+	 * @param pts la liste des 2 points de coordonées de rectangle
+	 * @param locked True --> cible deplaçable | False --> non déplaçable
 	 */
-	public Rectangle(Color color,List<Coord> pts) {
-		super(color,pts);
+	public Rectangle(Color color,List<Coord> pts, boolean locked) {
+		super(color,pts,locked);
 		calcLongeurLargeur();
 	}
 
@@ -44,15 +45,4 @@ public class Rectangle extends Forme{
 		return largeur;
 	}
 
-
-	/***
-	 * Permet de changer la position d'un point mais aussi de réassigner son proche pour garder la forme de rectangle
-	 * @param point le point en question
-	 * @param x sa nouvelle position x
-	 * @param y sa nouvelle position y
-	 */
-	@Override
-	public void changePoint(Coord point, float x, float y) {
-		//TODO si on change un point changer celui non aligné en plus
-	}
 }

@@ -8,11 +8,16 @@ import ProjetPatron.src.model.Action.Commandes.CommandHandler;
 public class MainModel {
 
     private CommandHandler ch;
+    private static int nbForme = 0;
 
     /***
      * Permet la création d'un mainModel
      */
     public MainModel(){
         this.ch = new CommandHandler();
+    }
+
+    public static int getNextIdForme(){
+        return nbForme++;
     }
 }

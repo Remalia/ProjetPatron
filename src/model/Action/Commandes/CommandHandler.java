@@ -50,7 +50,8 @@ public class CommandHandler{
         Command c;
         if(!stackRedo.empty()) {
             c = this.stackRedo.pop();
-            this.addCommand(c);
+            c.execute();
+            stackCommand.push(c);
         }else{
             //TODO gestion erreur giga propre avec fenêtre pop-up décrivant l'erreur.
             System.out.println("La pile redo est vide !");

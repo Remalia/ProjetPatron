@@ -1,5 +1,7 @@
 package ProjetPatron.src.model.Formes;
 
+import ProjetPatron.src.model.MainModel;
+
 import java.awt.Color;
 import java.util.*;
 
@@ -10,15 +12,36 @@ public abstract class Forme {
 	
 	private Color color;
 	private List<Coord> points;
+	private final int id;
+	private final boolean locked;
 
 	/***
 	 * Constructeur Abstrait permettant de créer une forme
 	 * @param color la couleur qu'aura la forme
 	 * @param points les points de liaison de la forme
+	 * @param locked True --> cible deplaçable | False --> non déplaçable
 	 */
-	protected Forme(Color color,List<Coord> points) {
+	protected Forme(Color color,List<Coord> points,boolean locked) {
 		this.color = color;
 		this.points = points;
+		this.locked = locked;
+		this.id = MainModel.getNextIdForme();
+	}
+
+	/***
+	 * Permet de returner l'id de la forme
+	 * @return l'id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/***
+	 * Permet de savoir si la forme est déplaçable
+	 * @return Vrai si elle est déplaçable, Faux sinon
+	 */
+	public boolean isLocked() {
+		return locked;
 	}
 
 	/***

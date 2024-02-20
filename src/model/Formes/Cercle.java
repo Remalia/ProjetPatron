@@ -14,9 +14,10 @@ public class Cercle extends Forme{
 	 * Permet de créer un cercle
 	 * @param color la couleur du cercle
 	 * @param pts les deux points du cercles (centre/rayon)
+	 * @param locked True --> cible deplaçable | False --> non déplaçable
 	 */
-	public Cercle(Color color,List<Coord> pts) {
-		super(color,pts);
+	public Cercle(Color color,List<Coord> pts,boolean locked) {
+		super(color,pts,locked);
 	}
 
 	/***
@@ -27,5 +28,9 @@ public class Cercle extends Forme{
 		float distX = abs(this.getPoints().get(0).getX()-this.getPoints().get(1).getX());
 		float distY = abs(this.getPoints().get(0).getY()-this.getPoints().get(1).getY());
 		return distY+distX;
+	}
+
+	public void setRayon(){
+		//TODO set le rayon depuis le centre vers le points autre
 	}
 }
