@@ -6,7 +6,7 @@ package ProjetPatron.src.controller.Bouton;
 public abstract class Button {
 
     public Button() {
-    };
+    }
 
     public void affichage(){}; //TODO ptet pas bon car ptet pas void mais prévisionel
 }

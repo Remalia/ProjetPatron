@@ -14,5 +14,4 @@ public class Jeu {
         MainController controller = new MainController();
         MainVue vue = new MainVue();
     }
-
 }
