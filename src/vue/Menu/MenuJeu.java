@@ -7,7 +7,7 @@ public class MenuJeu extends MenuAbstract {
 
     public MenuJeu(MainVue mv){
         super(mv);
-        this.mv.getBase().setTitle("Menu jeu");
+        this.mv.setTitle("Menu jeu");
     }
 
     @Override

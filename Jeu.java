@@ -13,5 +13,6 @@ public class Jeu {
         MainModel model = new MainModel();
         MainController controller = new MainController();
         MainVue vue = new MainVue();
+        vue.repaint();
     }
 }

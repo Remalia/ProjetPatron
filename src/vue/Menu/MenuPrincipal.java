@@ -8,10 +8,13 @@ public class MenuPrincipal extends MenuAbstract {
 
     public MenuPrincipal(MainVue mv){
         super(mv);
-        this.setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
-        this.mv.getBase().setTitle("Menu principal");
+        this.mv.setTitle("Menu principal");
         JButton butJouer = new JButton("Jouer");
-        this.add(butJouer);
+        JButton butParam = new JButton("Param");
+        JButton butQuitter = new JButton("Quitter");
+        this.mv.getButPanel().add(butJouer);
+        this.mv.getButPanel().add(butParam);
+        this.mv.getButPanel().add(butQuitter);
         this.repaint();
     }
 

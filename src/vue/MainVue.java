@@ -10,20 +10,33 @@ import java.awt.*;
 /***
  * Classe de regroupement de toutes les vues
  */
-public class MainVue extends JPanel {
+public class MainVue extends JFrame{
 
-    private JFrame base;
+    private JPanel butPanel;
+    private JPanel pane;
     private MenuAbstract menu;
 
     public MainVue(){
-        this.base = new JFrame();
-        this.base.setSize(800,600);
-        this.base.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.base.setTitle("ProjetPatron");
-        this.base.setResizable(false);
-        this.base.setLocationRelativeTo(null);
-        this.base.setContentPane(new MenuPrincipal(this));
-        this.base.setVisible(true);
+        butPanel = new JPanel();
+        pane = new JPanel();
+        this.setSize(800,600);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle("ProjetPatron");
+        this.setResizable(true);
+        this.setLocationRelativeTo(null);
+        butPanel.setLayout(new BoxLayout(butPanel,BoxLayout.Y_AXIS));
+        pane.add(butPanel);
+        pane.add(new MenuPrincipal(this));
+        this.setContentPane(pane);
+        this.setVisible(true);
+    }
+
+    public JPanel getButPanel() {
+        return butPanel;
+    }
+
+    public void setButPanel(JPanel butPanel) {
+        this.butPanel = butPanel;
     }
 
     public void setMenu(MenuAbstract menu) {
@@ -35,11 +48,11 @@ public class MainVue extends JPanel {
         super.repaint();
     }
 
-    public JFrame getBase() {
-        return base;
+    public int getWidthScreen(){
+        return this.getWidth();
     }
 
-    public void setBase(JFrame base) {
-        this.base = base;
+    public int getHeightScreen(){
+        return this.getHeight();
     }
 }
