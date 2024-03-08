@@ -9,9 +9,4 @@ public class MenuJeu extends MenuAbstract {
         super(mv);
         this.mv.setTitle("Menu jeu");
     }
-
-    @Override
-    public void repaint() {
-        super.repaint();
-    }
 }

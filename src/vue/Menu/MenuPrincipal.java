@@ -19,7 +19,8 @@ public class MenuPrincipal extends MenuAbstract {
         this.mv.setTitle("Menu principal");
         butPanel.setLayout(new BoxLayout(butPanel,BoxLayout.Y_AXIS));
         getPane().add(butPanel);
-        butPanel.add(new ButtonJouer("Jouer"));
+        ButtonJouer butJouer = new ButtonJouer("Jouer");
+        butPanel.add(butJouer);
         butPanel.add(new ButtonParams("Paramètres"));
         butPanel.add(new ButtonRetour("Quitter"));
         this.repaint();

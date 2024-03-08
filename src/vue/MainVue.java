@@ -14,8 +14,9 @@ public class MainVue extends JFrame{
 
     private static JPanel pane;
     private MenuAbstract menu;
+    private static MainVue instance;
 
-    public MainVue(){
+    private MainVue(){
         pane = new JPanel();
         this.setSize(800,600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,5 +53,12 @@ public class MainVue extends JFrame{
 
     public int getHeightScreen(){
         return this.getHeight();
+    }
+
+    public static MainVue getInstance(){
+        if(instance == null){
+            instance = new MainVue();
+        }
+        return instance;
     }
 }
