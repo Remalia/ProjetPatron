@@ -1,5 +1,7 @@
 package ProjetPatron.src.controller.Bouton;
 
+import ProjetPatron.src.controller.MainController;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,16 +13,19 @@ public abstract class Button extends JButton {
     private String name;
     private Boolean selected;
     private Image image;
+    private MainController mc;
 
     public Button(Image image){
         this.selected = false;
         this.image = image;
+        this.mc = MainController.getInstance();
         initImage();
     }
 
     public Button(String name){
         this.selected = false;
         this.name = name;
+        this.mc = MainController.getInstance();
         initName();
     }
 
@@ -40,4 +45,7 @@ public abstract class Button extends JButton {
         selected = !selected;
     }
 
+    public MainController getMc() {
+        return mc;
+    }
 }

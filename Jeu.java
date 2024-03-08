@@ -11,7 +11,7 @@ public class Jeu {
 
     public static void main(String[] args) {
         MainModel model = new MainModel();
-        MainController controller = new MainController();
+        MainController controller = MainController.getInstance();
         MainVue vue = new MainVue();
     }
 }

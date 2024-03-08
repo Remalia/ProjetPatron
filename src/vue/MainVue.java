@@ -12,31 +12,29 @@ import java.awt.*;
  */
 public class MainVue extends JFrame{
 
-    private JPanel butPanel;
-    private JPanel pane;
+    private static JPanel pane;
     private MenuAbstract menu;
 
     public MainVue(){
-        butPanel = new JPanel();
         pane = new JPanel();
         this.setSize(800,600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("ProjetPatron");
         this.setResizable(true);
         this.setLocationRelativeTo(null);
-        butPanel.setLayout(new BoxLayout(butPanel,BoxLayout.Y_AXIS));
-        pane.add(butPanel);
-        pane.add(new MenuPrincipal(this));
+        menu = new MenuPrincipal(this);
+        pane.add(menu);
         this.setContentPane(pane);
         this.setVisible(true);
     }
 
-    public JPanel getButPanel() {
-        return butPanel;
+    public static void changeScene(MenuAbstract menu){
+        pane = new JPanel();
+        pane.add(menu);
     }
 
-    public void setButPanel(JPanel butPanel) {
-        this.butPanel = butPanel;
+    public static JPanel getPane(){
+        return pane;
     }
 
     public void setMenu(MenuAbstract menu) {

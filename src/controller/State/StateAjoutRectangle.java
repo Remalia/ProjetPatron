@@ -1,25 +1,22 @@
 package ProjetPatron.src.controller.State;
 
 /***
- * Etat d'ajout de cercle
+ * Etat d'ajout de carré
  */
 
-public class StateAjoutCircle implements State {
+public class StateAjoutRectangle implements State {
+    private static StateAjoutRectangle instance;
 
-    private static StateAjoutCircle instance;
-
-    private StateAjoutCircle(){
+    private StateAjoutRectangle(){
 
     }
-
 
     public static State getInstance(){
         if (instance == null){
-            instance = new StateAjoutCircle();
+            instance = new StateAjoutRectangle();
         }
         return instance;
     }
-
 
     @Override
     public void hasClicked() {

@@ -1,4 +1,7 @@
-package ProjetPatron.src.controller.Bouton;
+package ProjetPatron.src.controller.Bouton.formes;
+
+import ProjetPatron.src.controller.Bouton.Button;
+import ProjetPatron.src.controller.MainController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,7 +9,7 @@ import java.awt.*;
 /***
  * Interface pour tous les boutons créant des formes
  */
-public abstract class ButtonFormes extends Button{
+public abstract class ButtonFormes extends Button {
 
     public ButtonFormes(String name) {
         super(name);
@@ -16,7 +19,4 @@ public abstract class ButtonFormes extends Button{
         super(image);
     }
 
-    public void makeForme() { //TODO ptet pas bon car ptet pas void mais prévisionel
-
-    }
 }

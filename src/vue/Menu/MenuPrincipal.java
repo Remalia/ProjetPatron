@@ -1,20 +1,27 @@
 package ProjetPatron.src.vue.Menu;
 
+import ProjetPatron.src.controller.Bouton.menus.ButtonJouer;
+import ProjetPatron.src.controller.Bouton.menus.ButtonParams;
+import ProjetPatron.src.controller.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.MainVue;
 
 import javax.swing.*;
 
+import static ProjetPatron.src.vue.MainVue.getPane;
+
 public class MenuPrincipal extends MenuAbstract {
+
+    private JPanel butPanel;
 
     public MenuPrincipal(MainVue mv){
         super(mv);
+        butPanel = new JPanel();
         this.mv.setTitle("Menu principal");
-        JButton butJouer = new JButton("Jouer");
-        JButton butParam = new JButton("Param");
-        JButton butQuitter = new JButton("Quitter");
-        this.mv.getButPanel().add(butJouer);
-        this.mv.getButPanel().add(butParam);
-        this.mv.getButPanel().add(butQuitter);
+        butPanel.setLayout(new BoxLayout(butPanel,BoxLayout.Y_AXIS));
+        getPane().add(butPanel);
+        butPanel.add(new ButtonJouer("Jouer"));
+        butPanel.add(new ButtonParams("Paramètres"));
+        butPanel.add(new ButtonRetour("Quitter"));
         this.repaint();
     }
 
@@ -22,4 +29,6 @@ public class MenuPrincipal extends MenuAbstract {
     public void repaint() {
         super.repaint();
     }
+
+
 }

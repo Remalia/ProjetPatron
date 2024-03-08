@@ -1,4 +1,6 @@
-package ProjetPatron.src.controller.Bouton;
+package ProjetPatron.src.controller.Bouton.actions;
+
+import ProjetPatron.src.controller.Bouton.Button;
 
 import java.awt.*;
 
