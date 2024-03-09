@@ -7,17 +7,25 @@ import ProjetPatron.src.model.Action.Commandes.CommandHandler;
  */
 public class MainModel {
 
+    private static MainModel instance;
     private CommandHandler ch;
     private static int nbForme = 0;
 
     /***
      * Permet la création d'un mainModel
      */
-    public MainModel(){
+    private MainModel(){
         this.ch = new CommandHandler();
     }
 
     public static int getNextIdForme(){
         return nbForme++;
+    }
+
+    public static MainModel getInstance() {
+        if(instance == null){
+            instance = new MainModel();
+        }
+        return instance;
     }
 }

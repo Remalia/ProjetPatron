@@ -7,23 +7,31 @@ import ProjetPatron.src.vue.MainVue;
 
 import javax.swing.*;
 
+import java.io.IOException;
+
 import static ProjetPatron.src.vue.MainVue.getPane;
 
 public class MenuPrincipal extends MenuAbstract {
 
+    private static MenuPrincipal instance;
     private JPanel butPanel;
 
-    public MenuPrincipal(MainVue mv){
-        super(mv);
+    private MenuPrincipal() throws IOException {
+        super();
         butPanel = new JPanel();
-        this.mv.setTitle("Menu principal");
         butPanel.setLayout(new BoxLayout(butPanel,BoxLayout.Y_AXIS));
-        getPane().add(butPanel);
         ButtonJouer butJouer = new ButtonJouer("Jouer");
         butPanel.add(butJouer);
         butPanel.add(new ButtonParams("Paramètres"));
         butPanel.add(new ButtonRetour("Quitter"));
-        this.repaint();
+        this.add(butPanel);
+    }
+
+    public static MenuPrincipal getInstance() throws IOException {
+        if(instance == null){
+            instance = new MenuPrincipal();
+        }
+        return instance;
     }
 
     @Override
