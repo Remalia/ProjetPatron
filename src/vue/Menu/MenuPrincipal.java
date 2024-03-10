@@ -4,7 +4,6 @@ import ProjetPatron.src.controller.Bouton.menus.ButtonJouer;
 import ProjetPatron.src.controller.Bouton.menus.ButtonParams;
 import ProjetPatron.src.controller.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.Layout.LayoutMenuPrincipal;
-import java.io.IOException;
 
 public class MenuPrincipal extends MenuAbstract {
 
@@ -25,11 +24,4 @@ public class MenuPrincipal extends MenuAbstract {
         }
         return instance;
     }
-
-    @Override
-    public void repaint() {
-        super.repaint();
-    }
-
-
 }

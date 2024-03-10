@@ -29,7 +29,7 @@ public class LayoutSelectionNiveau implements LayoutManager {
         int height = parent.getHeight();
         for (Component comp: parent.getComponents()){
             switch (comp.getName()){
-                case "TODO": break;
+                case "1": comp.setBounds(100,100,100,100); break;
             }
         }
     }

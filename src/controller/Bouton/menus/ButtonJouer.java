@@ -16,7 +16,7 @@ public class ButtonJouer extends Button {
         this.addActionListener(e -> {
             try {
                 MainVue.changeScene(MenuSelectionNiveau.getInstance());
-            } catch (IOException ex) {
+            } catch (IOException | InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
         });
@@ -24,5 +24,12 @@ public class ButtonJouer extends Button {
 
     public ButtonJouer(String name,Image image){
         super(name,image);
+        this.addActionListener(e -> {
+            try {
+                MainVue.changeScene(MenuSelectionNiveau.getInstance());
+            } catch (IOException | InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
     }
 }

@@ -1,8 +1,11 @@
 package ProjetPatron.src.controller.Bouton.menus;
 
 import ProjetPatron.src.controller.Bouton.Button;
+import ProjetPatron.src.vue.MainVue;
+import ProjetPatron.src.vue.Menu.MenuSelectionNiveau;
 
 import java.awt.*;
+import java.io.IOException;
 
 /***
  * Classe de gestion du bouton de contrôles

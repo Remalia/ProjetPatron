@@ -1,10 +1,10 @@
 package ProjetPatron.src.vue.Menu;
 
+import ProjetPatron.src.controller.Bouton.menus.ButtonSelectLevel;
 import ProjetPatron.src.vue.Layout.LayoutSelectionNiveau;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class MenuSelectionNiveau extends MenuAbstract{
 
@@ -14,6 +14,7 @@ public class MenuSelectionNiveau extends MenuAbstract{
         this.setName("MenuSelectionNiveau");
         this.setLayout(new LayoutSelectionNiveau());
         this.setBorder(BorderFactory.createLineBorder(Color.black));
+        this.add(new ButtonSelectLevel("1"));
     }
 
     public static MenuSelectionNiveau getInstance(){

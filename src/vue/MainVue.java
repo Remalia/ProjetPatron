@@ -4,6 +4,8 @@ import ProjetPatron.src.vue.Layout.LayoutMenuGlobal;
 import ProjetPatron.src.vue.Menu.*;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 /***
@@ -12,9 +14,11 @@ import java.io.IOException;
 public class MainVue extends JFrame{
 
     private static JPanel pane;
+    private static JPanel backupPanel;
     private static MainVue instance;
 
     private MainVue() throws IOException {
+        backupPanel = new JPanel();
         pane = new JPanel();
         pane.setLayout(new LayoutMenuGlobal());
         this.setSize(800,600);
@@ -29,11 +33,35 @@ public class MainVue extends JFrame{
         this.setVisible(true);
     }
 
-    public static void changeScene(MenuAbstract menu) throws IOException {
+    public static void changeScene(MenuAbstract menu) throws IOException, InterruptedException {
+        MenuAbstract navBarNeeded;
+        if(menu == MenuJeu.getInstance()){
+            navBarNeeded = NavBarJeu.getInstance();
+        }else{
+            navBarNeeded = NavBar.getInstance();
+        }
+        backupPanel.removeAll();
+        for (Component comp: pane.getComponents()){
+            backupPanel.add(comp);
+        }
         pane.removeAll();
-        pane.add(NavBar.getInstance());
+        pane.add(navBarNeeded);
         pane.add(menu);
         instance.repaint();
+    }
+
+    public static void backScene() throws IOException {
+        if(backupPanel.getComponents().length == 0){
+            System.out.println("Closing game");
+            instance.dispatchEvent(new WindowEvent(instance, WindowEvent.WINDOW_CLOSING));
+        }else{
+            pane.removeAll();
+            pane.add(NavBar.getInstance());
+            for(Component comp: backupPanel.getComponents()){
+                pane.add(comp);
+            }
+            instance.repaint();
+        }
     }
 
     @Override
