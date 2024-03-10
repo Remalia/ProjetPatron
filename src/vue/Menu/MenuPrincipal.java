@@ -4,8 +4,6 @@ import ProjetPatron.src.controller.Bouton.menus.ButtonJouer;
 import ProjetPatron.src.controller.Bouton.menus.ButtonParams;
 import ProjetPatron.src.controller.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.Layout.LayoutMenuPrincipal;
-
-import javax.swing.*;
 import java.io.IOException;
 
 public class MenuPrincipal extends MenuAbstract {
@@ -13,7 +11,6 @@ public class MenuPrincipal extends MenuAbstract {
     private static MenuPrincipal instance;
 
     private MenuPrincipal() {
-        super();
         this.setName("MenuPrincipal");
         this.setLayout(new LayoutMenuPrincipal());
         ButtonJouer butJouer = new ButtonJouer("Jouer");
@@ -22,7 +19,7 @@ public class MenuPrincipal extends MenuAbstract {
         this.add(new ButtonRetour("Quitter"));
     }
 
-    public static MenuPrincipal getInstance() throws IOException {
+    public static MenuPrincipal getInstance(){
         if(instance == null){
             instance = new MenuPrincipal();
         }

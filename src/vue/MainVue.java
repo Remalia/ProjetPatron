@@ -29,9 +29,11 @@ public class MainVue extends JFrame{
         this.setVisible(true);
     }
 
-    public static void changeScene(MenuAbstract menu){
-        pane = new JPanel();
+    public static void changeScene(MenuAbstract menu) throws IOException {
+        pane.removeAll();
+        pane.add(NavBar.getInstance());
         pane.add(menu);
+        instance.repaint();
     }
 
     @Override

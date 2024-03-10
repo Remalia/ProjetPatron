@@ -8,23 +8,24 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class NavBar extends MenuAbstract{
+public class NavBarJeu extends MenuAbstract{
 
-    private static NavBar instance;
+    private static NavBarJeu instance;
 
-    private NavBar() throws IOException {
-        this.setName("NavBar");
+    private NavBarJeu() throws IOException {
+        this.setName("NavBarJeu");
         this.setLayout(new NavBarLayout());
-        ButtonParams param = new ButtonParams("param",ImageIO.read(new File("assets/images/reglage.png")).getScaledInstance(50,50,java.awt.Image.SCALE_SMOOTH));
+        ButtonParams param = new ButtonParams("param", ImageIO.read(new File("assets/images/reglage.png")).getScaledInstance(50,50,java.awt.Image.SCALE_SMOOTH));
         ButtonRetour retour = new ButtonRetour("retour",ImageIO.read(new File("assets/images/retour.png")).getScaledInstance(50,50,java.awt.Image.SCALE_SMOOTH));
         this.add(retour);
         this.add(param);
     }
 
-    public static NavBar getInstance() throws IOException {
+    public static NavBarJeu getInstance() throws IOException {
         if(instance == null){
-            instance = new NavBar();
+            instance = new NavBarJeu();
         }
         return instance;
     }
+
 }
