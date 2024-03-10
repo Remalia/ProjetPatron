@@ -15,26 +15,21 @@ public abstract class Button extends JButton {
     private Image image;
     private MainController mc;
 
-    public Button(Image image){
+    public Button(String name,Image image){
         this.selected = false;
         this.image = image;
+        this.name = name;
         this.mc = MainController.getInstance();
-        initImage();
+        this.setName(name);
+        this.setIcon(new ImageIcon(image));
     }
 
     public Button(String name){
         this.selected = false;
         this.name = name;
         this.mc = MainController.getInstance();
-        initName();
-    }
-
-    private void initName() {
+        this.setName(name);
         this.setText(name);
-    }
-
-    private void initImage(){
-        this.setIcon(new ImageIcon(image));
     }
 
     public boolean isSelected(){
@@ -48,4 +43,5 @@ public abstract class Button extends JButton {
     public MainController getMc() {
         return mc;
     }
+
 }

@@ -9,8 +9,8 @@ import java.awt.*;
  */
 public class ButtonParams extends Button {
 
-    public ButtonParams(Image image) {
-        super(image);
+    public ButtonParams(String name,Image image) {
+        super(name,image);
     }
 
     public ButtonParams(String name) {

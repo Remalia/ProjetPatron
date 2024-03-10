@@ -9,8 +9,8 @@ import java.awt.*;
  */
 public class ButtonSelectLevel extends Button {
 
-    public ButtonSelectLevel(Image image) {
-        super(image);
+    public ButtonSelectLevel(String name,Image image) {
+        super(name,image);
     }
 
     public ButtonSelectLevel(String name) {

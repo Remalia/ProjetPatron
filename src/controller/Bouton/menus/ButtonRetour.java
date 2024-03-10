@@ -9,8 +9,8 @@ import java.awt.*;
  */
 public class ButtonRetour extends Button {
 
-    public ButtonRetour(Image image) {
-        super(image);
+    public ButtonRetour(String name,Image image) {
+        super(name,image);
     }
 
     public ButtonRetour(String name) {

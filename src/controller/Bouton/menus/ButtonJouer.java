@@ -13,7 +13,7 @@ public class ButtonJouer extends Button {
         this.addActionListener(e -> System.out.println("FDP"));
     }
 
-    public ButtonJouer(Image image){
-        super(image);
+    public ButtonJouer(String name,Image image){
+        super(name,image);
     }
 }

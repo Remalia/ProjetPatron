@@ -9,8 +9,8 @@ import java.awt.*;
  */
 public class ButtonUndo extends Button {
 
-    public ButtonUndo(Image image) {
-        super(image);
+    public ButtonUndo(String name,Image image) {
+        super(name,image);
     }
 
     public ButtonUndo(String name) {

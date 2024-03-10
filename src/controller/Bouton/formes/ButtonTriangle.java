@@ -19,8 +19,8 @@ public class ButtonTriangle extends ButtonFormes{
         this.addActionListener(e -> getMc().setState(StateAjoutTriangle.getInstance()));
     }
 
-    public ButtonTriangle(Image image) {
-        super(image);
+    public ButtonTriangle(String name,Image image) {
+        super(name,image);
         this.addActionListener(e -> getMc().setState(StateAjoutTriangle.getInstance()));
     }
 }
