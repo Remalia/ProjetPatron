@@ -15,9 +15,5 @@ public class Jeu {
         MainModel model = MainModel.getInstance();
         MainController controller = MainController.getInstance();
         MainVue vue = MainVue.getInstance();
-        while (true){
-            Thread.sleep(20);
-            vue.repaint();
-        }
     }
 }

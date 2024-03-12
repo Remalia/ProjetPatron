@@ -4,7 +4,6 @@ import ProjetPatron.src.vue.Layout.LayoutMenuJeu;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class MenuJeu extends MenuAbstract {
 
@@ -21,5 +20,10 @@ public class MenuJeu extends MenuAbstract {
             instance = new MenuJeu();
         }
         return instance;
+    }
+
+    @Override
+    public String getNameFrame() {
+        return "Jeu";
     }
 }

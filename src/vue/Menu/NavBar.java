@@ -27,4 +27,9 @@ public class NavBar extends MenuAbstract{
         }
         return instance;
     }
+
+    @Override
+    public String getNameFrame() {
+        return null;
+    }
 }

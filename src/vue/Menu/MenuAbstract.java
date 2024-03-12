@@ -3,4 +3,6 @@ import javax.swing.*;
 
 public abstract class MenuAbstract extends JPanel{
 
+    public abstract String getNameFrame();
+
 }

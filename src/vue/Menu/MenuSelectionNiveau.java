@@ -24,4 +24,9 @@ public class MenuSelectionNiveau extends MenuAbstract{
         return instance;
     }
 
+    @Override
+    public String getNameFrame() {
+        return "Menu Selection de niveau";
+    }
+
 }

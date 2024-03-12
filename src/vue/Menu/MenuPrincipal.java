@@ -24,4 +24,9 @@ public class MenuPrincipal extends MenuAbstract {
         }
         return instance;
     }
+
+    @Override
+    public String getNameFrame() {
+        return "Menu Principal";
+    }
 }

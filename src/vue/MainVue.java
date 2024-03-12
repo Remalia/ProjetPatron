@@ -7,60 +7,71 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.util.Objects;
+import java.util.Stack;
 
 /***
  * Classe de regroupement de toutes les vues
  */
 public class MainVue extends JFrame{
 
-    private static JPanel pane;
-    private static JPanel backupPanel;
+    private static final Stack<String> lastTitleNames = new Stack<>();;
+    private static final Stack<Container> backupPanel = new Stack<>();;
     private static MainVue instance;
 
     private MainVue() throws IOException {
-        backupPanel = new JPanel();
-        pane = new JPanel();
-        pane.setLayout(new LayoutMenuGlobal());
+        this.getContentPane().setLayout(new LayoutMenuGlobal());
         this.setSize(800,600);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("ProjetPatron");
+        this.setTitle("Menu Principal");
         this.setResizable(true);
         this.setLocationRelativeTo(null);
-        pane.add(NavBar.getInstance());
-        pane.add(MenuPrincipal.getInstance());
-        this.setContentPane(pane);
+        this.getContentPane().add(NavBar.getInstance());
+        this.getContentPane().add(MenuPrincipal.getInstance());
         this.setVisible(true);
     }
 
     public static void changeScene(MenuAbstract menu) throws IOException, InterruptedException {
+        lastTitleNames.push(instance.getTitle());
         MenuAbstract navBarNeeded;
         if(menu == MenuJeu.getInstance()){
             navBarNeeded = NavBarJeu.getInstance();
         }else{
             navBarNeeded = NavBar.getInstance();
         }
-        backupPanel.removeAll();
-        for (Component comp: pane.getComponents()){
-            backupPanel.add(comp);
+        Container oldPanel = new Container();
+        for(Component comp: instance.getContentPane().getComponents()){
+            oldPanel.add(comp);
         }
-        pane.removeAll();
-        pane.add(navBarNeeded);
-        pane.add(menu);
+        backupPanel.push(oldPanel);
+        instance.getContentPane().removeAll();
+        instance.getContentPane().add(navBarNeeded);
+        instance.getContentPane().add(menu);
+        instance.setTitle(menu.getNameFrame());
         instance.repaint();
+        instance.setVisible(true);
     }
 
     public static void backScene() throws IOException {
-        if(backupPanel.getComponents().length == 0){
+        if(lastTitleNames.empty()) {
             System.out.println("Closing game");
             instance.dispatchEvent(new WindowEvent(instance, WindowEvent.WINDOW_CLOSING));
         }else{
-            pane.removeAll();
-            pane.add(NavBar.getInstance());
-            for(Component comp: backupPanel.getComponents()){
-                pane.add(comp);
+            String title = lastTitleNames.pop();
+            instance.setTitle(title);
+            Container oldPanel = new Container();
+            for (Component comp : backupPanel.pop().getComponents()){
+                oldPanel.add(comp);
+            }
+            instance.getContentPane().removeAll();
+            if(Objects.equals(title, "Menu Principal"))
+                instance.getContentPane().add(NavBar.getInstance());
+            for (Component comp : oldPanel.getComponents()){
+                instance.getContentPane().add(comp);
             }
             instance.repaint();
+            instance.setVisible(true);
         }
     }
 

@@ -28,4 +28,9 @@ public class NavBarJeu extends MenuAbstract{
         return instance;
     }
 
+    @Override
+    public String getNameFrame() {
+        return null;
+    }
+
 }
