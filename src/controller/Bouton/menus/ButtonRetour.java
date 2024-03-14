@@ -24,6 +24,13 @@ public class ButtonRetour extends Button {
 
     public ButtonRetour(String name) {
         super(name);
+        this.addActionListener(e -> {
+            try {
+                MainVue.backScene();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
     }
 }
 

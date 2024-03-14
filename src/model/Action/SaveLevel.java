@@ -3,7 +3,7 @@ package ProjetPatron.src.model.Action;
 /***
  * Permet de sauvegarder une partie en cours
  */
-public class Save {
+public class SaveLevel {
 
     public static void saveGameToYAML(){
 

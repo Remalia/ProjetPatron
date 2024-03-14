@@ -22,7 +22,6 @@ public class MainVue extends JFrame{
     private MainVue() throws IOException {
         this.getContentPane().setLayout(new LayoutMenuGlobal());
         this.setSize(800,600);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Menu Principal");
         this.setResizable(true);
@@ -51,6 +50,10 @@ public class MainVue extends JFrame{
         instance.setTitle(menu.getNameFrame());
         instance.repaint();
         instance.setVisible(true);
+    }
+
+    public static Dimension getResolution(){
+        return new Dimension(instance.getWidth(),instance.getHeight());
     }
 
     public static void backScene() throws IOException {

@@ -20,6 +20,8 @@ public abstract class Button extends JButton {
         this.image = image;
         this.name = name;
         this.mc = MainController.getInstance();
+        this.setBorderPainted(false);
+        this.setBackground(Color.WHITE); //TODO A CHANGER QUAND
         this.setName(name);
         this.setIcon(new ImageIcon(image));
     }

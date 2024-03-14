@@ -14,7 +14,13 @@ public class ButtonSelectLevel extends Button {
 
     public ButtonSelectLevel(String name,Image image) {
         super(name,image);
-
+        this.addActionListener(e -> {
+            try {
+                MainVue.changeScene(MenuJeu.getInstance());
+            } catch (IOException | InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
     }
 
     public ButtonSelectLevel(String name) {

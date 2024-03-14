@@ -12,8 +12,7 @@ public class MenuPrincipal extends MenuAbstract {
     private MenuPrincipal() {
         this.setName("MenuPrincipal");
         this.setLayout(new LayoutMenuPrincipal());
-        ButtonJouer butJouer = new ButtonJouer("Jouer");
-        this.add(butJouer);
+        this.add(new ButtonJouer("Jouer"));
         this.add(new ButtonParams("Paramètres"));
         this.add(new ButtonRetour("Quitter"));
     }
