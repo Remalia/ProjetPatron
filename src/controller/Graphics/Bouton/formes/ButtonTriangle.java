@@ -1,12 +1,8 @@
-package ProjetPatron.src.controller.Bouton.formes;
+package ProjetPatron.src.controller.Graphics.Bouton.formes;
 
-import ProjetPatron.src.controller.MainController;
-import ProjetPatron.src.controller.State.StateAjoutRectangle;
 import ProjetPatron.src.controller.State.StateAjoutTriangle;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /***
  * Classe permettant la gestion des interactions utilisateurs pour les triangles

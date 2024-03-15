@@ -1,4 +1,4 @@
-package ProjetPatron.src.controller.Bouton;
+package ProjetPatron.src.controller.Graphics.Bouton;
 
 import ProjetPatron.src.controller.MainController;
 

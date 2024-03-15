@@ -1,33 +1,33 @@
-package ProjetPatron.src.controller.Bouton.menus;
+package ProjetPatron.src.controller.Graphics.Bouton.menus;
 
-import ProjetPatron.src.controller.Bouton.Button;
+import ProjetPatron.src.controller.Graphics.Bouton.Button;
 import ProjetPatron.src.vue.MainVue;
-import ProjetPatron.src.vue.Menu.MenuJeu;
+import ProjetPatron.src.vue.Menu.MenuParametre;
 
 import java.awt.*;
 import java.io.IOException;
 
 /***
- * Classe de gestion du bouton de sélection de niveau
+ * Classe de gestion du bouton de contrôles
  */
-public class ButtonSelectLevel extends Button {
+public class ButtonParams extends Button {
 
-    public ButtonSelectLevel(String name,Image image) {
+    public ButtonParams(String name,Image image) {
         super(name,image);
         this.addActionListener(e -> {
             try {
-                MainVue.changeScene(MenuJeu.getInstance());
+                MainVue.changeScene(MenuParametre.getInstance());
             } catch (IOException | InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
         });
     }
 
-    public ButtonSelectLevel(String name) {
+    public ButtonParams(String name) {
         super(name);
         this.addActionListener(e -> {
             try {
-                MainVue.changeScene(MenuJeu.getInstance());
+                MainVue.changeScene(MenuParametre.getInstance());
             } catch (IOException | InterruptedException ex) {
                 throw new RuntimeException(ex);
             }

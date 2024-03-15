@@ -1,8 +1,8 @@
 package ProjetPatron.src.vue.Menu;
 
-import ProjetPatron.src.controller.Bouton.menus.ButtonJouer;
-import ProjetPatron.src.controller.Bouton.menus.ButtonParams;
-import ProjetPatron.src.controller.Bouton.menus.ButtonRetour;
+import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonJouer;
+import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonParams;
+import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.Layout.LayoutMenuPrincipal;
 
 public class MenuPrincipal extends MenuAbstract {

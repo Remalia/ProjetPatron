@@ -1,6 +1,6 @@
-package ProjetPatron.src.controller.Bouton.menus;
+package ProjetPatron.src.controller.Graphics.Bouton.menus;
 
-import ProjetPatron.src.controller.Bouton.Button;
+import ProjetPatron.src.controller.Graphics.Bouton.Button;
 import ProjetPatron.src.vue.MainVue;
 
 import java.awt.*;

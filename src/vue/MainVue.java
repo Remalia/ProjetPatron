@@ -26,7 +26,7 @@ public class MainVue extends JFrame{
         this.setTitle("Menu Principal");
         this.setResizable(true);
         this.setLocationRelativeTo(null);
-        this.getContentPane().add(NavBar.getInstance());
+        this.getContentPane().add(NavBar.getInstance(true));
         this.getContentPane().add(MenuPrincipal.getInstance());
         this.setVisible(true);
     }
@@ -37,7 +37,7 @@ public class MainVue extends JFrame{
         if(menu == MenuJeu.getInstance()){
             navBarNeeded = NavBarJeu.getInstance();
         }else{
-            navBarNeeded = NavBar.getInstance();
+            navBarNeeded = NavBar.getInstance(false);
         }
         Container oldPanel = new Container();
         for(Component comp: instance.getContentPane().getComponents()){
@@ -69,7 +69,7 @@ public class MainVue extends JFrame{
             }
             instance.getContentPane().removeAll();
             if(Objects.equals(title, "Menu Principal"))
-                instance.getContentPane().add(NavBar.getInstance());
+                instance.getContentPane().add(NavBar.getInstance(true));
             for (Component comp : oldPanel.getComponents()){
                 instance.getContentPane().add(comp);
             }

@@ -1,9 +1,7 @@
-package ProjetPatron.src.controller.Bouton.formes;
+package ProjetPatron.src.controller.Graphics.Bouton.formes;
 
-import ProjetPatron.src.controller.Bouton.Button;
-import ProjetPatron.src.controller.MainController;
+import ProjetPatron.src.controller.Graphics.Bouton.Button;
 
-import javax.swing.*;
 import java.awt.*;
 
 /***

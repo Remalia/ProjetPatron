@@ -1,11 +1,9 @@
 package ProjetPatron.src.vue.Menu;
 
-import ProjetPatron.src.controller.Bouton.menus.ButtonSelectLevel;
+import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonSelectLevel;
 import ProjetPatron.src.vue.Layout.LayoutSelectionNiveau;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 

@@ -1,5 +1,8 @@
 package ProjetPatron.src.vue.Menu;
 
+import ProjetPatron.src.controller.Graphics.Box.CheckBoxFullScreen;
+import ProjetPatron.src.controller.Graphics.Box.ComboBoxResolution;
+import ProjetPatron.src.controller.Graphics.Box.ComboBoxTheme;
 import ProjetPatron.src.vue.Layout.LayoutMenuParametre;
 
 import javax.swing.*;
@@ -15,11 +18,10 @@ public class MenuParametre extends MenuAbstract{
         labelResolution.setName("LabelResolution");
         JLabel labelTheme = new JLabel("Theme :");
         labelTheme.setName("LabelTheme");
-        JComboBox<JLabel> cbResolution = new JComboBox<>();
-        JComboBox<JLabel> cbTheme = new JComboBox<>();
-        cbResolution.setName("cbResolution");
-        cbTheme.setName("cbTheme");
-        //TODO instance de cbResolution a init
+        JCheckBox checkBoxFullscreen = CheckBoxFullScreen.getInstance();
+        JComboBox<String> cbResolution = ComboBoxResolution.getInstance();
+        JComboBox<String> cbTheme = ComboBoxTheme.getInstance();
+        this.add(checkBoxFullscreen);
         this.add(labelResolution);
         this.add(labelTheme);
         this.add(cbTheme);

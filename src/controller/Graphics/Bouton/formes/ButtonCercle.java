@@ -1,8 +1,6 @@
-package ProjetPatron.src.controller.Bouton.formes;
+package ProjetPatron.src.controller.Graphics.Bouton.formes;
 
-import ProjetPatron.src.controller.MainController;
 import ProjetPatron.src.controller.State.StateAjoutCircle;
-import ProjetPatron.src.controller.State.StateAjoutTriangle;
 
 import java.awt.*;
 
