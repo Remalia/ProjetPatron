@@ -1,5 +1,6 @@
 package ProjetPatron.src.vue.Menu;
 
+import ProjetPatron.src.controller.Graphics.Bouton.Button;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonParams;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.Layout.NavBarLayout;
@@ -25,6 +26,15 @@ public class NavBar extends MenuAbstract{
         this.addAllButtons();
     }
 
+    @Override
+    public void reScaleAllComponentsImg() throws IOException {
+        for (Button button : buttons){
+            if(button.getIcon() != null){
+                button.setIcon(new ImageIcon(getGoodImageSizeNavBar(button.getImgPath())));
+            }
+        }
+    }
+
     private String getImageLeaveOrReturn(){
         if(isImageLeave)
             return "assets/images/annuler.png";
@@ -38,7 +48,7 @@ public class NavBar extends MenuAbstract{
         }else{
             instance.setIsImageLeave(isImageLeave);
         }
-        instance.reScaleAllComponentsImg("NavBar");
+        instance.reScaleAllComponentsImg();
         return instance;
     }
 

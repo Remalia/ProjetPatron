@@ -21,10 +21,12 @@ public class ComboBoxResolution extends JComboBox<String> {
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+            JComboBox cb = (JComboBox)e.getSource();
+            String item = (String)cb.getSelectedItem();
+            String[] tabItems = item.split("x");
+            MainVue.setFrameHeight(Integer.parseInt(tabItems[0]));
+            MainVue.setFrameWidth(Integer.parseInt(tabItems[1]));
             if(mv.getExtendedState() != 6){
-                JComboBox cb = (JComboBox)e.getSource();
-                String item = (String)cb.getSelectedItem();
-                String[] tabItems = item.split("x");
                 MainVue.swapResolution(Integer.parseInt(tabItems[0]),Integer.parseInt(tabItems[1]));
                 try {
                     MainVue.getInstance().setLocationRelativeTo(null);
@@ -32,9 +34,6 @@ public class ComboBoxResolution extends JComboBox<String> {
                     throw new RuntimeException(exp);
                 }
             }else{
-                JComboBox cb = (JComboBox)e.getSource();
-                String item = (String)cb.getSelectedItem();
-                String[] tabItems = item.split("x");
                 MainVue.swapResolution(Integer.parseInt(tabItems[0]),Integer.parseInt(tabItems[1]));
                 mv.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }

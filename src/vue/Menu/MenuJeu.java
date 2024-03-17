@@ -16,6 +16,11 @@ public class MenuJeu extends MenuAbstract {
         this.setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
+    @Override
+    public void reScaleAllComponentsImg() {
+
+    }
+
     public static MenuJeu getInstance(){
         if(instance == null){
             instance = new MenuJeu();

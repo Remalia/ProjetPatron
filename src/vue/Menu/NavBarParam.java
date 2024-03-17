@@ -1,8 +1,10 @@
 package ProjetPatron.src.vue.Menu;
 
+import ProjetPatron.src.controller.Graphics.Bouton.Button;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.Layout.NavBarLayout;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class NavBarParam extends MenuAbstract{
@@ -16,7 +18,16 @@ public class NavBarParam extends MenuAbstract{
         ButtonRetour retour = new ButtonRetour("retour","assets/images/retour.png");
         this.buttons.add(retour);
         this.addAllButtons();
-        reScaleAllComponentsImg("NavBar");
+        reScaleAllComponentsImg();
+    }
+
+    @Override
+    public void reScaleAllComponentsImg() throws IOException {
+        for (Button button : buttons){
+            if(button.getIcon() != null){
+                button.setIcon(new ImageIcon(getGoodImageSizeNavBar(button.getImgPath())));
+            }
+        }
     }
 
     @Override
@@ -28,7 +39,7 @@ public class NavBarParam extends MenuAbstract{
         if(instance == null){
             instance = new NavBarParam();
         }
-        instance.reScaleAllComponentsImg("NavBar");
+        instance.reScaleAllComponentsImg();
         return instance;
     }
 }

@@ -74,10 +74,6 @@ public class MainVue extends JFrame{
         MainVue.height = height;
     }
 
-    public static Dimension getResolution(){
-        return new Dimension(getFrameWidth(),getFrameHeight());
-    }
-
     public static void swapResolution(int width,int height){
         setFrameWidth(width);
         setFrameHeight(height);
@@ -99,16 +95,13 @@ public class MainVue extends JFrame{
             if(Objects.equals(title, "Menu Principal"))
                 instance.getContentPane().add(NavBar.getInstance(true));
             for (Component comp : oldPanel.getComponents()){
+                MenuAbstract menu = (MenuAbstract)comp;
+                menu.reScaleAllComponentsImg();
                 instance.getContentPane().add(comp);
             }
             instance.repaint();
             instance.setVisible(true);
         }
-    }
-
-    @Override
-    public void repaint() {
-        super.repaint();
     }
 
     public static MainVue getInstance() throws IOException {

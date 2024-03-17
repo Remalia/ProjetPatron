@@ -29,6 +29,11 @@ public class MenuParametre extends MenuAbstract{
         this.add(cbResolution);
     }
 
+    @Override
+    public void reScaleAllComponentsImg() {
+
+    }
+
     public static MenuParametre getInstance(){
         if(instance == null){
             instance = new MenuParametre();
