@@ -24,9 +24,14 @@ public abstract class MenuAbstract extends JPanel{
     }
 
     protected Image getGoodImageSizeMenuPrincipal(String pathImg) throws IOException {
+        double widthMult = 0.25;
+        double heightMult = 0.125;
         int width = MainVue.getFrameWidth();
         int height = MainVue.getFrameHeight();
-        return ImageIO.read(new File(pathImg)).getScaledInstance((int)(width*0.20),(int)(height*0.10),java.awt.Image.SCALE_SMOOTH);
+        if((width * 100) / height > 155){
+            widthMult = 0.2;
+        }
+        return ImageIO.read(new File(pathImg)).getScaledInstance((int)(width*widthMult),(int)(height*heightMult), Image.SCALE_SMOOTH);
     }
 
     public abstract void reScaleAllComponentsImg() throws IOException;

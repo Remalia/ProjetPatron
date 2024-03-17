@@ -29,9 +29,9 @@ public class LayoutMenuPrincipal implements LayoutManager {
         int height = parent.getHeight();
         for (Component comp: parent.getComponents()){
             switch (comp.getName()){
-                case "Jouer": comp.setBounds((int)(width*0.4),(int)(height*0.2),(int)(width*0.25),(int)(height*0.15)); break;
-                case "Paramètres": comp.setBounds((int)(width*0.4),(int)(height*0.4),(int)(width*0.25),(int)(height*0.15)); break;
-                case "Quitter": comp.setBounds((int)(width*0.4),(int)(height*0.6),(int)(width*0.25),(int)(height*0.15)); break;
+                case "Jouer": comp.setBounds((int)(width*0.35),(int)(height*0.15),(int)(width*0.3),(int)(height*0.2)); break;
+                case "Paramètres": comp.setBounds((int)(width*0.35),(int)(height*0.4),(int)(width*0.3),(int)(height*0.2)); break;
+                case "Quitter": comp.setBounds((int)(width*0.35),(int)(height*0.65),(int)(width*0.3),(int)(height*0.2)); break;
             }
         }
     }
