@@ -11,8 +11,8 @@ import java.io.IOException;
  */
 public class ButtonRetour extends Button {
 
-    public ButtonRetour(String name,Image image) {
-        super(name,image);
+    public ButtonRetour(String name,String imgPath) {
+        super(name,imgPath);
         this.addActionListener(e -> {
             try {
                 MainVue.backScene();

@@ -11,19 +11,19 @@ import java.awt.*;
 public abstract class Button extends JButton {
 
     private String name;
+    private String imgPath;
     private Boolean selected;
-    private Image image;
     private MainController mc;
 
-    public Button(String name,Image image){
+    public Button(String name,String imgPath){
+        this.imgPath = imgPath;
         this.selected = false;
-        this.image = image;
         this.name = name;
         this.mc = MainController.getInstance();
         this.setBorderPainted(false);
         this.setBackground(Color.WHITE); //TODO A CHANGER QUAND
         this.setName(name);
-        this.setIcon(new ImageIcon(image));
+        this.setIcon(new ImageIcon());
     }
 
     public Button(String name){
@@ -34,12 +34,16 @@ public abstract class Button extends JButton {
         this.setText(name);
     }
 
-    public boolean isSelected(){
-        return selected;
+    public String getImgPath() {
+        return imgPath;
     }
 
-    public void select(){
-        selected = !selected;
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
+    public boolean isSelected(){
+        return selected;
     }
 
     public MainController getMc() {

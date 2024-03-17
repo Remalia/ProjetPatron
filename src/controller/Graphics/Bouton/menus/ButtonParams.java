@@ -12,8 +12,8 @@ import java.io.IOException;
  */
 public class ButtonParams extends Button {
 
-    public ButtonParams(String name,Image image) {
-        super(name,image);
+    public ButtonParams(String name,String imgPath) {
+        super(name,imgPath);
         this.addActionListener(e -> {
             try {
                 MainVue.changeScene(MenuParametre.getInstance());

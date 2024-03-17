@@ -1,5 +1,7 @@
 package ProjetPatron.src.vue.Layout;
 
+import ProjetPatron.src.vue.MainVue;
+
 import java.awt.*;
 
 public class NavBarLayout implements LayoutManager {

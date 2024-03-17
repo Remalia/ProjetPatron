@@ -15,8 +15,8 @@ public class ButtonRectangle extends ButtonFormes{
         this.addActionListener(e -> getMc().setState(StateAjoutRectangle.getInstance()));
     }
 
-    public ButtonRectangle(String name,Image image) {
-        super(name,image);
+    public ButtonRectangle(String name,String imgPath) {
+        super(name,imgPath);
         this.addActionListener(e -> getMc().setState(StateAjoutRectangle.getInstance()));
     }
 }

@@ -15,8 +15,8 @@ public class ButtonCercle extends ButtonFormes{
         this.addActionListener(e -> getMc().setState(StateAjoutCircle.getInstance()));
     }
 
-    public ButtonCercle(String name,Image image){
-        super(name,image);
+    public ButtonCercle(String name,String imgPath){
+        super(name,imgPath);
         this.addActionListener(e -> getMc().setState(StateAjoutCircle.getInstance()));
     }
 }

@@ -21,8 +21,8 @@ public class ThemeView {
         //TODO faire un template FULL BLACK
     }
 
-    public void swapColor(){
-        if(this.color.equals("White"))
+    public void swapColorTo(String color){
+        if(color.equals("Black"))
             setBlack();
         else
             setWhite();
@@ -30,7 +30,7 @@ public class ThemeView {
 
     private static String getThemeSaved(){
         String value = "";
-
+        
         return value;
     }
 

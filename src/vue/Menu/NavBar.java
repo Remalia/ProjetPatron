@@ -3,27 +3,26 @@ package ProjetPatron.src.vue.Menu;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonParams;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.Layout.NavBarLayout;
-import ProjetPatron.src.vue.MainVue;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.io.File;
 import java.io.IOException;
 
 public class NavBar extends MenuAbstract{
 
     private static NavBar instance;
-    private ButtonRetour btnRetour;
+    private final ButtonRetour btnRetour;
     private boolean isImageLeave;
 
     private NavBar(boolean isImageLeave) throws IOException {
+        super();
         this.setName("NavBar");
         this.isImageLeave = isImageLeave;
         this.setLayout(new NavBarLayout());
-        ButtonParams param = new ButtonParams("param",getGoodImageSizeNavBar("assets/images/reglage.png"));
-        btnRetour = new ButtonRetour("retour",getGoodImageSizeNavBar(getImageLeaveOrReturn()));
-        this.add(btnRetour);
-        this.add(param);
+        ButtonParams param = new ButtonParams("param","assets/images/reglage.png");
+        this.btnRetour = new ButtonRetour("retour",getImageLeaveOrReturn());
+        this.buttons.add(param);
+        this.buttons.add(btnRetour);
+        this.addAllButtons();
     }
 
     private String getImageLeaveOrReturn(){
@@ -39,6 +38,7 @@ public class NavBar extends MenuAbstract{
         }else{
             instance.setIsImageLeave(isImageLeave);
         }
+        instance.reScaleAllComponentsImg("NavBar");
         return instance;
     }
 

@@ -15,16 +15,18 @@ import java.util.Stack;
  */
 public class MainVue extends JFrame{
 
+    private static int width = 800;
+    private static int height = 600;
     private static final Stack<String> lastTitleNames = new Stack<>();;
     private static final Stack<Container> backupPanel = new Stack<>();;
     private static MainVue instance;
 
     private MainVue() throws IOException {
-        this.getContentPane().setLayout(new LayoutMenuGlobal());
         this.setSize(800,600);
+        this.getContentPane().setLayout(new LayoutMenuGlobal());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Menu Principal");
-        this.setResizable(true);
+        this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.getContentPane().add(NavBar.getInstance(true));
         this.getContentPane().add(MenuPrincipal.getInstance());
@@ -37,7 +39,10 @@ public class MainVue extends JFrame{
         if(menu == MenuJeu.getInstance()){
             navBarNeeded = NavBarJeu.getInstance();
         }else{
-            navBarNeeded = NavBar.getInstance(false);
+            if(menu == MenuParametre.getInstance())
+                navBarNeeded = NavBarParam.getInstance();
+            else
+                navBarNeeded = NavBar.getInstance(false);
         }
         Container oldPanel = new Container();
         for(Component comp: instance.getContentPane().getComponents()){
@@ -52,8 +57,31 @@ public class MainVue extends JFrame{
         instance.setVisible(true);
     }
 
+
+    public static int getFrameWidth() {
+        return width;
+    }
+
+    public static void setFrameWidth(int width) {
+        MainVue.width = width;
+    }
+
+    public static int getFrameHeight() {
+        return height;
+    }
+
+    public static void setFrameHeight(int height) {
+        MainVue.height = height;
+    }
+
     public static Dimension getResolution(){
-        return new Dimension(instance.getWidth(),instance.getHeight());
+        return new Dimension(getFrameWidth(),getFrameHeight());
+    }
+
+    public static void swapResolution(int width,int height){
+        setFrameWidth(width);
+        setFrameHeight(height);
+        instance.setSize(new Dimension(width,height));
     }
 
     public static void backScene() throws IOException {

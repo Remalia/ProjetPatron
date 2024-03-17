@@ -12,6 +12,7 @@ public class MenuParametre extends MenuAbstract{
     private static MenuParametre instance;
 
     private MenuParametre(){
+        super();
         this.setName("Paramètre");
         this.setLayout(new LayoutMenuParametre());
         JLabel labelResolution = new JLabel("Resolution :");

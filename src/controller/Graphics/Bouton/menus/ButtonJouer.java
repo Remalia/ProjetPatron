@@ -21,8 +21,8 @@ public class ButtonJouer extends Button {
         });
     }
 
-    public ButtonJouer(String name,Image image){
-        super(name,image);
+    public ButtonJouer(String name,String imgPath){
+        super(name,imgPath);
         this.addActionListener(e -> {
             try {
                 MainVue.changeScene(MenuSelectionNiveau.getInstance());

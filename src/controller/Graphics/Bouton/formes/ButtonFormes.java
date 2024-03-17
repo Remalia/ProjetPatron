@@ -13,8 +13,8 @@ public abstract class ButtonFormes extends Button {
         super(name);
     }
 
-    public ButtonFormes(String name,Image image){
-        super(name,image);
+    public ButtonFormes(String name,String imgPath){
+        super(name,imgPath);
     }
 
 }

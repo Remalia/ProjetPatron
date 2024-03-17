@@ -12,8 +12,8 @@ import java.io.IOException;
  */
 public class ButtonSelectLevel extends Button {
 
-    public ButtonSelectLevel(String name,Image image) {
-        super(name,image);
+    public ButtonSelectLevel(String name,String imgPath) {
+        super(name,imgPath);
         this.addActionListener(e -> {
             try {
                 MainVue.changeScene(MenuJeu.getInstance());

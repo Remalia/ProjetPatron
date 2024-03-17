@@ -10,6 +10,7 @@ public class MenuJeu extends MenuAbstract {
     private static MenuJeu instance;
 
     private MenuJeu(){
+        super();
         this.setName("MenuJeu");
         this.setLayout(new LayoutMenuJeu());
         this.setBorder(BorderFactory.createLineBorder(Color.black));

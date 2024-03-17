@@ -9,8 +9,8 @@ import java.awt.*;
  */
 public class ButtonRedo extends Button {
 
-    public ButtonRedo(String name,Image image) {
-        super(name,image);
+    public ButtonRedo(String name,String imgPath) {
+        super(name,imgPath);
     }
 
     public ButtonRedo(String name) {
