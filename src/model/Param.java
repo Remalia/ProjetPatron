@@ -6,12 +6,11 @@ import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.ThemeView;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class LoadParam {
+public class Param {
 
     public static void loadParam() throws IOException {
         ComboBoxResolution cbr = ComboBoxResolution.getInstance();
@@ -46,5 +45,9 @@ public class LoadParam {
             });
         }
         MainVue.getInstance().backgroundHasChanged(tv.getColor());
+    }
+
+    public static void saveParam(){
+        //TODO SAUVEGARDER LES PARAMS ACTUEL DES INSTANCES DANS LE FICHIER PARAM.YAML
     }
 }

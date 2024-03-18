@@ -21,6 +21,8 @@ public class ButtonJouer extends Button {
         });
     }
 
+    //TODO FAIRE EN SORTE QUE QUAND ON PASSE SUR LE BUTTON IL S'ECLAIRCIT --> Pareil pour params et retours
+
     public ButtonJouer(String name,String imgPath){
         super(name,imgPath);
         this.addActionListener(e -> {

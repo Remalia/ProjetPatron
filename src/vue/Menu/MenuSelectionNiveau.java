@@ -16,6 +16,9 @@ public class MenuSelectionNiveau extends MenuAbstract {
         super();
         this.setName("MenuSelectionNiveau");
         this.setLayout(new LayoutSelectionNiveau());
+
+        //TODO AJOUTER LES BUTTONS SAUVEGARDE ET NOUVELLE PARTIE NE PAS LES RELIER ENCORE MAIS FAIRE UN TRUC DE PROPRE
+
         this.buttons.add(new ButtonSelectLevel("Niveau 1","assets/images/Menu/lvl_1.png"));
         this.buttons.add(new ButtonSelectLevel("Niveau 2","assets/images/Menu/lvl_2.png"));
         this.buttons.add(new ButtonSelectLevel("Niveau 3","assets/images/Menu/lvl_3.png"));

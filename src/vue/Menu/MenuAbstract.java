@@ -25,6 +25,10 @@ public abstract class MenuAbstract extends JPanel{
         return ImageIO.read(new File(pathImg)).getScaledInstance(50,50,java.awt.Image.SCALE_SMOOTH);
     }
 
+    protected Image getGoodImageSizeSelectionNiveau(String pathImg) throws  IOException {
+        return null; //TODO PUIS CHANGER DANS SELECTION NIVEAU
+    }
+
     protected Image getGoodImageSizeMenuPrincipal(String pathImg) throws IOException {
         double widthMult = 0.25;
         double heightMult = 0.125;

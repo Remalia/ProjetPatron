@@ -1,7 +1,7 @@
 package ProjetPatron;
 
 import ProjetPatron.src.controller.MainController;
-import ProjetPatron.src.model.LoadParam;
+import ProjetPatron.src.model.Param;
 import ProjetPatron.src.model.MainModel;
 import ProjetPatron.src.vue.MainVue;
 
@@ -13,7 +13,7 @@ import java.io.IOException;
 public class Jeu {
 
     public static void main(String[] args) throws IOException{
-        LoadParam.loadParam();
+        Param.loadParam();
         MainModel model = MainModel.getInstance();
         MainController controller = MainController.getInstance();
         MainVue vue = MainVue.getInstance();

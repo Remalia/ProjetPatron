@@ -9,12 +9,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class NavBar extends MenuAbstract{
+public class NavBarSelectionLVL extends MenuAbstract{
 
-    private static NavBar instance;
+    private static NavBarSelectionLVL instance;
     private final ButtonRetour btnRetour;
 
-    private NavBar(){
+    private NavBarSelectionLVL(){
         super();
         this.setName("NavBar");
         this.setLayout(new NavBarLayout());
@@ -42,9 +42,9 @@ public class NavBar extends MenuAbstract{
         }
     }
 
-    public static NavBar getInstance() throws IOException {
+    public static NavBarSelectionLVL getInstance() throws IOException {
         if(instance == null){
-            instance = new NavBar();
+            instance = new NavBarSelectionLVL();
         }
         instance.reScaleAllComponentsImg();
         return instance;
@@ -55,3 +55,4 @@ public class NavBar extends MenuAbstract{
         return "NavBar";
     }
 }
+

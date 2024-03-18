@@ -40,8 +40,13 @@ public class MainVue extends JFrame{
         }else{
             if(menu == MenuParametre.getInstance())
                 navBarNeeded = NavBarParam.getInstance();
-            else
-                navBarNeeded = NavBarJeu.getInstance();
+            else{
+                if (menu == MenuJeu.getInstance())
+                    navBarNeeded = NavBarJeu.getInstance();
+                else
+                    navBarNeeded = NavBarSelectionLVL.getInstance();
+            }
+
         }
         Container oldPanel = new Container();
         for(Component comp: instance.getContentPane().getComponents()){
