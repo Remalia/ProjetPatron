@@ -9,15 +9,15 @@ public class ThemeView {
 
     private static ThemeView instance;
 
-    private ThemeView(String color){
-        if(color.equals("White"))
-            this.color = Color.lightGray;
-        else
-            this.color = Color.darkGray;
+    private ThemeView(){
     }
 
     public Color getColor(){
         return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public Color getOppositeColor(){
@@ -45,14 +45,9 @@ public class ThemeView {
             setWhite();
     }
 
-    private static String getThemeSaved(){
-        String value = "White";
-        return value;
-    }
-
     public static ThemeView getInstance() {
         if(instance == null){
-            instance = new ThemeView(getThemeSaved());
+            instance = new ThemeView();
         }
         return instance;
     }

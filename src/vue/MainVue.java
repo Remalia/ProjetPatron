@@ -22,7 +22,6 @@ public class MainVue extends JFrame{
     private static MainVue instance;
 
     private MainVue() throws IOException {
-        this.setSize(800,600);
         this.getContentPane().setLayout(new LayoutMenuGlobal());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Menu Principal");
