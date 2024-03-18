@@ -28,7 +28,7 @@ public class MainVue extends JFrame{
         this.setTitle("Menu Principal");
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        this.getContentPane().add(NavBar.getInstance(true));
+        this.getContentPane().add(NavBar.getInstance());
         this.getContentPane().add(MenuPrincipal.getInstance());
         this.setVisible(true);
     }
@@ -36,13 +36,13 @@ public class MainVue extends JFrame{
     public static void changeScene(MenuAbstract menu) throws IOException, InterruptedException {
         lastTitleNames.push(instance.getTitle());
         MenuAbstract navBarNeeded;
-        if(menu == MenuJeu.getInstance()){
-            navBarNeeded = NavBarJeu.getInstance();
+        if(menu == MenuPrincipal.getInstance()){
+            navBarNeeded = NavBar.getInstance();
         }else{
             if(menu == MenuParametre.getInstance())
                 navBarNeeded = NavBarParam.getInstance();
             else
-                navBarNeeded = NavBar.getInstance(false);
+                navBarNeeded = NavBarJeu.getInstance();
         }
         Container oldPanel = new Container();
         for(Component comp: instance.getContentPane().getComponents()){
@@ -85,7 +85,7 @@ public class MainVue extends JFrame{
         MenuParametre.getInstance().changeBackground(color);
         MenuPrincipal.getInstance().changeBackground(color);
         MenuSelectionNiveau.getInstance().changeBackground(color);
-        NavBar.getInstance(true).changeBackground(color);
+        NavBar.getInstance().changeBackground(color);
         NavBarJeu.getInstance().changeBackground(color);
         NavBarParam.getInstance().changeBackground(color);
     }
@@ -103,7 +103,9 @@ public class MainVue extends JFrame{
             }
             instance.getContentPane().removeAll();
             if(Objects.equals(title, "Menu Principal"))
-                instance.getContentPane().add(NavBar.getInstance(true));
+                instance.getContentPane().add(NavBar.getInstance());
+            if(Objects.equals(title, "Menu Selection de niveau"))
+                instance.getContentPane().add(NavBarJeu.getInstance());
             for (Component comp : oldPanel.getComponents()){
                 MenuAbstract menu = (MenuAbstract)comp;
                 menu.reScaleAllComponentsImg();

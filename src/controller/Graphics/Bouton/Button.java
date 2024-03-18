@@ -31,6 +31,7 @@ public abstract class Button extends JButton {
         this.selected = false;
         this.name = name;
         this.mc = MainController.getInstance();
+        this.setBorderPainted(false);
         this.setBackground(ThemeView.getInstance().getColor());
         this.setName(name);
         this.setText(name);

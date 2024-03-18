@@ -13,15 +13,13 @@ public class NavBar extends MenuAbstract{
 
     private static NavBar instance;
     private final ButtonRetour btnRetour;
-    private boolean isImageLeave;
 
-    private NavBar(boolean isImageLeave){
+    private NavBar() throws IOException {
         super();
         this.setName("NavBar");
-        this.isImageLeave = isImageLeave;
         this.setLayout(new NavBarLayout());
         ButtonParams param = new ButtonParams("param","assets/images/reglage.png");
-        this.btnRetour = new ButtonRetour("retour",getImageLeaveOrReturn());
+        this.btnRetour = new ButtonRetour("retour","assets/images/annuler.png");
         this.buttons.add(param);
         this.buttons.add(btnRetour);
         this.addAllButtons();
@@ -44,26 +42,12 @@ public class NavBar extends MenuAbstract{
         }
     }
 
-    private String getImageLeaveOrReturn(){
-        if(isImageLeave)
-            return "assets/images/annuler.png";
-        else
-            return "assets/images/retour.png";
-    }
-
-    public static NavBar getInstance(boolean isImageLeave) throws IOException {
+    public static NavBar getInstance() throws IOException {
         if(instance == null){
-            instance = new NavBar(isImageLeave);
-        }else{
-            instance.setIsImageLeave(isImageLeave);
+            instance = new NavBar();
         }
         instance.reScaleAllComponentsImg();
         return instance;
-    }
-
-    private void setIsImageLeave(Boolean isImageLeave) throws IOException {
-        this.isImageLeave = isImageLeave;
-        this.btnRetour.setIcon(new ImageIcon(getGoodImageSizeNavBar(getImageLeaveOrReturn())));
     }
 
     @Override
