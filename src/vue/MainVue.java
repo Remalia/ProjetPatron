@@ -80,6 +80,16 @@ public class MainVue extends JFrame{
         instance.setSize(new Dimension(width,height));
     }
 
+    public void backgroundHasChanged(Color color) throws IOException {
+        MenuJeu.getInstance().changeBackground(color);
+        MenuParametre.getInstance().changeBackground(color);
+        MenuPrincipal.getInstance().changeBackground(color);
+        MenuSelectionNiveau.getInstance().changeBackground(color);
+        NavBar.getInstance(true).changeBackground(color);
+        NavBarJeu.getInstance().changeBackground(color);
+        NavBarParam.getInstance().changeBackground(color);
+    }
+
     public static void backScene() throws IOException {
         if(lastTitleNames.empty()) {
             System.out.println("Closing game");

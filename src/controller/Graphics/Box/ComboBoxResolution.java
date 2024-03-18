@@ -3,9 +3,10 @@ package ProjetPatron.src.controller.Graphics.Box;
 import ProjetPatron.src.vue.MainVue;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class ComboBoxResolution extends JComboBox<String> {
+public class ComboBoxResolution extends JComboBox<String> implements ActionListener {
 
     private static ComboBoxResolution instance;
 
@@ -24,9 +25,9 @@ public class ComboBoxResolution extends JComboBox<String> {
             JComboBox cb = (JComboBox)e.getSource();
             String item = (String)cb.getSelectedItem();
             String[] tabItems = item.split("x");
-            MainVue.setFrameHeight(Integer.parseInt(tabItems[0]));
-            MainVue.setFrameWidth(Integer.parseInt(tabItems[1]));
             if(mv.getExtendedState() != 6){
+                MainVue.setFrameHeight(Integer.parseInt(tabItems[0]));
+                MainVue.setFrameWidth(Integer.parseInt(tabItems[1]));
                 MainVue.swapResolution(Integer.parseInt(tabItems[0]),Integer.parseInt(tabItems[1]));
                 try {
                     MainVue.getInstance().setLocationRelativeTo(null);
@@ -34,7 +35,6 @@ public class ComboBoxResolution extends JComboBox<String> {
                     throw new RuntimeException(exp);
                 }
             }else{
-                MainVue.swapResolution(Integer.parseInt(tabItems[0]),Integer.parseInt(tabItems[1]));
                 mv.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }
         });

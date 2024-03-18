@@ -1,6 +1,7 @@
 package ProjetPatron.src.controller.Graphics.Bouton;
 
 import ProjetPatron.src.controller.MainController;
+import ProjetPatron.src.vue.ThemeView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +22,7 @@ public abstract class Button extends JButton {
         this.name = name;
         this.mc = MainController.getInstance();
         this.setBorderPainted(false);
-        this.setBackground(Color.WHITE); //TODO A CHANGER QUAND
+        this.setBackground(ThemeView.getInstance().getColor());
         this.setName(name);
         this.setIcon(new ImageIcon());
     }
@@ -30,6 +31,7 @@ public abstract class Button extends JButton {
         this.selected = false;
         this.name = name;
         this.mc = MainController.getInstance();
+        this.setBackground(ThemeView.getInstance().getColor());
         this.setName(name);
         this.setText(name);
     }

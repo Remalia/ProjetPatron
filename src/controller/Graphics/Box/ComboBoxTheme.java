@@ -5,6 +5,7 @@ import ProjetPatron.src.vue.ThemeView;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class ComboBoxTheme extends JComboBox<String> {
 
@@ -18,8 +19,17 @@ public class ComboBoxTheme extends JComboBox<String> {
         this.addActionListener(e -> {
             JComboBox cb = (JComboBox)e.getSource();
             String item = (String)cb.getSelectedItem();
-            ThemeView.getInstance().swapColorTo(item);
+            try {
+                ThemeView.getInstance().swapColorTo(item);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         });
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        super.actionPerformed(e);
     }
 
     public static ComboBoxTheme getInstance(){

@@ -1,6 +1,7 @@
 package ProjetPatron.src.controller.Graphics.Box;
 
 import ProjetPatron.src.vue.MainVue;
+import ProjetPatron.src.vue.ThemeView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,10 +16,13 @@ public class CheckBoxFullScreen extends JCheckBox {
     private CheckBoxFullScreen(){
         this.setText("Fullscreen (ignore resolution)");
         this.setName("cbFullScreen");
+        this.setBackground(ThemeView.getInstance().getColor());
         this.addItemListener(e -> {
             if(e.getStateChange() == 1) {
                 try {
                     MainVue.getInstance().setExtendedState(JFrame.MAXIMIZED_BOTH);
+                    MainVue.setFrameWidth(MainVue.getInstance().getWidth());
+                    MainVue.setFrameHeight(MainVue.getInstance().getHeight());
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -26,6 +30,7 @@ public class CheckBoxFullScreen extends JCheckBox {
                 try {
                     MainVue.getInstance().setExtendedState(JFrame.NORMAL);
                     MainVue.getInstance().setLocationRelativeTo(null);
+                    ComboBoxResolution.getInstance().actionPerformed((ActionEvent) ComboBoxResolution.getInstance().getAction());
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }

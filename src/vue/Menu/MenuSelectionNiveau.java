@@ -5,6 +5,7 @@ import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonSelectLevel;
 import ProjetPatron.src.vue.Layout.LayoutSelectionNiveau;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 public class MenuSelectionNiveau extends MenuAbstract {
@@ -21,6 +22,14 @@ public class MenuSelectionNiveau extends MenuAbstract {
         this.buttons.add(new ButtonSelectLevel("Jeu libre"));
         this.addAllButtons();
         reScaleAllComponentsImg();
+    }
+
+    @Override
+    public void changeBackground(Color color) {
+        super.changeBackground(color);
+        for (Component c: this.getComponents()){
+            c.setBackground(color);
+        }
     }
 
     @Override

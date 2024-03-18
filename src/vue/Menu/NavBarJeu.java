@@ -6,13 +6,14 @@ import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.Layout.NavBarLayout;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 public class NavBarJeu extends MenuAbstract{
 
     private static NavBarJeu instance;
 
-    private NavBarJeu() throws IOException {
+    private NavBarJeu(){
         super();
         this.setName("NavBarJeu");
         this.setLayout(new NavBarLayout());
@@ -21,7 +22,14 @@ public class NavBarJeu extends MenuAbstract{
         this.buttons.add(retour);
         this.buttons.add(param);
         this.addAllButtons();
-        reScaleAllComponentsImg();
+    }
+
+    @Override
+    public void changeBackground(Color color) {
+        super.changeBackground(color);
+        for (Component c: this.getComponents()){
+            c.setBackground(color);
+        }
     }
 
     @Override

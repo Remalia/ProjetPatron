@@ -6,6 +6,7 @@ import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.Layout.NavBarLayout;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 public class NavBar extends MenuAbstract{
@@ -14,7 +15,7 @@ public class NavBar extends MenuAbstract{
     private final ButtonRetour btnRetour;
     private boolean isImageLeave;
 
-    private NavBar(boolean isImageLeave) throws IOException {
+    private NavBar(boolean isImageLeave){
         super();
         this.setName("NavBar");
         this.isImageLeave = isImageLeave;
@@ -24,6 +25,14 @@ public class NavBar extends MenuAbstract{
         this.buttons.add(param);
         this.buttons.add(btnRetour);
         this.addAllButtons();
+    }
+
+    @Override
+    public void changeBackground(Color color) {
+        super.changeBackground(color);
+        for (Component c: this.getComponents()){
+            c.setBackground(color);
+        }
     }
 
     @Override

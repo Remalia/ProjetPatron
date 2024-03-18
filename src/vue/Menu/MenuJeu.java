@@ -21,6 +21,11 @@ public class MenuJeu extends MenuAbstract {
 
     }
 
+    @Override
+    public void changeBackground(Color color) {
+        super.changeBackground(color);
+    }
+
     public static MenuJeu getInstance(){
         if(instance == null){
             instance = new MenuJeu();

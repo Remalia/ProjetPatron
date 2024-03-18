@@ -5,8 +5,10 @@ import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonJouer;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonParams;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.Layout.LayoutMenuPrincipal;
+import ProjetPatron.src.vue.ThemeView;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 public class MenuPrincipal extends MenuAbstract {
@@ -30,6 +32,14 @@ public class MenuPrincipal extends MenuAbstract {
             if(button.getIcon() != null){
                 button.setIcon(new ImageIcon(getGoodImageSizeMenuPrincipal(button.getImgPath())));
             }
+        }
+    }
+
+    @Override
+    public void changeBackground(Color color) {
+        super.changeBackground(color);
+        for (Component c: this.getComponents()){
+            c.setBackground(color);
         }
     }
 

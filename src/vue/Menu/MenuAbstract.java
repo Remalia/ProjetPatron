@@ -1,11 +1,12 @@
 package ProjetPatron.src.vue.Menu;
 import ProjetPatron.src.controller.Graphics.Bouton.Button;
 import ProjetPatron.src.vue.MainVue;
+import ProjetPatron.src.vue.ThemeView;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
-import java.awt.Image;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ public abstract class MenuAbstract extends JPanel{
 
     protected MenuAbstract(){
         this.buttons = new ArrayList<>();
+        this.setBackground(ThemeView.getInstance().getColor());
     }
 
     protected Image getGoodImageSizeNavBar(String pathImg) throws IOException {
@@ -32,6 +34,10 @@ public abstract class MenuAbstract extends JPanel{
             widthMult = 0.2;
         }
         return ImageIO.read(new File(pathImg)).getScaledInstance((int)(width*widthMult),(int)(height*heightMult), Image.SCALE_SMOOTH);
+    }
+
+    public void changeBackground(Color color){
+        this.setBackground(color);
     }
 
     public abstract void reScaleAllComponentsImg() throws IOException;

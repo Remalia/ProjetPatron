@@ -4,8 +4,10 @@ import ProjetPatron.src.controller.Graphics.Box.CheckBoxFullScreen;
 import ProjetPatron.src.controller.Graphics.Box.ComboBoxResolution;
 import ProjetPatron.src.controller.Graphics.Box.ComboBoxTheme;
 import ProjetPatron.src.vue.Layout.LayoutMenuParametre;
+import ProjetPatron.src.vue.ThemeView;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MenuParametre extends MenuAbstract{
 
@@ -32,6 +34,15 @@ public class MenuParametre extends MenuAbstract{
     @Override
     public void reScaleAllComponentsImg() {
 
+    }
+
+    @Override
+    public void changeBackground(Color color) {
+        super.changeBackground(color);
+        for (Component c : this.getComponents())
+            switch (c.getName()){
+                case "LabelTheme","LabelResolution","cbFullScreen": c.setForeground(ThemeView.getInstance().getOppositeColor()); c.setBackground(color); break;
+            }
     }
 
     public static MenuParametre getInstance(){

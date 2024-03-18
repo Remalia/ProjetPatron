@@ -5,20 +5,28 @@ import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.Layout.NavBarLayout;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 public class NavBarParam extends MenuAbstract{
 
     private static NavBarParam instance;
 
-    private NavBarParam() throws IOException {
+    private NavBarParam(){
         super();
         this.setName("NavBar");
         this.setLayout(new NavBarLayout());
         ButtonRetour retour = new ButtonRetour("retour","assets/images/retour.png");
         this.buttons.add(retour);
         this.addAllButtons();
-        reScaleAllComponentsImg();
+    }
+
+    @Override
+    public void changeBackground(Color color) {
+        super.changeBackground(color);
+        for (Component c: this.getComponents()){
+            c.setBackground(color);
+        }
     }
 
     @Override

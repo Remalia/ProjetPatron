@@ -1,27 +1,44 @@
 package ProjetPatron.src.vue;
 
+import java.awt.*;
+import java.io.IOException;
+
 public class ThemeView {
 
-    private String color;
+    private Color color;
 
     private static ThemeView instance;
 
     private ThemeView(String color){
         if(color.equals("White"))
-            setWhite();
+            this.color = Color.lightGray;
         else
-            setBlack();
+            this.color = Color.darkGray;
     }
 
-    private void setBlack() {
-        //TODO faire un template FULL BLANC
+    public Color getColor(){
+        return color;
     }
 
-    private void setWhite() {
-        //TODO faire un template FULL BLACK
+    public Color getOppositeColor(){
+        if(color == Color.darkGray){
+            return Color.lightGray;
+        }else{
+            return Color.darkGray;
+        }
     }
 
-    public void swapColorTo(String color){
+    private void setBlack() throws IOException {
+        this.color = Color.darkGray;
+        MainVue.getInstance().backgroundHasChanged(Color.darkGray);
+    }
+
+    private void setWhite() throws IOException {
+        this.color = Color.lightGray;
+        MainVue.getInstance().backgroundHasChanged(Color.lightGray);
+    }
+
+    public void swapColorTo(String color) throws IOException {
         if(color.equals("Black"))
             setBlack();
         else
@@ -29,8 +46,7 @@ public class ThemeView {
     }
 
     private static String getThemeSaved(){
-        String value = "";
-        
+        String value = "White";
         return value;
     }
 
