@@ -1,5 +1,6 @@
 package ProjetPatron.src.controller.Graphics.Box;
 
+import ProjetPatron.src.model.Param;
 import ProjetPatron.src.vue.ThemeView;
 
 import javax.swing.*;
@@ -21,6 +22,7 @@ public class ComboBoxTheme extends JComboBox<String> {
             String item = (String)cb.getSelectedItem();
             try {
                 ThemeView.getInstance().swapColorTo(item);
+                Param.saveParam();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

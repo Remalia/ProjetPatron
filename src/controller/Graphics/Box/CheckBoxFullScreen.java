@@ -1,5 +1,6 @@
 package ProjetPatron.src.controller.Graphics.Box;
 
+import ProjetPatron.src.model.Param;
 import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.ThemeView;
 
@@ -34,6 +35,11 @@ public class CheckBoxFullScreen extends JCheckBox {
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+            try {
+                Param.saveParam();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
         });
     }
