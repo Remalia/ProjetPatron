@@ -19,7 +19,7 @@ public class NavBarSelectionLVL extends MenuAbstract{
         this.setName("NavBar");
         this.setLayout(new NavBarLayout());
         ButtonParams param = new ButtonParams("param","assets/images/reglage.png");
-        this.btnRetour = new ButtonRetour("retour","assets/images/annuler.png");
+        this.btnRetour = new ButtonRetour("retour","assets/images/retour.png");
         this.buttons.add(param);
         this.buttons.add(btnRetour);
         this.addAllButtons();
