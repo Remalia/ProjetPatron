@@ -41,7 +41,9 @@ public class MenuParametre extends MenuAbstract{
         super.changeBackground(color);
         for (Component c : this.getComponents())
             switch (c.getName()){
-                case "LabelTheme","LabelResolution","cbFullScreen": c.setForeground(ThemeView.getInstance().getOppositeColor()); c.setBackground(color); break;
+                case "LabelTheme": c.setForeground(ThemeView.getInstance().getOppositeColor()); c.setBackground(color); break;
+                case "LabelResolution": c.setForeground(ThemeView.getInstance().getOppositeColor()); c.setBackground(color); break;
+                case "cbFullScreen": c.setForeground(ThemeView.getInstance().getOppositeColor()); c.setBackground(color); break;
             }
     }
 
