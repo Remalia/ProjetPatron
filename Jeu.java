@@ -11,7 +11,6 @@ import java.io.IOException;
  * Classe qui permet de créer et lancer le jeu
  */
 public class Jeu {
-
     public static void main(String[] args) throws IOException{
         Param.loadParam();
         MainModel model = MainModel.getInstance();
