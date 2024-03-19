@@ -8,10 +8,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/***
+ * Permet de créer et d'initialiser le menu de sélection de niveau
+ *
+ */
 public class MenuSelectionNiveau extends MenuAbstract {
 
     private static MenuSelectionNiveau instance;
 
+    /***
+     * Constructeur d'un menu de sélection de niveau
+     * @throws IOException Fichier image introuvable
+     */
     private MenuSelectionNiveau() throws IOException {
         super();
         this.setName("MenuSelectionNiveau");
@@ -27,6 +35,10 @@ public class MenuSelectionNiveau extends MenuAbstract {
         reScaleAllComponentsImg();
     }
 
+    /***
+     * Permet de changer le background du menu
+     * @param color La couleur du background
+     */
     @Override
     public void changeBackground(Color color) {
         super.changeBackground(color);
@@ -35,6 +47,10 @@ public class MenuSelectionNiveau extends MenuAbstract {
         }
     }
 
+    /***
+     * Permet de remettre à échelle toutes les images du menu
+     * @throws IOException Image non trouvée
+     */
     @Override
     public void reScaleAllComponentsImg() throws IOException {
         for (Button button : buttons){
@@ -44,6 +60,11 @@ public class MenuSelectionNiveau extends MenuAbstract {
         }
     }
 
+    /***
+     * Permet de retourner l'instance unique du menu de sélection de niveau
+     * @return L'instance en question
+     * @throws IOException Image non trouvé
+     */
     public static MenuSelectionNiveau getInstance() throws IOException {
         if(instance == null){
             instance = new MenuSelectionNiveau();
@@ -52,6 +73,10 @@ public class MenuSelectionNiveau extends MenuAbstract {
         return instance;
     }
 
+    /***
+     * Renvoie le nom de la frame
+     * @return Son nom
+     */
     @Override
     public String getNameFrame() {
         return "Menu Selection de niveau";
