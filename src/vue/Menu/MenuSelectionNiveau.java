@@ -54,8 +54,10 @@ public class MenuSelectionNiveau extends MenuAbstract {
     @Override
     public void reScaleAllComponentsImg() throws IOException {
         for (Button button : buttons){
-            if(button.getIcon() != null){
+            if(button.getIcon() != null && !button.getName().equals("Jeu libre")){
                 button.setIcon(new ImageIcon(getGoodImageSizeSelectionNiveau(button.getImgPath())));
+            }else{
+                button.setIcon(new ImageIcon(getGoodImageSizeMenuPrincipal(button.getImgPath())));
             }
         }
     }
