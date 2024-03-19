@@ -39,7 +39,7 @@ public class MenuSelectionNiveau extends MenuAbstract {
     public void reScaleAllComponentsImg() throws IOException {
         for (Button button : buttons){
             if(button.getIcon() != null){
-                button.setIcon(new ImageIcon(getGoodImageSizeNavBar(button.getImgPath())));
+                button.setIcon(new ImageIcon(getGoodImageSizeSelectionNiveau(button.getImgPath())));
             }
         }
     }
