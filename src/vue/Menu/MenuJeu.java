@@ -1,5 +1,6 @@
 package ProjetPatron.src.vue.Menu;
 
+import ProjetPatron.src.controller.Graphics.Bouton.actions.ButtonRedo;
 import ProjetPatron.src.vue.Layout.LayoutMenuJeu;
 
 import javax.swing.*;
@@ -14,6 +15,8 @@ public class MenuJeu extends MenuAbstract {
         this.setName("MenuJeu");
         this.setLayout(new LayoutMenuJeu());
         this.setBorder(BorderFactory.createLineBorder(Color.black));
+        this.buttons.add(new ButtonRedo("redo","assets/jeu/undo.png"));
+        this.addAllButtons();
     }
 
     @Override

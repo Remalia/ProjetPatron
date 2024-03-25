@@ -4,10 +4,13 @@ import ProjetPatron.src.controller.Graphics.Bouton.Button;
 import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.Menu.MenuSelectionNiveau;
 
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 
-public class ButtonJouer extends Button {
+public class ButtonJouer extends Button{
 
 
     public ButtonJouer(String name) {
@@ -23,8 +26,8 @@ public class ButtonJouer extends Button {
 
     //TODO FAIRE EN SORTE QUE QUAND ON PASSE SUR LE BUTTON IL S'ECLAIRCIT --> Pareil pour params et retours
 
-    public ButtonJouer(String name,String imgPath){
-        super(name,imgPath);
+    public ButtonJouer(String name,String imgPath) {
+        super(name, imgPath);
         this.addActionListener(e -> {
             try {
                 MainVue.changeScene(MenuSelectionNiveau.getInstance());
@@ -32,5 +35,8 @@ public class ButtonJouer extends Button {
                 throw new RuntimeException(ex);
             }
         });
+
     }
+
+
 }
