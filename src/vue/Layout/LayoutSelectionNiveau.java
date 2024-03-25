@@ -29,10 +29,10 @@ public class LayoutSelectionNiveau implements LayoutManager {
         int height = parent.getHeight();
         for (Component comp: parent.getComponents()){
             switch (comp.getName()){
-                case "Niveau 1": comp.setBounds((int)(width*0.1),(int)(height*0.1),(int)(width*0.15),(int)(height*0.20)); break;
-                case "Niveau 2": comp.setBounds((int)(width*0.4),(int)(height*0.1),(int)(width*0.15),(int)(height*0.20)); break;
+                case "Niveau 1": comp.setBounds((int)(width*0.15),(int)(height*0.1),(int)(width*0.15),(int)(height*0.20)); break;
+                case "Niveau 2": comp.setBounds((int)(width*0.425),(int)(height*0.1),(int)(width*0.15),(int)(height*0.20)); break;
                 case "Niveau 3": comp.setBounds((int)(width*0.7),(int)(height*0.1),(int)(width*0.15),(int)(height*0.20)); break;
-                case "Jeu libre": comp.setBounds((int)(width*0.4),(int)(height*0.6),(int)(width*0.15),(int)(height*0.20)); break;
+                case "Jeu libre": comp.setBounds((int)(width*0.35),(int)(height*0.6),(int)(width*0.3),(int)(height*0.20)); break;
             }
         }
     }

@@ -1,5 +1,6 @@
 package ProjetPatron.src.controller.Graphics.Box;
 
+import ProjetPatron.src.model.Param;
 import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.ThemeView;
 
@@ -18,7 +19,7 @@ public class CheckBoxFullScreen extends JCheckBox {
         this.setName("cbFullScreen");
         this.setBackground(ThemeView.getInstance().getColor());
         this.addItemListener(e -> {
-            if(e.getStateChange() == 1) {
+            if(e.getStateChange() == ItemEvent.SELECTED) {
                 try {
                     MainVue.getInstance().setExtendedState(JFrame.MAXIMIZED_BOTH);
                     MainVue.setFrameWidth(MainVue.getInstance().getWidth());
@@ -34,6 +35,11 @@ public class CheckBoxFullScreen extends JCheckBox {
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+            try {
+                Param.saveParam();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
         });
     }

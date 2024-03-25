@@ -1,5 +1,6 @@
 package ProjetPatron.src.controller.Graphics.Box;
 
+import ProjetPatron.src.model.Param;
 import ProjetPatron.src.vue.MainVue;
 
 import javax.swing.*;
@@ -36,6 +37,11 @@ public class ComboBoxResolution extends JComboBox<String> implements ActionListe
                 }
             }else{
                 mv.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            }
+            try {
+                Param.saveParam();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
         });
 

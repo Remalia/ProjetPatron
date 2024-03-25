@@ -2,15 +2,16 @@ package ProjetPatron.src.vue.Layout;
 
 import java.awt.*;
 
-public class LayoutMenuGlobal implements LayoutManager {
-
+public class LayoutHistoriqueObjet implements LayoutManager {
     @Override
     public void addLayoutComponent(String name, Component comp) {
 
     }
 
     @Override
-    public void removeLayoutComponent(Component comp) {}
+    public void removeLayoutComponent(Component comp) {
+
+    }
 
     @Override
     public Dimension preferredLayoutSize(Container parent) {
@@ -26,10 +27,10 @@ public class LayoutMenuGlobal implements LayoutManager {
     public void layoutContainer(Container parent) {
         int width = parent.getWidth();
         int height = parent.getHeight();
-        for (Component comp : parent.getComponents()){
-            switch (comp.getName()){
-                case "NavBar", "NavBarJeu", "NavBarParam": comp.setBounds(0,0, width,100); break;
-                case "MenuPrincipal", "Paramètre", "MenuSelectionNiveau","MenuJeu": comp.setBounds(0,100,width,height-100); break;
+        for (Component c : parent.getComponents()){
+            switch (c.getName()){
+                case "img": c.setBounds(0,0,(int) (width * 0.2),(int) (width * 0.2)); break;
+                case "text": c.setBounds((int) (width * 0.2),(int) (width * 0.1),(int) (width * 0.8),(int) (width * 0.8)); break;
             }
         }
     }

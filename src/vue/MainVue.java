@@ -1,5 +1,6 @@
 package ProjetPatron.src.vue;
 
+import ProjetPatron.src.model.Param;
 import ProjetPatron.src.vue.Layout.LayoutMenuGlobal;
 import ProjetPatron.src.vue.Menu.*;
 

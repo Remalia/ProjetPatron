@@ -30,6 +30,10 @@ public abstract class MenuAbstract extends JPanel{
         double heightMult = 0.12;
         int width = MainVue.getFrameWidth();
         int height = MainVue.getFrameHeight();
+        if((width * 100) / height > 155){
+            widthMult = 0.12;
+            heightMult = 0.17;
+        }
         return ImageIO.read(new File(pathImg)).getScaledInstance((int)(width*widthMult),(int)(height*heightMult), Image.SCALE_SMOOTH);
     }
 
