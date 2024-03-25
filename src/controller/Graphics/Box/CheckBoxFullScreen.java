@@ -19,7 +19,7 @@ public class CheckBoxFullScreen extends JCheckBox {
         this.setName("cbFullScreen");
         this.setBackground(ThemeView.getInstance().getColor());
         this.addItemListener(e -> {
-            if(e.getStateChange() == 1) {
+            if(e.getStateChange() == ItemEvent.SELECTED) {
                 try {
                     MainVue.getInstance().setExtendedState(JFrame.MAXIMIZED_BOTH);
                     MainVue.setFrameWidth(MainVue.getInstance().getWidth());

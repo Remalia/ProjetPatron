@@ -28,4 +28,9 @@ public class MainModel {
         }
         return instance;
     }
+
+    public void loadLevel(int id){
+        instance = new MainModel();
+        System.out.println("Loading");
+    }
 }

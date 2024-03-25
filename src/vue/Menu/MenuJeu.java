@@ -1,5 +1,9 @@
 package ProjetPatron.src.vue.Menu;
 
+import ProjetPatron.src.controller.Graphics.Pane.ErrorPane;
+import ProjetPatron.src.controller.Graphics.Pane.HistoryPane;
+import ProjetPatron.src.controller.Graphics.Pane.PluginsPane;
+import ProjetPatron.src.model.MainModel;
 import ProjetPatron.src.vue.Layout.LayoutMenuJeu;
 
 import javax.swing.*;
@@ -14,6 +18,9 @@ public class MenuJeu extends MenuAbstract {
         this.setName("MenuJeu");
         this.setLayout(new LayoutMenuJeu());
         this.setBorder(BorderFactory.createLineBorder(Color.black));
+        this.add(HistoryPane.getInstance());
+        this.add(PluginsPane.getInstance());
+        this.add(ErrorPane.getInstance());
     }
 
     @Override

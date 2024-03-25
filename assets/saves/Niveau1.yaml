@@ -1,0 +1,8 @@
+level: 1
+formes: #( cercle --> centre(x/y) | ext(x/y) ) ( rectangle --> pts1(x/y) | pts2(x/y) ) (triangle --> pts1(x/y) | pts2(x/y) | pts3(x/y) )
+  locked: #(Figure de base non déplacable)
+    0-rectangle: (190/184) | (166/190)
+    1-triangle: (225/225) | (266/290) | (230/345)
+  unlocked: #(Figure déplacable mise par l'utilisateur)
+historySvg: #( Pile Undo )
+historyRecup: #( Pile Redo )
