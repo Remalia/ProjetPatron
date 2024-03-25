@@ -8,12 +8,20 @@ import java.awt.*;
 public class ErrorPane extends JPanel {
 
     private static ErrorPane instance;
+    private String errorText;
 
     private ErrorPane(){
         this.setName("Error");
         this.setBackground(ThemeView.getInstance().getColor());
         this.setBorder(BorderFactory.createLineBorder(Color.black));
-        //TODO print dans label un texte d'erreur en rouge
+        this.errorText = "Les erreurs s'affichent ici";
+        JLabel label = new JLabel(errorText);
+        label.setForeground(Color.RED);
+        this.add(label);
+    }
+
+    public void setErrorText(String errorText) {
+        this.errorText = errorText;
     }
 
     public static ErrorPane getInstance(){

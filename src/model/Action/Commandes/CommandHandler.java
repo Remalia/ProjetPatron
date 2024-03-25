@@ -1,5 +1,7 @@
 package ProjetPatron.src.model.Action.Commandes;
 
+import ProjetPatron.src.controller.Graphics.Pane.ErrorPane;
+
 import java.util.*;
 
 /***
@@ -38,8 +40,7 @@ public class CommandHandler{
             c.backtrack();
             stackRedo.push(c);
         }else{
-            //TODO gestion erreur giga propre avec fenêtre pop-up décrivant l'erreur.
-            System.out.println("La pile undo est vide !");
+            ErrorPane.getInstance().setErrorText("La pile undo est vide !");
         }
     }
 
@@ -53,8 +54,7 @@ public class CommandHandler{
             c.execute();
             stackCommand.push(c);
         }else{
-            //TODO gestion erreur giga propre avec fenêtre pop-up décrivant l'erreur.
-            System.out.println("La pile redo est vide !");
+            ErrorPane.getInstance().setErrorText("La pile redo est vide !");
         }
     }
 }

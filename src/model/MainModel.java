@@ -29,6 +29,18 @@ public class MainModel {
         return instance;
     }
 
+    /***
+     * permet de récupèrer le handler de commande
+     * @return le handler
+     */
+    public CommandHandler getCh() {
+        return ch;
+    }
+
+    public static int getNbForme() {
+        return nbForme;
+    }
+
     public void loadLevel(int id){
         instance = new MainModel();
         System.out.println("Loading");
