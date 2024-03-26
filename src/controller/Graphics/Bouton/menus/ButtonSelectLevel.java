@@ -1,11 +1,11 @@
 package ProjetPatron.src.controller.Graphics.Bouton.menus;
 
 import ProjetPatron.src.controller.Graphics.Bouton.Button;
+import ProjetPatron.src.vue.Menu.HistoryPane;
 import ProjetPatron.src.model.MainModel;
 import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.Menu.MenuJeu;
 
-import java.awt.*;
 import java.io.IOException;
 
 /***
@@ -18,6 +18,7 @@ public class ButtonSelectLevel extends Button {
         this.addActionListener(e -> {
             try {
                 MainModel.getInstance().loadLevel(idMenu);
+                HistoryPane.getInstance().reloadHistory();
                 MainVue.changeScene(MenuJeu.getInstance());
             } catch (IOException | InterruptedException ex) {
                 throw new RuntimeException(ex);
@@ -30,6 +31,7 @@ public class ButtonSelectLevel extends Button {
         this.addActionListener(e -> {
             try {
                 MainModel.getInstance().loadLevel(idMenu);
+                HistoryPane.getInstance().reloadHistory();
                 MainVue.changeScene(MenuJeu.getInstance());
             } catch (IOException | InterruptedException ex) {
                 throw new RuntimeException(ex);

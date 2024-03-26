@@ -94,6 +94,7 @@ public class MainVue extends JFrame{
         NavBar.getInstance().changeBackground(color);
         NavBarJeu.getInstance().changeBackground(color);
         NavBarParam.getInstance().changeBackground(color);
+        NavBarSelectionLVL.getInstance().changeBackground(color);
     }
 
     public static void backScene() throws IOException {

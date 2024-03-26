@@ -1,6 +1,6 @@
 package ProjetPatron.src.model.Action.Commandes;
 
-import ProjetPatron.src.controller.Graphics.Pane.ErrorPane;
+import ProjetPatron.src.vue.Menu.ErrorPane;
 
 import java.util.*;
 

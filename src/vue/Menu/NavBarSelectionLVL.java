@@ -12,14 +12,13 @@ import java.io.IOException;
 public class NavBarSelectionLVL extends MenuAbstract{
 
     private static NavBarSelectionLVL instance;
-    private final ButtonRetour btnRetour;
 
     private NavBarSelectionLVL(){
         super();
         this.setName("NavBar");
         this.setLayout(new NavBarLayout());
         ButtonParams param = new ButtonParams("param","assets/images/reglage.png");
-        this.btnRetour = new ButtonRetour("retour","assets/images/retour.png");
+        ButtonRetour btnRetour = new ButtonRetour("retour", "assets/images/retour.png");
         this.buttons.add(param);
         this.buttons.add(btnRetour);
         this.addAllButtons();

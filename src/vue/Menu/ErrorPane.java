@@ -1,14 +1,20 @@
-package ProjetPatron.src.controller.Graphics.Pane;
+package ProjetPatron.src.vue.Menu;
 
 import ProjetPatron.src.vue.ThemeView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
-public class ErrorPane extends JPanel {
+public class ErrorPane extends MenuAbstract {
 
     private static ErrorPane instance;
     private String errorText;
+
+    @Override
+    public String getNameFrame() {
+        return "Error Pane";
+    }
 
     private ErrorPane(){
         this.setName("Error");
@@ -18,6 +24,11 @@ public class ErrorPane extends JPanel {
         JLabel label = new JLabel(errorText);
         label.setForeground(Color.RED);
         this.add(label);
+    }
+
+    @Override
+    public void reScaleAllComponentsImg() throws IOException {
+
     }
 
     public void setErrorText(String errorText) {
