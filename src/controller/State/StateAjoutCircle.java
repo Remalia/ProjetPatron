@@ -23,6 +23,6 @@ public class StateAjoutCircle implements State {
 
     @Override
     public void hasClicked() {
-
+        System.out.print("test");
     }
 }

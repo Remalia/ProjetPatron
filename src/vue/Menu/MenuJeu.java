@@ -1,5 +1,6 @@
 package ProjetPatron.src.vue.Menu;
 
+import ProjetPatron.src.controller.Graphics.GamePane;
 import ProjetPatron.src.vue.Layout.LayoutMenuJeu;
 import ProjetPatron.src.vue.ThemeView;
 
@@ -19,6 +20,7 @@ public class MenuJeu extends MenuAbstract {
         this.add(HistoryPane.getInstance());
         this.add(PluginsPane.getInstance());
         this.add(ErrorPane.getInstance());
+        //this.add(GamePane.getInstance());
     }
 
     @Override
