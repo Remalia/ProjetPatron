@@ -24,14 +24,20 @@ public class NavBarJeu extends MenuAbstract{
         this.setLayout(new NavBarLayout());
         ButtonParams param = new ButtonParams("param","assets/images/reglage.png");
         ButtonRetour retour = new ButtonRetour("retour","assets/images/retour.png");
-        ButtonUndo undo = new ButtonUndo("undo","assets/images/undo.png");
-        ButtonRedo redo = new ButtonRedo("redo", "assets/images/redo.png");
-        ButtonCercle cercle = new ButtonCercle("redo", "assets/images/redo.png");
-        ButtonTriangle triangle = new ButtonTriangle("redo", "assets/images/redo.png");
-        ButtonRectangle rectangle = new ButtonRectangle("redo", "assets/images/redo.png");
-        //TODO Logan la con de ta mère faut que tu finisses ça sale pd
+        ButtonUndo undo = new ButtonUndo("undo","assets/images/jeu/undo.png");
+        ButtonRedo redo = new ButtonRedo("redo", "assets/images/jeu/redo.png");
+        ButtonCercle cercle = new ButtonCercle("cercle", "assets/images/jeu/cercle.png");
+        ButtonTriangle triangle = new ButtonTriangle("triangle", "assets/images/jeu/triangle.png");
+        ButtonRectangle rectangle = new ButtonRectangle("rectangle", "assets/images/jeu/rectangle.png");
         this.buttons.add(retour);
         this.buttons.add(param);
+        this.buttons.add(undo);
+        this.buttons.add(redo);
+        this.buttons.add(cercle);
+        this.buttons.add(triangle);
+        this.buttons.add(rectangle);
+
+
         this.addAllButtons();
     }
 
