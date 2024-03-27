@@ -6,12 +6,14 @@ import ProjetPatron.src.model.MainModel;
 import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.Menu.MenuJeu;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 
 /***
  * Classe de gestion du bouton de sélection de niveau
  */
-public class ButtonSelectLevel extends Button {
+public class ButtonSelectLevel extends Button implements MouseListener {
 
     public ButtonSelectLevel(String name,String imgPath,int idMenu) {
         super(name,imgPath);
@@ -37,5 +39,30 @@ public class ButtonSelectLevel extends Button {
                 throw new RuntimeException(ex);
             }
         });
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }

@@ -4,6 +4,7 @@ package ProjetPatron.src.controller.State;
  */
 
 public class StateAjoutTriangle implements State {
+
     private static StateAjoutTriangle instance;
 
     private StateAjoutTriangle(){

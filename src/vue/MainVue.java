@@ -112,7 +112,7 @@ public class MainVue extends JFrame{
             if(Objects.equals(title, "Menu Principal"))
                 instance.getContentPane().add(NavBar.getInstance());
             if(Objects.equals(title, "Menu Selection de niveau"))
-                instance.getContentPane().add(NavBarJeu.getInstance());
+                instance.getContentPane().add(NavBarSelectionLVL.getInstance());
             for (Component comp : oldPanel.getComponents()){
                 MenuAbstract menu = (MenuAbstract)comp;
                 menu.reScaleAllComponentsImg();

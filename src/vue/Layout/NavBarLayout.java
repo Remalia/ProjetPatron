@@ -31,17 +31,16 @@ public class NavBarLayout implements LayoutManager {
         int height = parent.getHeight();
         for (Component comp: parent.getComponents()){
             switch (comp.getName()){
-                case "retour": comp.setBounds(10,5,50,50); break;
-                case "save": comp.setBounds(70, 5, 50,50);break;
-                case "mouse":comp.setBounds(130, 5, 50,50);break;
-                case "rectangle": comp.setBounds(190, 5, 50,50);break;
-                case "cercle": comp.setBounds(250, 5, 50,50);break;
-                case "triangle": comp.setBounds(310, 5, 50,50);break;
-                case "param": comp.setBounds(width-60,5,50,50); break;
-                case "undo":comp.setBounds(width-240, 5, 50,50);break;
-                case "redo":comp.setBounds(width-180, 5, 50,50);break;
-                case "plugins":comp.setBounds(width-120, 5, 50,50);break;
-
+                case "retour": comp.setBounds(10,25,50,50); break;
+                case "save": comp.setBounds(70, 25, 50,50);break;
+                case "mouse":comp.setBounds(130, 25, 50,50);break;
+                case "rectangle": comp.setBounds(190, 25, 50,50);break;
+                case "cercle": comp.setBounds(250, 25, 50,50);break;
+                case "triangle": comp.setBounds(310, 25, 50,50);break;
+                case "param": comp.setBounds(width-60,25,50,50); break;
+                case "undo":comp.setBounds(width-240, 25, 50,50);break;
+                case "redo":comp.setBounds(width-180, 25, 50,50);break;
+                case "plugins":comp.setBounds(width-120, 25, 50,50);break;
             }
         }
     }

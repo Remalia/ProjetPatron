@@ -38,6 +38,8 @@ public class LayoutMenuJeu implements LayoutManager {
                 case "Error":
                     comp.setBounds(0, height-30, width, 30);
                     break;
+                case "Game":
+                    comp.setBounds((int) (width * 0.2),0,(int) (width * 0.6),height - 29);
             }
         }
     }
