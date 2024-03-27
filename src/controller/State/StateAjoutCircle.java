@@ -5,6 +5,7 @@ import ProjetPatron.src.model.Formes.Coord;
 import ProjetPatron.src.model.MainModel;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.event.MouseEvent;
 
@@ -35,7 +36,7 @@ public class StateAjoutCircle extends StateAjoutForme{
     }
 
     @Override
-    public void hasReleased(MouseEvent e) {
+    public void hasReleased(MouseEvent e) throws IOException {
         getPosClicks().add(new Coord(e.getX(),e.getY()));
         MainModel.getInstance().getCh().addCommand(new AjoutCercle(Color.GREEN,getPosClicks(),false));
         setPosClicks(new ArrayList<>());

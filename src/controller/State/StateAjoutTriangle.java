@@ -1,6 +1,14 @@
 package ProjetPatron.src.controller.State;
 
+import ProjetPatron.src.model.Action.Commandes.AjoutCercle;
+import ProjetPatron.src.model.Action.Commandes.AjoutTriangle;
+import ProjetPatron.src.model.Formes.Coord;
+import ProjetPatron.src.model.MainModel;
+
+import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /***
  * Etat d'ajout de triangle
@@ -24,7 +32,6 @@ public class StateAjoutTriangle extends StateAjoutForme {
 
     @Override
     public void hasClicked(MouseEvent e) {
-
     }
 
     @Override
@@ -33,8 +40,12 @@ public class StateAjoutTriangle extends StateAjoutForme {
     }
 
     @Override
-    public void hasPressed(MouseEvent e) {
-
+    public void hasPressed(MouseEvent e) throws IOException {
+        getPosClicks().add(new Coord(e.getX(),e.getY()));
+        if(getPosClicks().size() == 3){
+            MainModel.getInstance().getCh().addCommand(new AjoutTriangle(Color.GREEN,getPosClicks(),false));
+            setPosClicks(new ArrayList<>());
+        }
     }
 
     @Override

@@ -86,6 +86,12 @@ public class MainVue extends JFrame{
         instance.setSize(new Dimension(width,height));
     }
 
+    public void repaintAll() throws IOException {
+        MenuJeu.getInstance().reScaleAllComponentsImg();
+        repaint();
+        validate();
+    }
+
     public void backgroundHasChanged(Color color) throws IOException {
         MenuJeu.getInstance().changeBackground(color);
         MenuParametre.getInstance().changeBackground(color);

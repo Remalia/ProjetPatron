@@ -91,5 +91,15 @@ public abstract class Forme {
 		}
 	}
 
+	public Coord getCenter(){
+		int cumulX = 0;
+		int cumulY = 0;
+		for (Coord c: this.points){
+			cumulX += c.getX();
+			cumulY += c.getY();
+		}
+		return new Coord(cumulX/points.size(),cumulY/points.size());
+	}
+
 	public abstract String getPathImg();
 }

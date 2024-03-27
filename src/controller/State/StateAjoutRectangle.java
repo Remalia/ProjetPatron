@@ -7,6 +7,7 @@ import ProjetPatron.src.model.MainModel;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /***
@@ -35,7 +36,7 @@ public class StateAjoutRectangle extends StateAjoutForme {
     }
 
     @Override
-    public void hasReleased(MouseEvent e) {
+    public void hasReleased(MouseEvent e) throws IOException {
         getPosClicks().add(new Coord(e.getX(),e.getY()));
         MainModel.getInstance().getCh().addCommand(new AjoutRectangle(Color.GREEN,getPosClicks(),false));
         setPosClicks(new ArrayList<>());

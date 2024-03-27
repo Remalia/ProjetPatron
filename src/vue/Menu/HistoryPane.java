@@ -1,5 +1,6 @@
 package ProjetPatron.src.vue.Menu;
 
+import ProjetPatron.src.model.Formes.Coord;
 import ProjetPatron.src.model.Formes.Forme;
 import ProjetPatron.src.model.MainModel;
 import ProjetPatron.src.vue.Layout.LayoutHistorique;
@@ -40,8 +41,8 @@ public class HistoryPane extends MenuAbstract {
         this.historique.removeAll();
         for (Forme f: MainModel.getInstance().getFormes()){
             String pos = "";
-            pos += f.getPoints().get(0).getX() +"/"+ f.getPoints().get(0).getY();
-            pos += " " + f.getPoints().get(1).getX() +"/"+ f.getPoints().get(1).getY();
+            Coord center = f.getCenter();
+            pos += center.getX() + "/" + center.getY();
             this.historique.add(new HistoriqueObjet(pos,f.getPathImg()));
         }
     }

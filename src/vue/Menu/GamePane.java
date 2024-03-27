@@ -1,10 +1,8 @@
 package ProjetPatron.src.vue.Menu;
 
-import javax.swing.*;
 import ProjetPatron.src.controller.MainController;
 import ProjetPatron.src.vue.ThemeView;
 
-import java.awt.*;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -29,7 +27,6 @@ public class GamePane extends MenuAbstract implements MouseListener {
 
     @Override
     public void reScaleAllComponentsImg() throws IOException {
-
     }
 
     public static GamePane getInstance() {
@@ -46,12 +43,20 @@ public class GamePane extends MenuAbstract implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        mc.getState().hasPressed(e);
+        try {
+            mc.getState().hasPressed(e);
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        mc.getState().hasReleased(e);
+        try {
+            mc.getState().hasReleased(e);
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override

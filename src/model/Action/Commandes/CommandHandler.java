@@ -1,7 +1,11 @@
 package ProjetPatron.src.model.Action.Commandes;
 
+import ProjetPatron.src.model.MainModel;
+import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.Menu.ErrorPane;
+import ProjetPatron.src.vue.Menu.MenuJeu;
 
+import java.io.IOException;
 import java.util.*;
 
 /***
@@ -24,21 +28,23 @@ public class CommandHandler{
      * Permet d'ajouter une commande
      * @param c la commande à ajouter
      */
-    public void addCommand(Command c){
+    public void addCommand(Command c) throws IOException {
         c.execute();
         this.stackCommand.push(c);
         this.stackRedo.clear();
+        MainVue.getInstance().repaintAll();
     }
 
     /***
      * Permet d'annuler la dernière commande réalisé
      */
-    public void undo(){
+    public void undo() throws IOException {
         Command c;
         if (!stackCommand.empty()){
             c = this.stackCommand.pop();
             c.backtrack();
             stackRedo.push(c);
+            MainVue.getInstance().repaintAll();
         }else{
             ErrorPane.getInstance().setErrorText("La pile undo est vide !");
         }
@@ -47,12 +53,13 @@ public class CommandHandler{
     /***
      * Permet de refaire la commande précedemment annuler
      */
-    public void redo(){
+    public void redo() throws IOException {
         Command c;
         if(!stackRedo.empty()) {
             c = this.stackRedo.pop();
             c.execute();
             stackCommand.push(c);
+            MainVue.getInstance().repaintAll();
         }else{
             ErrorPane.getInstance().setErrorText("La pile redo est vide !");
         }
