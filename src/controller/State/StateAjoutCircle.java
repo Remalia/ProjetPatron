@@ -1,15 +1,23 @@
 package ProjetPatron.src.controller.State;
 
+import ProjetPatron.src.model.Action.Commandes.AjoutCercle;
+import ProjetPatron.src.model.Formes.Coord;
+import ProjetPatron.src.model.MainModel;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.awt.event.MouseEvent;
+
 /***
  * Etat d'ajout de cercle
  */
 
-public class StateAjoutCircle implements State {
+public class StateAjoutCircle extends StateAjoutForme{
 
     private static StateAjoutCircle instance;
 
     private StateAjoutCircle(){
-
+        super();
     }
 
 
@@ -22,7 +30,29 @@ public class StateAjoutCircle implements State {
 
 
     @Override
-    public void hasClicked() {
-        System.out.print("test");
+    public void hasClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void hasReleased(MouseEvent e) {
+        getPosClicks().add(new Coord(e.getX(),e.getY()));
+        MainModel.getInstance().getCh().addCommand(new AjoutCercle(Color.GREEN,getPosClicks(),false));
+        setPosClicks(new ArrayList<>());
+    }
+
+    @Override
+    public void hasPressed(MouseEvent e) {
+        getPosClicks().add(new Coord(e.getX(),e.getY()));
+    }
+
+    @Override
+    public void hasEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void hasExited(MouseEvent e) {
+
     }
 }

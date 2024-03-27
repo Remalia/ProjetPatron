@@ -1,5 +1,7 @@
 package ProjetPatron.src.vue.Menu;
 
+import ProjetPatron.src.model.Formes.Forme;
+import ProjetPatron.src.model.MainModel;
 import ProjetPatron.src.vue.Layout.LayoutHistorique;
 import ProjetPatron.src.vue.Layout.LayoutHistoriquePane;
 import ProjetPatron.src.vue.ThemeView;
@@ -36,8 +38,12 @@ public class HistoryPane extends MenuAbstract {
 
     public void reloadHistory() throws IOException {
         this.historique.removeAll();
-        //TODO ajouter les 10 dernier objets sous forme de HistoriqueObjet
-        this.historique.add(new HistoriqueObjet("Test","assets/images/jeu/cercle.png"));
+        for (Forme f: MainModel.getInstance().getFormes()){
+            String pos = "";
+            pos += f.getPoints().get(0).getX() +"/"+ f.getPoints().get(0).getY();
+            pos += " " + f.getPoints().get(1).getX() +"/"+ f.getPoints().get(1).getY();
+            this.historique.add(new HistoriqueObjet(pos,f.getPathImg()));
+        }
     }
 
     public static HistoryPane getInstance() throws IOException {

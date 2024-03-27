@@ -1,18 +1,32 @@
 package ProjetPatron.src.model.Action.Commandes;
 
+import ProjetPatron.src.model.Formes.Coord;
+import ProjetPatron.src.model.Formes.Rectangle;
+import ProjetPatron.src.model.Formes.Triangle;
+import ProjetPatron.src.model.MainModel;
+
+import java.awt.*;
+import java.util.List;
+
 /***
  *  Classe d'ajout de triangle dans le jeu
  */
 public class AjoutTriangle implements Command{
 
+    private Triangle triangle;
+
+    public AjoutTriangle(Color color, List<Coord> points, Boolean locked){
+        this.triangle = new Triangle(color,points,locked);
+    }
+
     @Override
     public void execute() {
-        //TODO
+        MainModel.getInstance().getFormes().add(triangle);
     }
 
     @Override
     public void backtrack() {
-        //TODO
+        MainModel.getInstance().getFormes().remove(triangle);
     }
 
     /***

@@ -20,6 +20,11 @@ public class Cercle extends Forme{
 		super(color,pts,locked);
 	}
 
+	@Override
+	public String getPathImg() {
+		return "assets/images/jeu/cercle.png";
+	}
+
 	/***
 	 * Permet de récupérer le rayon du cercle
 	 * @return la taille du rayon du cercle
@@ -33,4 +38,6 @@ public class Cercle extends Forme{
 	public void setRayon(){
 		//TODO set le rayon depuis le centre vers le points autre
 	}
+
+
 }

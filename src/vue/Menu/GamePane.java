@@ -25,7 +25,6 @@ public class GamePane extends MenuAbstract implements MouseListener {
         this.addMouseListener(this);
         this.setName("Game");
         this.setBackground(ThemeView.getInstance().getColor());
-        this.setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
     @Override
@@ -42,27 +41,27 @@ public class GamePane extends MenuAbstract implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("Clicked");
+        mc.getState().hasClicked(e);
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        System.out.println("Pressed");
+        mc.getState().hasPressed(e);
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        System.out.println("Released");
+        mc.getState().hasReleased(e);
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        System.out.println("Entered");
+        mc.getState().hasEntered(e);
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        System.out.println("Exited");
+        mc.getState().hasExited(e);
     }
 
 }

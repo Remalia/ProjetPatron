@@ -5,9 +5,9 @@ package ProjetPatron.src.model.Action.Commandes;
  */
 public interface Command {
 
-    public void execute();
-    public void backtrack();
-    public String writeCommand(boolean svg);
-    public void readCommand();
+    void execute();
+    void backtrack();
+    String writeCommand(boolean svg);
+    void readCommand();
 
 }

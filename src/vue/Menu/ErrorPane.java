@@ -9,7 +9,7 @@ import java.io.IOException;
 public class ErrorPane extends MenuAbstract {
 
     private static ErrorPane instance;
-    private String errorText;
+    private JLabel errorLabel;
 
     @Override
     public String getNameFrame() {
@@ -20,10 +20,9 @@ public class ErrorPane extends MenuAbstract {
         this.setName("Error");
         this.setBackground(ThemeView.getInstance().getColor());
         this.setBorder(BorderFactory.createLineBorder(Color.black));
-        this.errorText = "Les erreurs s'affichent ici";
-        JLabel label = new JLabel(errorText);
-        label.setForeground(Color.RED);
-        this.add(label);
+        errorLabel = new JLabel("Les erreurs s'affichent ici");
+        errorLabel.setForeground(Color.RED);
+        this.add(errorLabel);
     }
 
     @Override
@@ -32,7 +31,7 @@ public class ErrorPane extends MenuAbstract {
     }
 
     public void setErrorText(String errorText) {
-        this.errorText = errorText;
+        this.errorLabel.setText(errorText);
     }
 
     public static ErrorPane getInstance(){

@@ -1,9 +1,12 @@
 package ProjetPatron.src.controller.State;
+
+import java.awt.event.MouseEvent;
+
 /***
  * Etat d'ajout de triangle
  */
 
-public class StateAjoutTriangle implements State {
+public class StateAjoutTriangle extends StateAjoutForme {
 
     private static StateAjoutTriangle instance;
 
@@ -18,8 +21,29 @@ public class StateAjoutTriangle implements State {
         return instance;
     }
 
+
     @Override
-    public void hasClicked() {
+    public void hasClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void hasReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void hasPressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void hasEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void hasExited(MouseEvent e) {
 
     }
 }

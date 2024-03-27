@@ -10,7 +10,7 @@ public class MainController {
     private State state;
 
     private MainController(){
-        this.state = null;
+        this.state = StateSelect.getInstance();
     }
 
     public void setState(State state) {

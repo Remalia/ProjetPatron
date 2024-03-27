@@ -17,5 +17,10 @@ public class Triangle extends Forme {
 	public Triangle(Color color, List<Coord> points,boolean locked) {
 		super(color, points,locked);
 	}
-	
+
+	@Override
+	public String getPathImg() {
+		return "assets/images/jeu/triangle.png";
+	}
+
 }

@@ -82,7 +82,7 @@ public abstract class Forme {
 	 * @param x sa nouvelle position x
 	 * @param y sa nouvelle position y
 	 */
-	public void changePoint(Coord point, float x,float y){
+	public void changePoint(Coord point, int x, int y){
 		int temp = this.points.indexOf(point);
 		if(temp != -1){
 			Coord pointList = this.points.get(temp);
@@ -90,4 +90,6 @@ public abstract class Forme {
 			pointList.setY(y);
 		}
 	}
+
+	public abstract String getPathImg();
 }

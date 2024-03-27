@@ -1,6 +1,10 @@
 package ProjetPatron.src.model;
 
 import ProjetPatron.src.model.Action.Commandes.CommandHandler;
+import ProjetPatron.src.model.Formes.Forme;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /***
  * S'occupe de faire les liasons entre les classes du models et celui de la classe global des controllers.
@@ -10,12 +14,18 @@ public class MainModel {
     private static MainModel instance;
     private CommandHandler ch;
     private static int nbForme = 0;
+    private List<Forme> formes;
 
     /***
      * Permet la création d'un mainModel
      */
     private MainModel(){
         this.ch = new CommandHandler();
+        this.formes = new ArrayList<>();
+    }
+
+    public List<Forme> getFormes() {
+        return formes;
     }
 
     public static int getNextIdForme(){

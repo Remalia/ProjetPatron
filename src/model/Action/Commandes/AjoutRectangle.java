@@ -1,17 +1,31 @@
 package ProjetPatron.src.model.Action.Commandes;
 
+import ProjetPatron.src.model.Formes.Coord;
+import ProjetPatron.src.model.Formes.Rectangle;
+import ProjetPatron.src.model.MainModel;
+
+import java.awt.*;
+import java.util.List;
+
 /***
  *  Classe d'ajout de rectangle dans le jeu
  */
 public class AjoutRectangle implements Command{
+
+    private Rectangle rectangle;
+
+    public AjoutRectangle(Color color, List<Coord> points, Boolean locked){
+        this.rectangle = new Rectangle(color,points,locked);
+    }
+
     @Override
     public void execute() {
-        //TODO
+        MainModel.getInstance().getFormes().add(rectangle);
     }
 
     @Override
     public void backtrack() {
-        //TODO
+        MainModel.getInstance().getFormes().remove(rectangle);
     }
 
     /***

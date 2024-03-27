@@ -23,6 +23,7 @@ public class NavBarJeu extends MenuAbstract{
         super();
         this.setName("NavBarJeu");
         this.setLayout(new NavBarLayout());
+        this.setBorder(BorderFactory.createLineBorder(Color.black));
         ButtonParams param = new ButtonParams("param","assets/images/reglage.png");
         ButtonRetour retour = new ButtonRetour("retour","assets/images/retour.png");
         ButtonUndo undo = new ButtonUndo("undo","assets/images/jeu/undo.png");
@@ -37,8 +38,6 @@ public class NavBarJeu extends MenuAbstract{
         this.buttons.add(cercle);
         this.buttons.add(triangle);
         this.buttons.add(rectangle);
-
-
         this.addAllButtons();
     }
 
