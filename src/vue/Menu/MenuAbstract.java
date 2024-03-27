@@ -21,33 +21,6 @@ public abstract class MenuAbstract extends JPanel{
         this.setBackground(ThemeView.getInstance().getColor());
     }
 
-    protected Image getGoodImageSizeNavBar(String pathImg) throws IOException {
-        return ImageIO.read(new File(pathImg)).getScaledInstance(50,50,java.awt.Image.SCALE_SMOOTH);
-    }
-
-    protected Image getGoodImageSizeSelectionNiveau(String pathImg) throws  IOException {
-        double widthMult = 0.10;
-        double heightMult = 0.12;
-        int width = MainVue.getFrameWidth();
-        int height = MainVue.getFrameHeight();
-        if((width * 100) / height > 155){
-            widthMult = 0.12;
-            heightMult = 0.17;
-        }
-        return ImageIO.read(new File(pathImg)).getScaledInstance((int)(width*widthMult),(int)(height*heightMult), Image.SCALE_SMOOTH);
-    }
-
-    protected Image getGoodImageSizeMenuPrincipal(String pathImg) throws IOException {
-        double widthMult = 0.25;
-        double heightMult = 0.125;
-        int width = MainVue.getFrameWidth();
-        int height = MainVue.getFrameHeight();
-        if((width * 100) / height > 155){
-            widthMult = 0.2;
-        }
-        return ImageIO.read(new File(pathImg)).getScaledInstance((int)(width*widthMult),(int)(height*heightMult), Image.SCALE_SMOOTH);
-    }
-
     public void changeBackground(Color color){
         this.setBackground(color);
     }

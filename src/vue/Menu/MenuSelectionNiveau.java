@@ -2,6 +2,7 @@ package ProjetPatron.src.vue.Menu;
 
 import ProjetPatron.src.controller.Graphics.Bouton.Button;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonSelectLevel;
+import ProjetPatron.src.vue.ImageResizer;
 import ProjetPatron.src.vue.Layout.LayoutSelectionNiveau;
 
 import javax.swing.*;
@@ -25,12 +26,10 @@ public class MenuSelectionNiveau extends MenuAbstract {
         this.setName("MenuSelectionNiveau");
         this.setLayout(new LayoutSelectionNiveau());
 
-        //TODO AJOUTER LES BUTTONS SAUVEGARDE ET NOUVELLE PARTIE NE PAS LES RELIER ENCORE MAIS FAIRE UN TRUC DE PROPRE
-
-        this.buttons.add(new ButtonSelectLevel("Niveau 1","assets/images/Menu/lvl_1.png",1));
+        this.buttons.add(new ButtonSelectLevel("Niveau 1", "assets/images/Menu/lvl_1.png",1));
         this.buttons.add(new ButtonSelectLevel("Niveau 2","assets/images/Menu/lvl_2.png",2));
         this.buttons.add(new ButtonSelectLevel("Niveau 3","assets/images/Menu/lvl_3.png",3));
-        this.buttons.add(new ButtonSelectLevel("Jeu libre","assets/images/Menu/jeu_libre_1.png",0));
+        this.buttons.add(new ButtonSelectLevel("Jeu libre", "assets/images/Menu/jeu_libre.png",0));
         this.addAllButtons();
         reScaleAllComponentsImg();
     }
@@ -55,9 +54,9 @@ public class MenuSelectionNiveau extends MenuAbstract {
     public void reScaleAllComponentsImg() throws IOException {
         for (Button button : buttons){
             if(button.getIcon() != null && !button.getName().equals("Jeu libre")){
-                button.setIcon(new ImageIcon(getGoodImageSizeSelectionNiveau(button.getImgPath())));
+                button.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeSelectionNiveau(button.getImgPath())));
             }else{
-                button.setIcon(new ImageIcon(getGoodImageSizeMenuPrincipal(button.getImgPath())));
+                button.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal(button.getImgPath())));
             }
         }
     }

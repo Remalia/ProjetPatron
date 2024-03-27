@@ -22,7 +22,7 @@ public class GamePane extends MenuAbstract implements MouseListener {
 
     public GamePane() {
         this.mc = MainController.getInstance();
-        addMouseListener(this);
+        this.addMouseListener(this);
         this.setName("Game");
         this.setBackground(ThemeView.getInstance().getColor());
         this.setBorder(BorderFactory.createLineBorder(Color.black));

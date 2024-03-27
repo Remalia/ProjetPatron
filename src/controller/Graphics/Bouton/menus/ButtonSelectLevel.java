@@ -1,11 +1,13 @@
 package ProjetPatron.src.controller.Graphics.Bouton.menus;
 
 import ProjetPatron.src.controller.Graphics.Bouton.Button;
+import ProjetPatron.src.vue.ImageResizer;
 import ProjetPatron.src.vue.Menu.HistoryPane;
 import ProjetPatron.src.model.MainModel;
 import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.Menu.MenuJeu;
 
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
@@ -17,6 +19,7 @@ public class ButtonSelectLevel extends Button implements MouseListener {
 
     public ButtonSelectLevel(String name,String imgPath,int idMenu) {
         super(name,imgPath);
+        this.addMouseListener(this);
         this.addActionListener(e -> {
             try {
                 MainModel.getInstance().loadLevel(idMenu);
@@ -58,11 +61,11 @@ public class ButtonSelectLevel extends Button implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-
+        System.out.println("NOM NOM NOM");
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-
+        System.out.println("MANGE MOI");
     }
 }

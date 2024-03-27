@@ -3,6 +3,7 @@ package ProjetPatron.src.vue.Menu;
 import ProjetPatron.src.controller.Graphics.Bouton.Button;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonParams;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonRetour;
+import ProjetPatron.src.vue.ImageResizer;
 import ProjetPatron.src.vue.Layout.NavBarLayout;
 
 import javax.swing.*;
@@ -36,7 +37,7 @@ public class NavBarSelectionLVL extends MenuAbstract{
     public void reScaleAllComponentsImg() throws IOException {
         for (Button button : buttons){
             if(button.getIcon() != null){
-                button.setIcon(new ImageIcon(getGoodImageSizeNavBar(button.getImgPath())));
+                button.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeNavBar(button.getImgPath())));
             }
         }
     }

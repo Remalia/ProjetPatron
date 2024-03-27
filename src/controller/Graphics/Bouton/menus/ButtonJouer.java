@@ -1,6 +1,7 @@
 package ProjetPatron.src.controller.Graphics.Bouton.menus;
 
 import ProjetPatron.src.controller.Graphics.Bouton.Button;
+import ProjetPatron.src.vue.ImageResizer;
 import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.Menu.MenuSelectionNiveau;
 
@@ -11,7 +12,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 
-public class ButtonJouer extends Button implements MouseListener{
+public class ButtonJouer extends Button implements MouseListener {
 
 
     public ButtonJouer(String name) {
@@ -25,8 +26,9 @@ public class ButtonJouer extends Button implements MouseListener{
         });
     }
 
-    public ButtonJouer(String name,String imgPath) {
+    public ButtonJouer(String name, String imgPath) {
         super(name, imgPath);
+        this.addMouseListener(this);
         this.addActionListener(e -> {
             try {
                 MainVue.changeScene(MenuSelectionNiveau.getInstance());
@@ -53,11 +55,21 @@ public class ButtonJouer extends Button implements MouseListener{
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        //this.setIcon(this.getImgPath());
+        if (this.getImgPath() != null)
+            try {
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal(this.getImgHoverPath())));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-
+        if (this.getImgPath() != null)
+            try {
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal(this.getImgPath())));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
     }
 }

@@ -13,11 +13,13 @@ public abstract class Button extends JButton {
 
     private String name;
     private String imgPath;
+    private String imgHoverPath;
     private Boolean selected;
     private MainController mc;
 
     public Button(String name,String imgPath){
         this.imgPath = imgPath;
+        this.imgHoverPath = imgPath.split(".png")[0]+"_hover.png";
         this.selected = false;
         this.name = name;
         this.mc = MainController.getInstance();
@@ -41,8 +43,8 @@ public abstract class Button extends JButton {
         return imgPath;
     }
 
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
+    public String getImgHoverPath(){
+        return imgHoverPath;
     }
 
     public boolean isSelected(){

@@ -5,11 +5,12 @@ import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonJouer;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonParams;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.Layout.LayoutMenuPrincipal;
-import ProjetPatron.src.vue.ThemeView;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+
+import static ProjetPatron.src.vue.ImageResizer.getGoodImageSizeMenuPrincipal;
 
 public class MenuPrincipal extends MenuAbstract {
 
@@ -19,9 +20,9 @@ public class MenuPrincipal extends MenuAbstract {
         super();
         this.setName("MenuPrincipal");
         this.setLayout(new LayoutMenuPrincipal());
-        this.buttons.add(new ButtonJouer("Jouer","assets/images/Menu/jouer_1.png"));
-        this.buttons.add(new ButtonParams("Paramètres","assets/images/Menu/paramètres_1.png"));
-        this.buttons.add(new ButtonRetour("Quitter","assets/images/Menu/quitter_1.png"));
+        this.buttons.add(new ButtonJouer("Jouer", "assets/images/Menu/jouer.png"));
+        this.buttons.add(new ButtonParams("Paramètres", "assets/images/Menu/paramètres.png"));
+        this.buttons.add(new ButtonRetour("Quitter", "assets/images/Menu/quitter.png"));
         this.addAllButtons();
         reScaleAllComponentsImg();
     }

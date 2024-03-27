@@ -1,9 +1,11 @@
 package ProjetPatron.src.controller.Graphics.Bouton.menus;
 
 import ProjetPatron.src.controller.Graphics.Bouton.Button;
+import ProjetPatron.src.vue.ImageResizer;
 import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.Menu.MenuParametre;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -14,8 +16,9 @@ import java.io.IOException;
  */
 public class ButtonParams extends Button implements MouseListener {
 
-    public ButtonParams(String name,String imgPath) {
-        super(name,imgPath);
+    public ButtonParams(String name, String imgPath) {
+        super(name, imgPath);
+        this.addMouseListener(this);
         this.addActionListener(e -> {
             try {
                 MainVue.changeScene(MenuParametre.getInstance());
@@ -53,11 +56,21 @@ public class ButtonParams extends Button implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-
+        if (this.getImgPath().contains("Menu"))
+            try {
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal(this.getImgHoverPath())));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-
+        if (this.getImgPath().contains("Menu"))
+            try {
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal(this.getImgPath())));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
     }
 }
