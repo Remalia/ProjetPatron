@@ -1,5 +1,10 @@
 package ProjetPatron.src.model.Formes;
 
+import ProjetPatron.src.vue.Formes.CercleVue;
+import ProjetPatron.src.vue.Formes.FormeVue;
+import ProjetPatron.src.vue.Formes.RectangleVue;
+import ProjetPatron.src.vue.Formes.TriangleVue;
+
 import java.awt.Color;
 import java.util.*;
 
@@ -23,9 +28,10 @@ public class Triangle extends Forme {
 		return "assets/images/jeu/triangle.png";
 	}
 
+
 	@Override
-	public String type() {
-		return "Triangle";
+	public FormeVue createForme() {
+		return new TriangleVue(this);
 	}
 
 }

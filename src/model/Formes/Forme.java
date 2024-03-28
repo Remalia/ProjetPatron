@@ -1,6 +1,7 @@
 package ProjetPatron.src.model.Formes;
 
 import ProjetPatron.src.model.MainModel;
+import ProjetPatron.src.vue.Formes.FormeVueFactory;
 
 import java.awt.Color;
 import java.util.*;
@@ -8,7 +9,7 @@ import java.util.*;
 /***
  * Classe abstraite de forme permettant une gestion hiérarchique de forme
  */
-public abstract class Forme {
+public abstract class Forme implements FormeVueFactory {
 	
 	private Color color;
 	private List<Coord> points;
@@ -146,6 +147,4 @@ public abstract class Forme {
 	}
 
 	public abstract String getPathImg();
-
-	public abstract String type();
 }

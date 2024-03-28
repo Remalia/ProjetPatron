@@ -1,5 +1,8 @@
 package ProjetPatron.src.model.Formes;
 
+import ProjetPatron.src.vue.Formes.CercleVue;
+import ProjetPatron.src.vue.Formes.FormeVue;
+
 import java.awt.Color;
 import java.util.*;
 
@@ -25,11 +28,6 @@ public class Cercle extends Forme{
 		return "assets/images/jeu/cercle.png";
 	}
 
-	@Override
-	public String type() {
-		return "Cercle";
-	}
-
 	/***
 	 * Permet de récupérer le rayon du cercle
 	 * @return la taille du rayon du cercle
@@ -45,4 +43,8 @@ public class Cercle extends Forme{
 	}
 
 
+	@Override
+	public FormeVue createForme() {
+		return new CercleVue(this);
+	}
 }

@@ -3,6 +3,8 @@ package ProjetPatron.src.vue.Menu;
 import ProjetPatron.src.controller.MainController;
 import ProjetPatron.src.model.Formes.Forme;
 import ProjetPatron.src.model.MainModel;
+import ProjetPatron.src.vue.Formes.CercleVue;
+import ProjetPatron.src.vue.Formes.FormeVue;
 import ProjetPatron.src.vue.ThemeView;
 
 import java.awt.*;
@@ -35,24 +37,10 @@ public class GamePane extends MenuAbstract implements MouseListener {
 
     @Override
     protected void paintComponent(Graphics g) {
+        FormeVue fv;
         for (Forme f: MainModel.getInstance().getFormes()){
-            switch (f.type()) {
-                case "Cercle":
-                    g.setColor(f.getColor());
-                    g.drawOval(f.getMostLeftCoord(), f.getMostUpCoord(), f.getWidth(), f.getHeight());
-                    g.fillOval(f.getMostLeftCoord(), f.getMostUpCoord(), f.getWidth(), f.getHeight());
-                    break;
-                case "Rectangle":
-                    g.setColor(f.getColor());
-                    g.drawRect(f.getMostLeftCoord(), f.getMostUpCoord(), f.getWidth(), f.getHeight());
-                    g.fillRect(f.getMostLeftCoord(), f.getMostUpCoord(), f.getWidth(), f.getHeight());
-                    break;
-                case "Triangle":
-                    g.setColor(f.getColor());
-                    g.drawPolygon(f.getPointX(), f.getPointY(), f.getPoints().size());
-                    g.fillPolygon(f.getPointX(), f.getPointY(), f.getPoints().size());
-                    break;
-            }
+            fv = f.createForme();
+            fv.drawForme(g);
         }
     }
 

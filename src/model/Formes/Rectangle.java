@@ -1,5 +1,9 @@
 package ProjetPatron.src.model.Formes;
 
+import ProjetPatron.src.vue.Formes.CercleVue;
+import ProjetPatron.src.vue.Formes.FormeVue;
+import ProjetPatron.src.vue.Formes.RectangleVue;
+
 import java.awt.Color;
 import java.util.*;
 
@@ -27,11 +31,6 @@ public class Rectangle extends Forme{
 		return "assets/images/jeu/rectangle.png";
 	}
 
-	@Override
-	public String type() {
-		return "Rectangle";
-	}
-
 	/***
 	 * Permet de calculer la longeur et la largeur du rectangle et de l'assigner
 	 */
@@ -53,6 +52,11 @@ public class Rectangle extends Forme{
 	 */
 	public float getLargeur() {
 		return largeur;
+	}
+
+	@Override
+	public FormeVue createForme() {
+		return new RectangleVue(this);
 	}
 
 }
