@@ -3,13 +3,13 @@ package ProjetPatron.src.vue.Menu;
 import ProjetPatron.src.controller.MainController;
 import ProjetPatron.src.model.Formes.Forme;
 import ProjetPatron.src.model.MainModel;
-import ProjetPatron.src.vue.Formes.CercleVue;
-import ProjetPatron.src.vue.Formes.FormeVue;
 import ProjetPatron.src.vue.ThemeView;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 
@@ -37,10 +37,8 @@ public class GamePane extends MenuAbstract implements MouseListener {
 
     @Override
     protected void paintComponent(Graphics g) {
-        FormeVue fv;
         for (Forme f: MainModel.getInstance().getFormes()){
-            fv = f.createForme();
-            fv.drawForme(g);
+            f.createFormeVue().drawForme(g);
         }
     }
 
@@ -53,7 +51,11 @@ public class GamePane extends MenuAbstract implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        mc.getState().hasClicked(e);
+        try {
+            mc.getState().hasClicked(e);
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
@@ -82,6 +84,13 @@ public class GamePane extends MenuAbstract implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
         mc.getState().hasExited(e);
+    }
+
+    public static Color getColorAt(JPanel frm, Point p) {
+        Rectangle rect = frm.getBounds();
+        BufferedImage img = new BufferedImage(rect.width, rect.height, BufferedImage.TYPE_INT_ARGB);
+        frm.paintAll(img.createGraphics());
+        return new Color(img.getRGB(p.x, p.y), true);
     }
 
 }

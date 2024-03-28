@@ -1,8 +1,7 @@
 package ProjetPatron.src.vue.Menu;
 
 import ProjetPatron.src.controller.Graphics.Bouton.Button;
-import ProjetPatron.src.controller.Graphics.Bouton.actions.ButtonRedo;
-import ProjetPatron.src.controller.Graphics.Bouton.actions.ButtonUndo;
+import ProjetPatron.src.controller.Graphics.Bouton.actions.*;
 import ProjetPatron.src.controller.Graphics.Bouton.formes.ButtonCercle;
 import ProjetPatron.src.controller.Graphics.Bouton.formes.ButtonRectangle;
 import ProjetPatron.src.controller.Graphics.Bouton.formes.ButtonTriangle;
@@ -31,6 +30,9 @@ public class NavBarJeu extends MenuAbstract{
         ButtonCercle cercle = new ButtonCercle("cercle", "assets/images/jeu/cercle.png");
         ButtonTriangle triangle = new ButtonTriangle("triangle", "assets/images/jeu/triangle.png");
         ButtonRectangle rectangle = new ButtonRectangle("rectangle", "assets/images/jeu/rectangle.png");
+        ButtonDelete delete = new ButtonDelete("delete","assets/images/annuler.png"); //TODO GOMME
+        ButtonPlugins plugins = new ButtonPlugins("plugins"); //TODO img Plugins
+        ButtonSelect select = new ButtonSelect("mouse"); //TODO img Mouse
         this.buttons.add(retour);
         this.buttons.add(param);
         this.buttons.add(undo);
@@ -38,6 +40,9 @@ public class NavBarJeu extends MenuAbstract{
         this.buttons.add(cercle);
         this.buttons.add(triangle);
         this.buttons.add(rectangle);
+        this.buttons.add(delete);
+        this.buttons.add(plugins);
+        this.buttons.add(select);
         this.addAllButtons();
     }
 

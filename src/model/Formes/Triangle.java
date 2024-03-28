@@ -30,8 +30,10 @@ public class Triangle extends Forme {
 
 
 	@Override
-	public FormeVue createForme() {
-		return new TriangleVue(this);
+	public FormeVue createFormeVue() {
+		if(this.getFv() == null)
+			this.setFv(new TriangleVue(this));
+		return this.getFv();
 	}
 
 }

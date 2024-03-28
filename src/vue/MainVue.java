@@ -7,6 +7,7 @@ import ProjetPatron.src.vue.Menu.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Stack;

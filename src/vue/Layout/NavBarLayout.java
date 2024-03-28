@@ -34,13 +34,14 @@ public class NavBarLayout implements LayoutManager {
                 case "retour": comp.setBounds(10,25,50,50); break;
                 case "save": comp.setBounds(70, 25, 50,50);break;
                 case "mouse":comp.setBounds(130, 25, 50,50);break;
-                case "rectangle": comp.setBounds(190, 25, 50,50);break;
-                case "cercle": comp.setBounds(250, 25, 50,50);break;
-                case "triangle": comp.setBounds(310, 25, 50,50);break;
+                case "rectangle": comp.setBounds(280, 25, 50,50);break;
+                case "cercle": comp.setBounds(340, 25, 50,50);break;
+                case "triangle": comp.setBounds(400, 25, 50,50);break;
                 case "param": comp.setBounds(width-60,25,50,50); break;
-                case "undo":comp.setBounds(width-240, 25, 50,50);break;
-                case "redo":comp.setBounds(width-180, 25, 50,50);break;
+                case "undo":comp.setBounds(width-260, 25, 50,50);break;
+                case "redo":comp.setBounds(width-200, 25, 50,50);break;
                 case "plugins":comp.setBounds(width-120, 25, 50,50);break;
+                case "delete":comp.setBounds(190,25,50,50); break;
             }
         }
     }

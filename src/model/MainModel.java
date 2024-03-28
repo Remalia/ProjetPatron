@@ -55,4 +55,8 @@ public class MainModel {
         instance = new MainModel();
         System.out.println("Loading");
     }
+
+    public void setFormes(List<Forme> formes) {
+        this.formes = formes;
+    }
 }

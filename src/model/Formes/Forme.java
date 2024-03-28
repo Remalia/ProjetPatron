@@ -1,6 +1,7 @@
 package ProjetPatron.src.model.Formes;
 
 import ProjetPatron.src.model.MainModel;
+import ProjetPatron.src.vue.Formes.FormeVue;
 import ProjetPatron.src.vue.Formes.FormeVueFactory;
 
 import java.awt.Color;
@@ -15,6 +16,7 @@ public abstract class Forme implements FormeVueFactory {
 	private List<Coord> points;
 	private final int id;
 	private final boolean locked;
+	private FormeVue fv = null;
 
 	/***
 	 * Constructeur Abstrait permettant de créer une forme
@@ -130,6 +132,14 @@ public abstract class Forme implements FormeVueFactory {
 		return Math.min(points.get(0).getY(),points.get(1).getY());
 	}
 
+	public int getMostRightCoord(){
+		return Math.max(points.get(0).getX(),points.get(1).getX());
+	}
+
+	public int getMostDownCoord(){
+		return Math.max(points.get(0).getY(),points.get(1).getY());
+	}
+
 	public int[] getPointX(){
 		int[] xs = new int[points.size()];
 		for (int i = 0; i < points.size(); i++) {
@@ -147,4 +157,12 @@ public abstract class Forme implements FormeVueFactory {
 	}
 
 	public abstract String getPathImg();
+
+	public FormeVue getFv() {
+		return fv;
+	}
+
+	public void setFv(FormeVue fv) {
+		this.fv = fv;
+	}
 }

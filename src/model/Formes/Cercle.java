@@ -44,7 +44,9 @@ public class Cercle extends Forme{
 
 
 	@Override
-	public FormeVue createForme() {
-		return new CercleVue(this);
+	public FormeVue createFormeVue() {
+		if(this.getFv() == null)
+			this.setFv(new CercleVue(this));
+		return this.getFv();
 	}
 }

@@ -55,8 +55,10 @@ public class Rectangle extends Forme{
 	}
 
 	@Override
-	public FormeVue createForme() {
-		return new RectangleVue(this);
+	public FormeVue createFormeVue() {
+		if(this.getFv() == null)
+			this.setFv(new RectangleVue(this));
+		return this.getFv();
 	}
 
 }
