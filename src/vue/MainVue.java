@@ -60,7 +60,7 @@ public class MainVue extends JFrame{
         instance.getContentPane().add(menu);
         instance.setTitle(menu.getNameFrame());
         instance.repaint();
-        instance.setVisible(true);
+        instance.validate();
     }
 
 
@@ -125,7 +125,7 @@ public class MainVue extends JFrame{
                 instance.getContentPane().add(comp);
             }
             instance.repaint();
-            instance.setVisible(true);
+            instance.validate();
         }
     }
 

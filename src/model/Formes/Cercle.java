@@ -25,6 +25,11 @@ public class Cercle extends Forme{
 		return "assets/images/jeu/cercle.png";
 	}
 
+	@Override
+	public String type() {
+		return "Cercle";
+	}
+
 	/***
 	 * Permet de récupérer le rayon du cercle
 	 * @return la taille du rayon du cercle

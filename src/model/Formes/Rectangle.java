@@ -27,6 +27,11 @@ public class Rectangle extends Forme{
 		return "assets/images/jeu/rectangle.png";
 	}
 
+	@Override
+	public String type() {
+		return "Rectangle";
+	}
+
 	/***
 	 * Permet de calculer la longeur et la largeur du rectangle et de l'assigner
 	 */

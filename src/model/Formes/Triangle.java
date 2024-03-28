@@ -23,4 +23,9 @@ public class Triangle extends Forme {
 		return "assets/images/jeu/triangle.png";
 	}
 
+	@Override
+	public String type() {
+		return "Triangle";
+	}
+
 }

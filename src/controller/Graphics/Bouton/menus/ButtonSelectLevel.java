@@ -61,11 +61,35 @@ public class ButtonSelectLevel extends Button implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        System.out.println("NOM NOM NOM");
+        if (!this.getImgPath().contains("jeu_libre"))
+            try {
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeSelectionNiveau(this.getImgHoverPath())));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        else{
+            try {
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal(this.getImgHoverPath())));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        System.out.println("MANGE MOI");
+        if (!this.getImgPath().contains("jeu_libre"))
+            try {
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeSelectionNiveau(this.getImgPath())));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        else{
+            try {
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal(this.getImgPath())));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
     }
 }

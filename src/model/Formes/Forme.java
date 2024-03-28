@@ -101,5 +101,51 @@ public abstract class Forme {
 		return new Coord(cumulX/points.size(),cumulY/points.size());
 	}
 
+	public int getWidth(){
+		int x1 = points.get(0).getX();
+		int x2 = points.get(1).getX();
+		if (x1 > x2){
+			return x1 - x2;
+		}else{
+			return x2 - x1;
+		}
+	}
+
+	public int getHeight(){
+		int y1 = points.get(0).getY();
+		int y2 = points.get(1).getY();
+		if (y1 > y2){
+			return y1 - y2;
+		}else{
+			return y2 - y1;
+		}
+	}
+
+	public int getMostLeftCoord(){
+		return Math.min(points.get(0).getX(),points.get(1).getX());
+	}
+
+	public int getMostUpCoord(){
+		return Math.min(points.get(0).getY(),points.get(1).getY());
+	}
+
+	public int[] getPointX(){
+		int[] xs = new int[points.size()];
+		for (int i = 0; i < points.size(); i++) {
+			xs[i] = points.get(i).getX();
+		}
+		return xs;
+	}
+
+	public int[] getPointY(){
+		int[] ys = new int[points.size()];
+		for (int i = 0; i < points.size(); i++) {
+			ys[i] = points.get(i).getY();
+		}
+		return ys;
+	}
+
 	public abstract String getPathImg();
+
+	public abstract String type();
 }
