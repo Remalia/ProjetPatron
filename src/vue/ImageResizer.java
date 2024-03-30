@@ -1,5 +1,7 @@
 package ProjetPatron.src.vue;
 
+import ProjetPatron.src.model.Param;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
@@ -8,6 +10,11 @@ import java.io.IOException;
 public class ImageResizer {
 
     public static Image getGoodImageSizeNavBar(String pathImg) throws IOException {
+        return ImageIO.read(new File(pathImg)).getScaledInstance(50,50,java.awt.Image.SCALE_SMOOTH);
+    }
+
+    public static Image getGoodImageCheckBox() throws IOException {
+        String pathImg = Param.isFullScreen() ? "assets/images/Menu/case_cochee.png" : "assets/images/Menu/case.png";
         return ImageIO.read(new File(pathImg)).getScaledInstance(50,50,java.awt.Image.SCALE_SMOOTH);
     }
 

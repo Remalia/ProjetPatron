@@ -14,6 +14,16 @@ import java.util.HashMap;
 
 public class Param {
 
+    private static boolean fullScreen;
+
+    public static void setFullScreen(boolean b){
+        fullScreen = b;
+    }
+
+    public static boolean isFullScreen(){
+        return fullScreen;
+    }
+
     public static void loadParam() throws IOException {
         ComboBoxResolution cbr = ComboBoxResolution.getInstance();
         ComboBoxTheme cbt = ComboBoxTheme.getInstance();
@@ -41,8 +51,10 @@ public class Param {
                         break;
                     case "FullScreen" :
                         if(val.equals("false")){
+                            fullScreen = false;
                             cf.setSelected(false);
                         }else{
+                            fullScreen = true;
                             cf.setSelected(true);
                         }
                         break;

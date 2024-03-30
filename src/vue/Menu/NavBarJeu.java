@@ -30,9 +30,9 @@ public class NavBarJeu extends MenuAbstract{
         ButtonCercle cercle = new ButtonCercle("cercle", "assets/images/jeu/cercle.png");
         ButtonTriangle triangle = new ButtonTriangle("triangle", "assets/images/jeu/triangle.png");
         ButtonRectangle rectangle = new ButtonRectangle("rectangle", "assets/images/jeu/rectangle.png");
-        ButtonDelete delete = new ButtonDelete("delete","assets/images/annuler.png"); //TODO GOMME
-        ButtonPlugins plugins = new ButtonPlugins("plugins"); //TODO img Plugins
-        ButtonSelect select = new ButtonSelect("mouse"); //TODO img Mouse
+        ButtonDelete delete = new ButtonDelete("delete","assets/images/jeu/gomme.png");
+        ButtonPlugins plugins = new ButtonPlugins("plugins", "assets/images/jeu/plugins.png");
+        ButtonSelect select = new ButtonSelect("mouse","assets/images/jeu/souris.png");
         this.buttons.add(retour);
         this.buttons.add(param);
         this.buttons.add(undo);

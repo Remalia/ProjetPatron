@@ -8,12 +8,13 @@ import ProjetPatron.src.vue.ThemeView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class MenuParametre extends MenuAbstract{
 
     private static MenuParametre instance;
 
-    private MenuParametre(){
+    private MenuParametre() throws IOException {
         super();
         this.setName("Paramètre");
         this.setLayout(new LayoutMenuParametre());
@@ -45,7 +46,7 @@ public class MenuParametre extends MenuAbstract{
             }
     }
 
-    public static MenuParametre getInstance(){
+    public static MenuParametre getInstance() throws IOException {
         if(instance == null){
             instance = new MenuParametre();
         }

@@ -1,6 +1,7 @@
 package ProjetPatron.src.controller.Graphics.Box;
 
 import ProjetPatron.src.model.Param;
+import ProjetPatron.src.vue.ImageResizer;
 import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.ThemeView;
 
@@ -14,9 +15,10 @@ public class CheckBoxFullScreen extends JCheckBox {
 
     private static CheckBoxFullScreen instance;
 
-    private CheckBoxFullScreen(){
+    private CheckBoxFullScreen() throws IOException {
         this.setText("Fullscreen (ignore resolution)");
         this.setName("cbFullScreen");
+        this.setIcon(new ImageIcon(ImageResizer.getGoodImageCheckBox()));
         this.setBackground(ThemeView.getInstance().getColor());
         this.addItemListener(e -> {
             if(e.getStateChange() == ItemEvent.SELECTED) {
@@ -24,6 +26,7 @@ public class CheckBoxFullScreen extends JCheckBox {
                     MainVue.getInstance().setExtendedState(JFrame.MAXIMIZED_BOTH);
                     MainVue.setFrameWidth(MainVue.getInstance().getWidth());
                     MainVue.setFrameHeight(MainVue.getInstance().getHeight());
+                    Param.setFullScreen(true);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -31,6 +34,7 @@ public class CheckBoxFullScreen extends JCheckBox {
                 try {
                     MainVue.getInstance().setExtendedState(JFrame.NORMAL);
                     MainVue.getInstance().setLocationRelativeTo(null);
+                    Param.setFullScreen(false);
                     ComboBoxResolution.getInstance().actionPerformed((ActionEvent) ComboBoxResolution.getInstance().getAction());
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
@@ -38,13 +42,14 @@ public class CheckBoxFullScreen extends JCheckBox {
             }
             try {
                 Param.saveParam();
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageCheckBox()));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
     }
 
-    public static CheckBoxFullScreen getInstance(){
+    public static CheckBoxFullScreen getInstance() throws IOException {
         if (instance == null){
             instance = new CheckBoxFullScreen();
         }
