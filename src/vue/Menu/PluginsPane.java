@@ -1,5 +1,6 @@
 package ProjetPatron.src.vue.Menu;
 
+import ProjetPatron.src.model.MainModel;
 import ProjetPatron.src.vue.ThemeView;
 
 import javax.swing.*;
@@ -9,6 +10,7 @@ import java.io.IOException;
 public class PluginsPane extends MenuAbstract {
 
     private static PluginsPane instance;
+    private JLabel scoreLabel;
 
 
     @Override
@@ -20,6 +22,12 @@ public class PluginsPane extends MenuAbstract {
         this.setName("PluginsAddons");
         this.setBackground(ThemeView.getInstance().getColor());
         this.setBorder(BorderFactory.createLineBorder(Color.black));
+        this.scoreLabel = new JLabel();
+        this.scoreLabel.setText("Score: " + MainModel.getInstance().getScore().calculScore() + "%");
+        this.scoreLabel.setFont(new Font("Serif", Font.BOLD, 25));
+        this.scoreLabel.setForeground(Color.CYAN);
+        this.add(scoreLabel);
+
     }
 
     @Override

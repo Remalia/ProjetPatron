@@ -15,7 +15,8 @@ public class MainModel {
     private CommandHandler ch;
     private static int nbForme = 0;
     private List<Forme> formes;
-    private int actualLevel;
+    private int actualLevel = -1;
+    private Score score;
 
     /***
      * Permet la création d'un mainModel
@@ -24,6 +25,7 @@ public class MainModel {
         this.actualLevel = idLevel;
         this.ch = new CommandHandler();
         this.formes = new ArrayList<>();
+        this.score = Score.getInstance(this.actualLevel);
     }
 
     public int getActualLevel() {
@@ -68,5 +70,9 @@ public class MainModel {
 
     public void setFormes(List<Forme> formes) {
         this.formes = formes;
+    }
+
+    public Score getScore() {
+        return score;
     }
 }

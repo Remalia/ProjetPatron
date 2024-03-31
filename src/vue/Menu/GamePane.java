@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 
-public class GamePane extends MenuAbstract implements MouseListener {
+public class    GamePane extends MenuAbstract implements MouseListener {
 
     public static GamePane instance;
     private MainController mc;
