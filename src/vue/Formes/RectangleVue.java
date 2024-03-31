@@ -23,7 +23,6 @@ public class RectangleVue extends FormeVue{
 
     @Override
     public boolean isInForme(Coord coord) {
-        boolean b = rectangle.contains(new Point(coord.getX(),coord.getY()));
-        return b;
+        return rectangle.contains(new Point(coord.getX(),coord.getY()));
     }
 }
