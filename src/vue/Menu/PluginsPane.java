@@ -20,7 +20,6 @@ public class PluginsPane extends MenuAbstract {
         this.setName("PluginsAddons");
         this.setBackground(ThemeView.getInstance().getColor());
         this.setBorder(BorderFactory.createLineBorder(Color.black));
-        //TODO Ajouter plugins aucune idée la
     }
 
     @Override

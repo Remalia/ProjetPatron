@@ -1,13 +1,13 @@
 package ProjetPatron.src.vue;
 
-import ProjetPatron.src.model.Param;
 import ProjetPatron.src.vue.Layout.LayoutMenuGlobal;
 import ProjetPatron.src.vue.Menu.*;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.*;
 import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Stack;
@@ -22,8 +22,10 @@ public class MainVue extends JFrame{
     private static final Stack<String> lastTitleNames = new Stack<>();;
     private static final Stack<Container> backupPanel = new Stack<>();;
     private static MainVue instance;
+    private final List<MenuAbstract> allInstance;
 
     private MainVue() throws IOException {
+        allInstance = new ArrayList<>();
         this.setSize(width,height);
         this.getContentPane().setLayout(new LayoutMenuGlobal());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,6 +35,7 @@ public class MainVue extends JFrame{
         this.getContentPane().add(NavBar.getInstance());
         this.getContentPane().add(MenuPrincipal.getInstance());
         this.setVisible(true);
+        this.addAllInstance();
     }
 
     public static void changeScene(MenuAbstract menu) throws IOException, InterruptedException {
@@ -93,15 +96,21 @@ public class MainVue extends JFrame{
         validate();
     }
 
-    public void backgroundHasChanged(Color color) throws IOException {
-        MenuJeu.getInstance().changeBackground(color);
-        MenuParametre.getInstance().changeBackground(color);
-        MenuPrincipal.getInstance().changeBackground(color);
-        MenuSelectionNiveau.getInstance().changeBackground(color);
-        NavBar.getInstance().changeBackground(color);
-        NavBarJeu.getInstance().changeBackground(color);
-        NavBarParam.getInstance().changeBackground(color);
-        NavBarSelectionLVL.getInstance().changeBackground(color);
+    private void addAllInstance() throws IOException {
+        this.allInstance.add(MenuJeu.getInstance());
+        this.allInstance.add(MenuParametre.getInstance());
+        this.allInstance.add(MenuPrincipal.getInstance());
+        this.allInstance.add(MenuSelectionNiveau.getInstance());
+        this.allInstance.add(NavBar.getInstance());
+        this.allInstance.add(NavBarJeu.getInstance());
+        this.allInstance.add(NavBarParam.getInstance());
+        this.allInstance.add(NavBarSelectionLVL.getInstance());
+    }
+
+    public void backgroundHasChanged(Color color){
+        for(MenuAbstract mA: this.allInstance){
+            mA.changeBackground(color);
+        }
     }
 
     public static void backScene() throws IOException {

@@ -10,8 +10,6 @@ import ProjetPatron.src.vue.Menu.GamePane;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /***
  * Etat d'ajout de suppression

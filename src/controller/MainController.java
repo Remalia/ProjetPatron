@@ -6,6 +6,7 @@ import ProjetPatron.src.controller.State.*;
  * Classe de gestion de tous les éléments faisant partie du controller
  */
 public class MainController {
+
     private static MainController instance;
     private State state;
 

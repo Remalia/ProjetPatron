@@ -34,6 +34,10 @@ public class MenuJeu extends MenuAbstract {
     @Override
     public void changeBackground(Color color) {
         super.changeBackground(color);
+        for (Component comp : this.getComponents()){
+            MenuAbstract mA = (MenuAbstract) comp;
+            mA.changeBackground(color);
+        }
     }
 
     public static MenuJeu getInstance() throws IOException {
