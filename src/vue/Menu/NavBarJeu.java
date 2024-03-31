@@ -61,10 +61,14 @@ public class NavBarJeu extends MenuAbstract{
     }
 
     public void newButtonSelected(Button b){
-        //TODO LOGAN --> Tout les background des buttons en fonction du theme SAUF le button selectionner ou Illuminer
-    }
+        for (Button button: this.buttons){
+                button.setBackground(ThemeView.getInstance().getColor());
+            }
+            b.setBackground(ThemeView.getInstance().getIlluminateColor());
+        }
 
     @Override
+
     public void reScaleAllComponentsImg() throws IOException {
         for (Button button : buttons){
             if(button.getIcon() != null){
