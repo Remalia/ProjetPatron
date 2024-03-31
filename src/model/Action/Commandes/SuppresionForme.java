@@ -22,7 +22,7 @@ public class SuppresionForme implements Command {
 
     @Override
     public String writeCommand(boolean svg) {
-        return null;
+        return "suppr-" + forme.getId();
     }
 
     @Override

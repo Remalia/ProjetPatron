@@ -15,13 +15,23 @@ public class MainModel {
     private CommandHandler ch;
     private static int nbForme = 0;
     private List<Forme> formes;
+    private int actualLevel;
 
     /***
      * Permet la création d'un mainModel
      */
-    private MainModel(){
+    private MainModel(int idLevel){
+        this.actualLevel = idLevel;
         this.ch = new CommandHandler();
         this.formes = new ArrayList<>();
+    }
+
+    public int getActualLevel() {
+        return actualLevel;
+    }
+
+    public void setActualLevel(int actualLevel) {
+        this.actualLevel = actualLevel;
     }
 
     public List<Forme> getFormes() {
@@ -34,7 +44,7 @@ public class MainModel {
 
     public static MainModel getInstance() {
         if(instance == null){
-            instance = new MainModel();
+            instance = new MainModel(-1);
         }
         return instance;
     }
@@ -52,7 +62,7 @@ public class MainModel {
     }
 
     public void loadLevel(int id){
-        instance = new MainModel();
+        instance = new MainModel(id);
         System.out.println("Loading");
     }
 
