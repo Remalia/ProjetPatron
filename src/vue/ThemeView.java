@@ -20,7 +20,7 @@ public class ThemeView {
     }
 
     public Color getIlluminateColor(){
-        return Color.RED;
+        return Color.PINK;
     }
 
     public Color getOppositeColor(){
