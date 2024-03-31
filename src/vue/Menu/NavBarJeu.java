@@ -9,10 +9,12 @@ import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonParams;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.ImageResizer;
 import ProjetPatron.src.vue.Layout.NavBarLayout;
+import ProjetPatron.src.vue.ThemeView;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.util.Objects;
 
 public class NavBarJeu extends MenuAbstract{
 
@@ -49,9 +51,17 @@ public class NavBarJeu extends MenuAbstract{
     @Override
     public void changeBackground(Color color) {
         super.changeBackground(color);
-        for (Component c: this.getComponents()){
-            c.setBackground(color);
+        for (Button b: this.buttons){
+            if (Objects.equals(b.getName(), "mouse")) {
+                b.setBackground(ThemeView.getInstance().getIlluminateColor());
+            } else {
+                b.setBackground(color);
+            }
         }
+    }
+
+    public void newButtonSelected(Button b){
+        //TODO LOGAN --> Tout les background des buttons en fonction du theme SAUF le button selectionner ou Illuminer
     }
 
     @Override
