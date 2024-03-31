@@ -12,9 +12,6 @@ import java.util.*;
  */
 public class Rectangle extends Forme{
 
-	private float longeur;
-	private float largeur;
-
 	/***
 	 * Constructeur de rectangle
 	 * @param color la couleur du rectangle
@@ -23,35 +20,11 @@ public class Rectangle extends Forme{
 	 */
 	public Rectangle(Color color,List<Coord> pts, boolean locked) {
 		super(color,pts,locked);
-		calcLongeurLargeur();
 	}
 
 	@Override
 	public String getPathImg() {
 		return "assets/images/jeu/rectangle.png";
-	}
-
-	/***
-	 * Permet de calculer la longeur et la largeur du rectangle et de l'assigner
-	 */
-	public void calcLongeurLargeur(){
-		//TODO calculer en fonction des pts
-	}
-
-	/***
-	 * Permet de récupérer la longeur du rectangle
-	 * @return la longeur du rectangle
-	 */
-	public float getLongeur() {
-		return longeur;
-	}
-
-	/***
-	 * Permet de récupérer la largeur du rectangle
-	 * @return la largeur du rectangle
-	 */
-	public float getLargeur() {
-		return largeur;
 	}
 
 	@Override
