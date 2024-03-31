@@ -35,5 +35,9 @@ public class Triangle extends Forme {
 			this.setFv(new TriangleVue(this));
 		return this.getFv();
 	}
+	@Override
+	public float getAire(){
+		return (float) (this.getWidth() * this.getHeight()) /2 ;
+	}
 
 }

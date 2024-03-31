@@ -1,6 +1,7 @@
 package ProjetPatron.src.model.Action.Commandes;
 
 import ProjetPatron.src.model.MainModel;
+import ProjetPatron.src.model.Score;
 import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.Menu.ErrorPane;
 import ProjetPatron.src.vue.Menu.MenuJeu;
@@ -41,6 +42,7 @@ public class CommandHandler{
         this.stackCommand.push(c);
         this.stackRedo.clear();
         MainVue.getInstance().repaintAll();
+
     }
 
     /***

@@ -34,4 +34,10 @@ public class Rectangle extends Forme{
 		return this.getFv();
 	}
 
+	@Override
+
+	public float getAire(){
+		return this.getWidth() * this.getHeight();
+	}
+
 }

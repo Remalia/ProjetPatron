@@ -25,7 +25,7 @@ public class MainModel {
         this.actualLevel = idLevel;
         this.ch = new CommandHandler();
         this.formes = new ArrayList<>();
-        this.score = Score.getInstance(this.actualLevel);
+        this.score = new Score();
     }
 
     public int getActualLevel() {

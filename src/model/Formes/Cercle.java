@@ -49,4 +49,10 @@ public class Cercle extends Forme{
 			this.setFv(new CercleVue(this));
 		return this.getFv();
 	}
+
+	@Override
+
+	public float getAire(){
+		return (float) (Math.PI * (Math.pow(((double) this.getWidth() /2),2)));
+	}
 }

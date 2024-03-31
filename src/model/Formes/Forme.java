@@ -124,6 +124,8 @@ public abstract class Forme implements FormeVueFactory {
 		}
 	}
 
+	public abstract float getAire();
+
 	public int getMostLeftCoord(){
 		return Math.min(points.get(0).getX(),points.get(1).getX());
 	}
