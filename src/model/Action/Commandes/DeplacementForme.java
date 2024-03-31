@@ -1,6 +1,9 @@
 package ProjetPatron.src.model.Action.Commandes;
 
+import ProjetPatron.src.model.Formes.Coord;
 import ProjetPatron.src.model.Formes.Forme;
+
+import java.awt.*;
 
 public class DeplacementForme implements Command{
 
@@ -26,12 +29,19 @@ public class DeplacementForme implements Command{
 
     @Override
     public void execute() {
-        //TODO LOGAN
+        for (Coord i : this.forme.getPoints()){
+            i.setX(i.getX() + this.pixelX);
+            i.setY(i.getY() + this.pixelY);
+        }
     }
 
     @Override
     public void backtrack() {
-        //TODO LOGAN
+        for (Coord i : this.forme.getPoints()){
+            i.setX(i.getX() - this.pixelX);
+            i.setY(i.getY() - this.pixelY);
+        }
+
     }
 
     @Override
