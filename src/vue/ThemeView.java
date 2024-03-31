@@ -6,7 +6,6 @@ import java.io.IOException;
 public class ThemeView {
 
     private Color color;
-
     private static ThemeView instance;
 
     private ThemeView(){
@@ -18,6 +17,10 @@ public class ThemeView {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public Color getIlluminateColor(){
+        return Color.RED;
     }
 
     public Color getOppositeColor(){

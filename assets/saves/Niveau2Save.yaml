@@ -1,7 +1,5 @@
 level: 2
-formes: #( cercle --> centre(x/y) | ext(x/y) ) ( rectangle --> pts1(x/y) | pts2(x/y) ) (triangle --> pts1(x/y) | pts2(x/y) | pts3(x/y) )
-  locked: #(Figure de base non déplacable)
-    0-cercle: (102/102) | (152/133)
-  unlocked: #(Figure déplacable mise par l'utilisateur)
+formes: #( cercle --> centre(x/y) | ext(x/y) ) ( rectangle --> pts1(x/y) | pts2(x/y) ) (triangle --> pts1(x/y) | pts2(x/y) | pts3(x/y) ) + T/F --> Locked ou non
+  0-cercle: (102/102) | (152/133) | T
 historySvg: #( Pile Undo )
 historyRecup: #( Pile Redo )

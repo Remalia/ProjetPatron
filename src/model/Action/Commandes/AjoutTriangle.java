@@ -6,6 +6,7 @@ import ProjetPatron.src.model.Formes.Triangle;
 import ProjetPatron.src.model.MainModel;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /***
@@ -14,6 +15,8 @@ import java.util.List;
 public class AjoutTriangle implements Command{
 
     private Triangle triangle;
+
+    public AjoutTriangle(){}
 
     public AjoutTriangle(Color color, List<Coord> points, Boolean locked){
         this.triangle = new Triangle(color,points,locked);
@@ -36,15 +39,20 @@ public class AjoutTriangle implements Command{
      */
     @Override
     public String writeCommand(boolean svg) {
-        return null;
+        String ligneDesc = " ";
+        ligneDesc += "("+triangle.getPoints().get(0).getX()+"/"+triangle.getPoints().get(0).getY()+") |";
+        ligneDesc += "("+triangle.getPoints().get(1).getX()+"/"+triangle.getPoints().get(1).getY()+") |";
+        ligneDesc += "("+triangle.getPoints().get(2).getX()+"/"+triangle.getPoints().get(2).getY()+") | ";
+        ligneDesc += triangle.isLocked() ? "T" : "F";
+        return "  triangle-"+triangle.getId()+": " +ligneDesc;
     }
 
     /***
      * Permet de reconstruire un ajout de triangle depuis une ligne de sauvegarde
      */
     @Override
-    public void readCommand() {
-
+    public void readCommand(String ligne) {
+        List<Point> pts = new ArrayList<>();
     }
 
 }

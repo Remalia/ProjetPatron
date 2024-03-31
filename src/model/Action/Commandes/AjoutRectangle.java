@@ -5,6 +5,7 @@ import ProjetPatron.src.model.Formes.Rectangle;
 import ProjetPatron.src.model.MainModel;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /***
@@ -13,6 +14,8 @@ import java.util.List;
 public class AjoutRectangle implements Command{
 
     private Rectangle rectangle;
+
+    public AjoutRectangle(){}
 
     public AjoutRectangle(Color color, List<Coord> points, Boolean locked){
         this.rectangle = new Rectangle(color,points,locked);
@@ -35,14 +38,18 @@ public class AjoutRectangle implements Command{
      */
     @Override
     public String writeCommand(boolean svg) {
-        return null;
+        String ligneDesc = " ";
+        ligneDesc += "("+rectangle.getPoints().get(0).getX()+"/"+rectangle.getPoints().get(0).getY()+") |";
+        ligneDesc += "("+rectangle.getPoints().get(1).getX()+"/"+rectangle.getPoints().get(1).getY()+") | ";
+        ligneDesc += rectangle.isLocked() ? "T" : "F";
+        return "  rectangle-"+rectangle.getId()+": " +ligneDesc;
     }
 
     /***
      * Permet de reconstruire un ajout de rectangle depuis une ligne de sauvegarde
      */
     @Override
-    public void readCommand() {
-
+    public void readCommand(String ligne) {
+        List<Point> pts = new ArrayList<>();
     }
 }

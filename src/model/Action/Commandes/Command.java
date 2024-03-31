@@ -8,6 +8,6 @@ public interface Command {
     void execute();
     void backtrack();
     String writeCommand(boolean svg);
-    void readCommand();
+    void readCommand(String ligne);
 
 }

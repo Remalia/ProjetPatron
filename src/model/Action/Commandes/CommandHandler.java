@@ -16,6 +16,14 @@ public class CommandHandler{
     private final Stack<Command> stackCommand;
     private final Stack<Command> stackRedo;
 
+    public Stack<Command> getStackCommand() {
+        return stackCommand;
+    }
+
+    public Stack<Command> getStackRedo() {
+        return stackRedo;
+    }
+
     /***
      * Permet de créer un commandeHandler
      */

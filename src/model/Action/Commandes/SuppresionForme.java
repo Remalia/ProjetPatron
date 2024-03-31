@@ -2,10 +2,13 @@ package ProjetPatron.src.model.Action.Commandes;
 
 import ProjetPatron.src.model.Formes.Forme;
 import ProjetPatron.src.model.MainModel;
+import ProjetPatron.src.model.Parser;
 
 public class SuppresionForme implements Command {
 
     private Forme forme;
+
+    public SuppresionForme(){}
 
     public SuppresionForme(Forme f){
         this.forme = f;
@@ -22,11 +25,11 @@ public class SuppresionForme implements Command {
 
     @Override
     public String writeCommand(boolean svg) {
-        return "suppr-" + forme.getId();
+        return "  suppr: " + forme.getId();
     }
 
     @Override
-    public void readCommand() {
-
+    public void readCommand(String ligne) {
+        this.forme = MainModel.getInstance().getFormes().get(Integer.parseInt(ligne));
     }
 }
