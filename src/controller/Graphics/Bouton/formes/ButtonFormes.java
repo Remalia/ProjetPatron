@@ -9,10 +9,19 @@ import java.awt.*;
  */
 public abstract class ButtonFormes extends Button {
 
+    /***
+     * Constructeur des actions des boutons sans image
+     * @param name : nom du bouton
+     */
     public ButtonFormes(String name) {
         super(name);
     }
 
+    /***
+     * Constructeur des actions des boutons avec image
+     * @param name : nom du bouton
+     * @param imgPath : chemin de l'image
+     */
     public ButtonFormes(String name,String imgPath){
         super(name,imgPath);
     }
