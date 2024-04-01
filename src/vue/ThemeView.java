@@ -38,7 +38,7 @@ public class ThemeView {
      * @return la couleur rouge
      */
     public Color getIlluminateColor(){
-        return Color.RED;
+        return Color.PINK;
     }
 
     /***

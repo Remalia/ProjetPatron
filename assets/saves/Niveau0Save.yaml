@@ -1,0 +1,8 @@
+level: 0
+formes: #( cercle --> centre(x/y) | ext(x/y) ) ( rectangle --> pts1(x/y) | pts2(x/y) ) (triangle --> pts1(x/y) | pts2(x/y) | pts3(x/y) ) + T/F --> Locked ou non
+  f-rectangle-3: (266/209) |(518/428) | F
+  f-cercle-4: (141/116) |(29/278) | F
+historySvg: #( Pile Undo )
+  rectangle-3:  (266/209) |(518/428) | F
+  cercle-4:  (141/116) |(29/278) | F
+historyRecup: #( Pile Redo )

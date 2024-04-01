@@ -1,5 +1,6 @@
 package ProjetPatron.src.model.Action.Commandes;
 
+import ProjetPatron.src.model.Formes.Coord;
 import ProjetPatron.src.model.Formes.Forme;
 
 /***
@@ -35,7 +36,10 @@ public class DeplacementForme implements Command{
      */
     @Override
     public void execute() {
-        //TODO LOGAN
+        for (Coord i : this.forme.getPoints()){
+            i.setX(i.getX() + this.pixelX);
+            i.setY(i.getY() + this.pixelY);
+        }
     }
 
     /***
@@ -43,7 +47,11 @@ public class DeplacementForme implements Command{
      */
     @Override
     public void backtrack() {
-        //TODO LOGAN
+        for (Coord i : this.forme.getPoints()){
+            i.setX(i.getX() - this.pixelX);
+            i.setY(i.getY() - this.pixelY);
+        }
+
     }
 
     /***
@@ -51,9 +59,9 @@ public class DeplacementForme implements Command{
      * @param svg True --> Sauvegarde pour le Undo / False --> Sauvegarde pour le Redo
      */
     @Override
-    public String writeCommand(boolean svg) {
+    public String writeCommand() {
         String ligneDesc = " ";
-        ligneDesc += pixelX + " + " + pixelY;
+        ligneDesc += pixelX + " + " + pixelY +"\n";
         return "  deplacement: " + forme.getId() + ligneDesc;
     }
 

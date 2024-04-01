@@ -11,7 +11,6 @@ import java.awt.*;
  */
 public abstract class Button extends JButton {
 
-    private String name;
     private String imgPath;
     private String imgHoverPath;
     private Boolean selected;
@@ -24,9 +23,8 @@ public abstract class Button extends JButton {
      */
     public Button(String name,String imgPath){
         this.imgPath = imgPath;
-        this.imgHoverPath = imgPath.split(".png")[0]+"_hover.png";
         this.selected = false;
-        this.name = name;
+        this.imgHoverPath = imgPath.split(".png")[0]+"_hover.png";
         this.mc = MainController.getInstance();
         this.setBorderPainted(false);
         this.setBackground(ThemeView.getInstance().getColor());
@@ -39,13 +37,27 @@ public abstract class Button extends JButton {
      * @param name : nom du bouton
      */
     public Button(String name){
-        this.selected = false;
-        this.name = name;
         this.mc = MainController.getInstance();
+        this.selected = false;
         this.setBorderPainted(false);
         this.setBackground(ThemeView.getInstance().getColor());
         this.setName(name);
         this.setText(name);
+    }
+
+    /*** 
+     * Permet de savoir si le bouton est sélectionné ou non
+     */
+    public Boolean getSelected() {
+        return selected;
+    }
+
+    /***
+     * Permet de changer si le bouton est sélectionné ou non
+     * @param selected True ou False suivant s'il est sélectionné ou non
+     */
+    public void setSelected(Boolean selected) {
+        this.selected = selected;
     }
 
     /***
@@ -64,12 +76,6 @@ public abstract class Button extends JButton {
         return imgHoverPath;
     }
 
-    /*** 
-     * Permet de savoir si le bouton est sélectionné ou non
-     */
-    public boolean isSelected(){
-        return selected;
-    }
 
     /***
      * Permet de récupérer le mainController

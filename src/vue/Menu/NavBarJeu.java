@@ -9,10 +9,12 @@ import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonParams;
 import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonRetour;
 import ProjetPatron.src.vue.ImageResizer;
 import ProjetPatron.src.vue.Layout.NavBarLayout;
+import ProjetPatron.src.vue.ThemeView;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.util.Objects;
 
 /***
  * Permet de créer et d'initialiser la barre de navigation en jeu
@@ -60,10 +62,26 @@ public class NavBarJeu extends MenuAbstract{
     @Override
     public void changeBackground(Color color) {
         super.changeBackground(color);
-        for (Component c: this.getComponents()){
-            c.setBackground(color);
+        for (Button b: this.buttons){
+            if (Objects.equals(b.getName(), "mouse")) {
+                b.setBackground(ThemeView.getInstance().getIlluminateColor());
+            } else {
+                b.setBackground(color);
+            }
         }
     }
+
+
+    /***
+     * Permet de connaitre le bouton selectionné
+     * @param b : le bouton
+     */
+    public void newButtonSelected(Button b){
+        for (Button button: this.buttons){
+                button.setBackground(ThemeView.getInstance().getColor());
+            }
+            b.setBackground(ThemeView.getInstance().getIlluminateColor());
+        }
 
     /***
      * Permet de remettre à échelle toutes les images de la barre de navigation en jeu

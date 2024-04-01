@@ -32,6 +32,15 @@ public class Triangle extends Forme {
 		return "assets/images/jeu/triangle.png";
 	}
 
+	@Override
+	public String writeForme() {
+		String ligneDesc = " ";
+		ligneDesc += "("+this.getPoints().get(0).getX()+"/"+this.getPoints().get(0).getY()+") |";
+		ligneDesc += "("+this.getPoints().get(1).getX()+"/"+this.getPoints().get(1).getY()+") | ";
+		ligneDesc += "("+this.getPoints().get(2).getX()+"/"+this.getPoints().get(2).getY()+") | ";
+		ligneDesc += this.isLocked() ? "T\n" : "F\n";
+		return super.writeForme()+"triangle-"+this.getId()+":"+ligneDesc;
+	}
 
 	/***
 	 * Permet de créer le triangle
@@ -42,6 +51,10 @@ public class Triangle extends Forme {
 		if(this.getFv() == null)
 			this.setFv(new TriangleVue(this));
 		return this.getFv();
+	}
+	@Override
+	public float getAire(){
+		return (float) (this.getWidth() * this.getHeight()) /2 ;
 	}
 
 }

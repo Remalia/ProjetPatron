@@ -32,6 +32,15 @@ public class Cercle extends Forme{
 		return "assets/images/jeu/cercle.png";
 	}
 
+	@Override
+	public String writeForme() {
+		String ligneDesc = " ";
+		ligneDesc += "("+this.getPoints().get(0).getX()+"/"+this.getPoints().get(0).getY()+") |";
+		ligneDesc += "("+this.getPoints().get(1).getX()+"/"+this.getPoints().get(1).getY()+") | ";
+		ligneDesc += this.isLocked() ? "T\n" : "F\n";
+		return super.writeForme()+"cercle-"+this.getId()+":"+ligneDesc;
+	}
+
 	/***
 	 * Permet de récupérer le rayon du cercle
 	 * @return la taille du rayon du cercle
@@ -59,5 +68,11 @@ public class Cercle extends Forme{
 		if(this.getFv() == null)
 			this.setFv(new CercleVue(this));
 		return this.getFv();
+	}
+
+	@Override
+
+	public float getAire(){
+		return (float) (Math.PI * (Math.pow(((double) this.getWidth() /2),2)));
 	}
 }

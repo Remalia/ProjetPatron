@@ -17,10 +17,9 @@ public interface Command {
 
     /***
      * Ecrit la commande pour le YAML
-     * @param svg 
      * @return la commande
      */
-    String writeCommand(boolean svg);
+    String writeCommand();
 
     /***
      * Lit la commande de la ligne actuelle

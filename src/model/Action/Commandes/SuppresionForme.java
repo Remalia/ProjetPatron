@@ -2,7 +2,6 @@ package ProjetPatron.src.model.Action.Commandes;
 
 import ProjetPatron.src.model.Formes.Forme;
 import ProjetPatron.src.model.MainModel;
-import ProjetPatron.src.model.Parser;
 
 /***
  * Classe permettant de supprimer une forme
@@ -45,8 +44,8 @@ public class SuppresionForme implements Command {
      * @param svg True --> Sauvegarde pour le Undo / False --> Sauvegarde pour le Redo
      */
     @Override
-    public String writeCommand(boolean svg) {
-        return "  suppr: " + forme.getId();
+    public String writeCommand() {
+        return "  suppr-"+ forme.getId() +":\n";
     }
 
 

@@ -1,6 +1,8 @@
 package ProjetPatron.src.model.Action.Commandes;
 
+import ProjetPatron.src.model.Action.SaveLevel;
 import ProjetPatron.src.model.MainModel;
+import ProjetPatron.src.model.Score;
 import ProjetPatron.src.vue.MainVue;
 import ProjetPatron.src.vue.Menu.ErrorPane;
 import ProjetPatron.src.vue.Menu.MenuJeu;
@@ -49,6 +51,7 @@ public class CommandHandler{
         this.stackCommand.push(c);
         this.stackRedo.clear();
         MainVue.getInstance().repaintAll();
+        SaveLevel.saveGameToYAML("assets/saves/Niveau"+MainModel.getInstance().getActualLevel()+"Save.yaml");
     }
 
     /***
@@ -61,6 +64,7 @@ public class CommandHandler{
             c.backtrack();
             stackRedo.push(c);
             MainVue.getInstance().repaintAll();
+            SaveLevel.saveGameToYAML("assets/saves/Niveau"+MainModel.getInstance().getActualLevel()+"Save.yaml");
         }else{
             ErrorPane.getInstance().setErrorText("La pile undo est vide !");
         }
@@ -76,6 +80,7 @@ public class CommandHandler{
             c.execute();
             stackCommand.push(c);
             MainVue.getInstance().repaintAll();
+            SaveLevel.saveGameToYAML("assets/saves/Niveau"+MainModel.getInstance().getActualLevel()+"Save.yaml");
         }else{
             ErrorPane.getInstance().setErrorText("La pile redo est vide !");
         }

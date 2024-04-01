@@ -1,7 +1,6 @@
 package ProjetPatron.src.model.Action.Commandes;
 
 import ProjetPatron.src.model.Formes.Coord;
-import ProjetPatron.src.model.Formes.Rectangle;
 import ProjetPatron.src.model.Formes.Triangle;
 import ProjetPatron.src.model.MainModel;
 
@@ -49,16 +48,15 @@ public class AjoutTriangle implements Command{
 
     /***
      * Permet d'écrire une commande d'ajout de triangle dans le Yaml de sauvegarde
-     * @param svg True --> Sauvegarde pour le Undo / False --> Sauvegarde pour le Redo
      * @return La commande de sauvegarde
      */
     @Override
-    public String writeCommand(boolean svg) {
+    public String writeCommand() {
         String ligneDesc = " ";
         ligneDesc += "("+triangle.getPoints().get(0).getX()+"/"+triangle.getPoints().get(0).getY()+") |";
         ligneDesc += "("+triangle.getPoints().get(1).getX()+"/"+triangle.getPoints().get(1).getY()+") |";
         ligneDesc += "("+triangle.getPoints().get(2).getX()+"/"+triangle.getPoints().get(2).getY()+") | ";
-        ligneDesc += triangle.isLocked() ? "T" : "F";
+        ligneDesc += triangle.isLocked() ? "T\n" : "F\n";
         return "  triangle-"+triangle.getId()+": " +ligneDesc;
     }
 

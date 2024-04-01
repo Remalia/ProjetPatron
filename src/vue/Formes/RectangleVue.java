@@ -18,7 +18,6 @@ public class RectangleVue extends FormeVue{
      */
     public RectangleVue(Forme forme) {
         super(forme);
-        this.rectangle = new Rectangle(getForme().getMostLeftCoord(), getForme().getMostUpCoord(), getForme().getWidth(), getForme().getHeight());
     }
 
     /***
@@ -28,6 +27,7 @@ public class RectangleVue extends FormeVue{
     @Override
     public void drawForme(Graphics g) {
         g.setColor(getForme().getColor());
+        this.rectangle = new Rectangle(getForme().getMostLeftCoord(), getForme().getMostUpCoord(), getForme().getWidth(), getForme().getHeight());
         g.drawRect(getForme().getMostLeftCoord(), getForme().getMostUpCoord(), getForme().getWidth(), getForme().getHeight());
         g.fillRect(getForme().getMostLeftCoord(), getForme().getMostUpCoord(), getForme().getWidth(), getForme().getHeight());
     }

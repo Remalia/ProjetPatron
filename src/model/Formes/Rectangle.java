@@ -12,9 +12,6 @@ import java.util.*;
  */
 public class Rectangle extends Forme{
 
-	private float longeur;
-	private float largeur;
-
 	/***
 	 * Constructeur de rectangle
 	 * @param color la couleur du rectangle
@@ -23,7 +20,6 @@ public class Rectangle extends Forme{
 	 */
 	public Rectangle(Color color,List<Coord> pts, boolean locked) {
 		super(color,pts,locked);
-		calcLongeurLargeur();
 	}
 
 	/***
@@ -31,31 +27,17 @@ public class Rectangle extends Forme{
 	 * @return le chemin de l'image du rectangle
 	 */
 	@Override
+	public String writeForme() {
+		String ligneDesc = " ";
+		ligneDesc += "("+this.getPoints().get(0).getX()+"/"+this.getPoints().get(0).getY()+") |";
+		ligneDesc += "("+this.getPoints().get(1).getX()+"/"+this.getPoints().get(1).getY()+") | ";
+		ligneDesc += this.isLocked() ? "T\n" : "F\n";
+		return super.writeForme()+"rectangle-"+this.getId()+":"+ligneDesc;
+	}
+
+	@Override
 	public String getPathImg() {
 		return "assets/images/jeu/rectangle.png";
-	}
-
-	/***
-	 * Permet de calculer la longeur et la largeur du rectangle et de l'assigner
-	 */
-	public void calcLongeurLargeur(){
-		//TODO calculer en fonction des pts
-	}
-
-	/***
-	 * Permet de récupérer la longeur du rectangle
-	 * @return la longeur du rectangle
-	 */
-	public float getLongeur() {
-		return longeur;
-	}
-
-	/***
-	 * Permet de récupérer la largeur du rectangle
-	 * @return la largeur du rectangle
-	 */
-	public float getLargeur() {
-		return largeur;
 	}
 
 	/***
@@ -67,6 +49,12 @@ public class Rectangle extends Forme{
 		if(this.getFv() == null)
 			this.setFv(new RectangleVue(this));
 		return this.getFv();
+	}
+
+	@Override
+
+	public float getAire(){
+		return this.getWidth() * this.getHeight();
 	}
 
 }

@@ -135,6 +135,8 @@ public abstract class Forme implements FormeVueFactory {
 			return y2 - y1;
 		}
 	}
+  
+  public abstract float getAire();
 
 	/***
 	 * Permet de récupérer le point le plus à gauche de la forme
@@ -213,5 +215,9 @@ public abstract class Forme implements FormeVueFactory {
 	 */
 	public void setFv(FormeVue fv) {
 		this.fv = fv;
+	}
+
+	public String writeForme(){
+		return "  f-";
 	}
 }
