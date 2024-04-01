@@ -10,6 +10,9 @@ import java.util.List;
  */
 public class SaveLevel {
 
+    /***
+     * Permet de sauvegarder une partie dans un fichier YAML
+     */
     public static void saveGameToYAML(){
         for (Command c : MainModel.getInstance().getCh().getStackCommand()){
             c.writeCommand(true);

@@ -5,6 +5,9 @@ package ProjetPatron.src.model.Action;
  */
 public class LoadLevel {
 
+    /***
+     * Permet de charger une partie depuis un fichier YAML
+     */
     public static void loadGameFromYAML(){
 
     }
