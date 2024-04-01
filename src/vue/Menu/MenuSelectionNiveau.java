@@ -25,7 +25,6 @@ public class MenuSelectionNiveau extends MenuAbstract {
         super();
         this.setName("MenuSelectionNiveau");
         this.setLayout(new LayoutSelectionNiveau());
-
         this.buttons.add(new ButtonSelectLevel("Niveau 1", "assets/images/Menu/lvl_1.png",1));
         this.buttons.add(new ButtonSelectLevel("Niveau 2","assets/images/Menu/lvl_2.png",2));
         this.buttons.add(new ButtonSelectLevel("Niveau 3","assets/images/Menu/lvl_3.png",3));

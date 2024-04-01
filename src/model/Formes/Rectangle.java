@@ -22,10 +22,21 @@ public class Rectangle extends Forme{
 		super(color,pts,locked);
 	}
 
+	/***
+	 * Constructeur de rectangle
+	 * @param color la couleur du rectangle
+	 * @param pts la liste des 2 points de coordonées de rectangle
+	 * @param locked True --> cible deplaçable | False --> non déplaçable
+	 * @param id l'id de la forme
+	 */
+	public Rectangle(Color color,List<Coord> pts,boolean locked,int id) {
+		super(color,pts,locked,id);
+	}
+
 	@Override
 	public String writeForme() {
 		String ligneDesc = " ";
-		ligneDesc += "("+this.getPoints().get(0).getX()+"/"+this.getPoints().get(0).getY()+") |";
+		ligneDesc += "("+this.getPoints().get(0).getX()+"/"+this.getPoints().get(0).getY()+") | ";
 		ligneDesc += "("+this.getPoints().get(1).getX()+"/"+this.getPoints().get(1).getY()+") | ";
 		ligneDesc += this.isLocked() ? "T\n" : "F\n";
 		return super.writeForme()+"rectangle-"+this.getId()+":"+ligneDesc;

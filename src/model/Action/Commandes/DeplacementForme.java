@@ -2,6 +2,7 @@ package ProjetPatron.src.model.Action.Commandes;
 
 import ProjetPatron.src.model.Formes.Coord;
 import ProjetPatron.src.model.Formes.Forme;
+import ProjetPatron.src.model.MainModel;
 
 public class DeplacementForme implements Command{
 
@@ -44,13 +45,20 @@ public class DeplacementForme implements Command{
 
     @Override
     public String writeCommand() {
-        String ligneDesc = " ";
+        String ligneDesc = " | ";
         ligneDesc += pixelX + " + " + pixelY +"\n";
         return "  deplacement: " + forme.getId() + ligneDesc;
     }
 
     @Override
-    public void readCommand(String ligne) {
-
+    public void readCommand(String key, String val) {
+        int id = Integer.parseInt(val.substring(0,val.indexOf("|")-1));
+        for (Forme f : MainModel.getInstance().getFormes()){
+            if (f.getId() == id){
+                this.forme = f;
+            }
+        }
+        this.pixelX = Integer.parseInt(val.substring(val.lastIndexOf("|")+2,val.indexOf("+")-1));
+        this.pixelY = Integer.parseInt(val.substring(val.lastIndexOf("+")+2));
     }
 }

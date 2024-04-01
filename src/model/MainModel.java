@@ -1,8 +1,12 @@
 package ProjetPatron.src.model;
 
 import ProjetPatron.src.model.Action.Commandes.CommandHandler;
+import ProjetPatron.src.model.Action.LoadLevel;
 import ProjetPatron.src.model.Formes.Forme;
+import ProjetPatron.src.vue.MainVue;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +19,7 @@ public class MainModel {
     private CommandHandler ch;
     private static int nbForme = 0;
     private List<Forme> formes;
-    private int actualLevel = -1;
+    private int actualLevel;
     private Score score;
 
     /***
@@ -63,9 +67,15 @@ public class MainModel {
         return nbForme;
     }
 
-    public void loadLevel(int id){
+    public static void setNbForme(int nbId) {
+        nbForme = nbId;
+    }
+
+    public void loadLevel(int id) throws IOException {
         instance = new MainModel(id);
-        System.out.println("Loading");
+        if(!LoadLevel.loadGameFromYAML("assets/saves/Niveau"+instance.getActualLevel()+"Save.yaml") && instance.getActualLevel() != 0)
+            LoadLevel.loadGameFromYAML("assets/saves/Niveau"+instance.getActualLevel()+".yaml");
+        MainVue.getInstance().repaintAll();
     }
 
     public void setFormes(List<Forme> formes) {

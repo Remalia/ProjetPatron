@@ -23,6 +23,17 @@ public class Triangle extends Forme {
 		super(color, points,locked);
 	}
 
+	/***
+	 * Constructeur de triangle
+	 * @param color La couleur du triangle
+	 * @param points Les coordonées des points du triangle
+	 * @param locked True --> cible deplaçable | False --> non déplaçable
+	 * @param id l'id de la forme
+	 */
+	public Triangle(Color color,List<Coord> points,boolean locked,int id) {
+		super(color,points,locked,id);
+	}
+
 	@Override
 	public String getPathImg() {
 		return "assets/images/jeu/triangle.png";
@@ -31,7 +42,7 @@ public class Triangle extends Forme {
 	@Override
 	public String writeForme() {
 		String ligneDesc = " ";
-		ligneDesc += "("+this.getPoints().get(0).getX()+"/"+this.getPoints().get(0).getY()+") |";
+		ligneDesc += "("+this.getPoints().get(0).getX()+"/"+this.getPoints().get(0).getY()+") | ";
 		ligneDesc += "("+this.getPoints().get(1).getX()+"/"+this.getPoints().get(1).getY()+") | ";
 		ligneDesc += "("+this.getPoints().get(2).getX()+"/"+this.getPoints().get(2).getY()+") | ";
 		ligneDesc += this.isLocked() ? "T\n" : "F\n";

@@ -32,6 +32,21 @@ public abstract class Forme implements FormeVueFactory {
 	}
 
 	/***
+	 * Constructeur Abstrait permettant de créer une forme
+	 * @param color la couleur qu'aura la forme
+	 * @param points les points de liaison de la forme
+	 * @param locked True --> cible deplaçable | False --> non déplaçable
+	 * @param id l'id de la forme nouvellement créer
+	 */
+	protected Forme(Color color,List<Coord> points,boolean locked,int id) {
+		this.color = color;
+		this.points = points;
+		this.locked = locked;
+		this.id = id;
+		MainModel.setNbForme(MainModel.getNbForme()+1);
+	}
+
+	/***
 	 * Permet de returner l'id de la forme
 	 * @return l'id
 	 */

@@ -23,6 +23,10 @@ public class Cercle extends Forme{
 		super(color,pts,locked);
 	}
 
+	public Cercle(Color color,List<Coord> pts,boolean locked,int id) {
+		super(color,pts,locked,id);
+	}
+
 	@Override
 	public String getPathImg() {
 		return "assets/images/jeu/cercle.png";
@@ -31,7 +35,7 @@ public class Cercle extends Forme{
 	@Override
 	public String writeForme() {
 		String ligneDesc = " ";
-		ligneDesc += "("+this.getPoints().get(0).getX()+"/"+this.getPoints().get(0).getY()+") |";
+		ligneDesc += "("+this.getPoints().get(0).getX()+"/"+this.getPoints().get(0).getY()+") | ";
 		ligneDesc += "("+this.getPoints().get(1).getX()+"/"+this.getPoints().get(1).getY()+") | ";
 		ligneDesc += this.isLocked() ? "T\n" : "F\n";
 		return super.writeForme()+"cercle-"+this.getId()+":"+ligneDesc;
@@ -46,11 +50,6 @@ public class Cercle extends Forme{
 		float distY = abs(this.getPoints().get(0).getY()-this.getPoints().get(1).getY());
 		return distY+distX;
 	}
-
-	public void setRayon(){
-		//TODO set le rayon depuis le centre vers le points autre
-	}
-
 
 	@Override
 	public FormeVue createFormeVue() {

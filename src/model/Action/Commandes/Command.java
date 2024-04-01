@@ -8,6 +8,6 @@ public interface Command {
     void execute();
     void backtrack();
     String writeCommand();
-    void readCommand(String ligne);
+    void readCommand(String key, String val);
 
 }

@@ -24,11 +24,16 @@ public class SuppresionForme implements Command {
 
     @Override
     public String writeCommand() {
-        return "  suppr-"+ forme.getId() +":\n";
+        return "  suppr-"+ forme.getId() +": "+ forme.getId() + "\n" ;
     }
 
     @Override
-    public void readCommand(String ligne) {
-        this.forme = MainModel.getInstance().getFormes().get(Integer.parseInt(ligne));
+    public void readCommand(String key, String val) {
+        int id = Integer.parseInt(val);
+        for (Forme f : MainModel.getInstance().getFormes()){
+            if (f.getId() == id){
+                this.forme = f;
+            }
+        }
     }
 }

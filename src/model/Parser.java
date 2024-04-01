@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Scanner;
 
 public class Parser {
     /**
@@ -14,17 +16,16 @@ public class Parser {
      * @throws FileNotFoundException Fichier Introuvable
      */
     public static HashMap<String,String> getAllBalise(File file) throws FileNotFoundException {
-        HashMap<String, String> balises = new HashMap<>();
+        HashMap<String, String> balises = new LinkedHashMap<>();
         try {
-            List<String> lines = Files.readAllLines(file.toPath());
-            if (!lines.isEmpty()){
+            Scanner sc = new Scanner(file);
+            while (sc.hasNextLine()){
                 String key;
-                for (String line: lines) {
-                    line = deleteStartSpace(line);
-                    key = line.substring(0,line.indexOf(":"));
-                    if((line.indexOf(":") + 2) < line.length())
-                        balises.put(key,line.substring(line.indexOf(":") + 2));
-                }
+                String line = sc.nextLine();
+                line = deleteStartSpace(line);
+                key = line.substring(0,line.indexOf(":"));
+                if((line.indexOf(":") + 2) < line.length())
+                    balises.put(key,line.substring(line.indexOf(":") + 2));
             }
         } catch (IOException e){
             throw new FileNotFoundException("Fichier Introuvable");
