@@ -17,6 +17,12 @@ import java.io.IOException;
  */
 public class ButtonSelectLevel extends Button implements MouseListener {
 
+    /***
+     * Constructeur du bouton de sélection de niveau avec image
+     * @param name : le nom du bouton
+     * @param imgPath : le chemin de l'image
+     * @param idMenu : l'id du menu
+     */
     public ButtonSelectLevel(String name,String imgPath,int idMenu) {
         super(name,imgPath);
         this.addMouseListener(this);
@@ -31,6 +37,11 @@ public class ButtonSelectLevel extends Button implements MouseListener {
         });
     }
 
+    /***
+     * Constructeur du bouton de sélection de niveau sans image
+     * @param name : le nom du bouton
+     * @param idMenu : l'id du menu
+     */
     public ButtonSelectLevel(String name,int idMenu) {
         super(name);
         this.addActionListener(e -> {
@@ -44,21 +55,33 @@ public class ButtonSelectLevel extends Button implements MouseListener {
         });
     }
 
+    /***
+     * Méthode de gestion de l'événement de clic
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
 
     }
 
+    /***
+     * Méthode de gestion de l'événement de pression
+     */
     @Override
     public void mousePressed(MouseEvent e) {
 
     }
 
+    /***
+     * Méthode de gestion de l'événement de relâchement
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
 
     }
 
+    /***
+     * Méthode de gestion de l'événement de survol
+     */
     @Override
     public void mouseEntered(MouseEvent e) {
         if (!this.getImgPath().contains("jeu_libre"))
@@ -76,6 +99,9 @@ public class ButtonSelectLevel extends Button implements MouseListener {
         }
     }
 
+    /***
+     * Méthode de gestion de l'événement de sortie de zone
+     */
     @Override
     public void mouseExited(MouseEvent e) {
         if (!this.getImgPath().contains("jeu_libre"))

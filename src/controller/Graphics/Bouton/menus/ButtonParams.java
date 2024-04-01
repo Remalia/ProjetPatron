@@ -16,6 +16,11 @@ import java.io.IOException;
  */
 public class ButtonParams extends Button implements MouseListener {
 
+    /***
+     * Constructeur du bouton de contrôles avec image
+     * @param name nom du bouton
+     * @param imgPath chemin de l'image
+     */
     public ButtonParams(String name, String imgPath) {
         super(name, imgPath);
         this.addMouseListener(this);
@@ -28,6 +33,10 @@ public class ButtonParams extends Button implements MouseListener {
         });
     }
 
+    /***
+     * Constructeur du bouton de contrôles sans image
+     * @param name nom du bouton
+     */
     public ButtonParams(String name) {
         super(name);
         this.addActionListener(e -> {
@@ -39,21 +48,33 @@ public class ButtonParams extends Button implements MouseListener {
         });
     }
 
+    /***
+     * Méthode de gestion de l'événement de clic
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
 
     }
 
+    /***
+     * Méthode de gestion de l'événement de pression
+     */
     @Override
     public void mousePressed(MouseEvent e) {
 
     }
 
+    /***
+     * Méthode de gestion de l'événement de relâchement
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
 
     }
 
+    /***
+     * Méthode de gestion de l'événement de survol de zone
+     */
     @Override
     public void mouseEntered(MouseEvent e) {
         if (this.getImgPath().contains("Menu"))
@@ -64,6 +85,9 @@ public class ButtonParams extends Button implements MouseListener {
             }
     }
 
+    /***
+     * Méthode de gestion de l'événement de sortie de zone
+     */
     @Override
     public void mouseExited(MouseEvent e) {
         if (this.getImgPath().contains("Menu"))
