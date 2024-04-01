@@ -63,6 +63,7 @@ public class LayoutMenuParametre implements LayoutManager {
                 case "cbResolution": comp.setBounds((int)(width*0.1)+200,(int)(height*0.1),200,50); comp.setFont(new Font("Serif",Font.BOLD,32));break;
                 case "cbTheme": comp.setBounds((int)(width*0.1)+200,(int)(height*0.25),200,50); comp.setFont(new Font("Serif",Font.BOLD,32));break;
                 case "cbFullScreen": comp.setBounds((int)(width*0.1)+200,(int)(height*0.40),600,50); comp.setFont(new Font("Serif",Font.BOLD,32)); comp.setForeground(ThemeView.getInstance().getOppositeColor()); break;
+                case "reset": comp.setBounds((int)(width*0.1)+200,(int)(height*0.70),100,100); break;
             }
         }
     }

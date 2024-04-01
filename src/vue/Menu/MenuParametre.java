@@ -1,5 +1,6 @@
 package ProjetPatron.src.vue.Menu;
 
+import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonReset;
 import ProjetPatron.src.controller.Graphics.Box.CheckBoxFullScreen;
 import ProjetPatron.src.controller.Graphics.Box.ComboBoxResolution;
 import ProjetPatron.src.controller.Graphics.Box.ComboBoxTheme;
@@ -33,11 +34,13 @@ public class MenuParametre extends MenuAbstract{
         JCheckBox checkBoxFullscreen = CheckBoxFullScreen.getInstance();
         JComboBox<String> cbResolution = ComboBoxResolution.getInstance();
         JComboBox<String> cbTheme = ComboBoxTheme.getInstance();
+        ButtonReset br = new ButtonReset("reset", "assets/images/jeu/rectangle.png");
         this.add(checkBoxFullscreen);
         this.add(labelResolution);
         this.add(labelTheme);
         this.add(cbTheme);
         this.add(cbResolution);
+        this.add(br);
     }
 
     @Override

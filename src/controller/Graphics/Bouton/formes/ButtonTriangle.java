@@ -1,5 +1,6 @@
 package ProjetPatron.src.controller.Graphics.Bouton.formes;
 
+import ProjetPatron.src.controller.State.StateAjoutCircle;
 import ProjetPatron.src.controller.State.StateAjoutTriangle;
 import ProjetPatron.src.controller.State.StateSuppression;
 import ProjetPatron.src.vue.Menu.NavBarJeu;
@@ -19,7 +20,14 @@ public class ButtonTriangle extends ButtonFormes{
      */
     public ButtonTriangle(String name) {
         super(name);
-        this.addActionListener(e -> getMc().setState(StateAjoutTriangle.getInstance()));
+        this.addActionListener(e -> {
+            try {
+                NavBarJeu.getInstance().newButtonSelected(this);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            getMc().setState(StateAjoutTriangle.getInstance());
+        });
     }
 
     /***

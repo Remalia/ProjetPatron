@@ -36,4 +36,14 @@ public class SaveLevel {
         writer.flush();
         writer.close();
     }
+
+    public static void resetAll() throws IOException{
+        for(int i = 0; i < 4; i++){
+            FileWriter fileWriter = new FileWriter("assets/saves/Niveau"+ i +"Save.yaml", false);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            writer.write("");
+            writer.flush();
+            writer.close();
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package ProjetPatron.src.model;
 
+import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonReset;
 import ProjetPatron.src.controller.Graphics.Box.CheckBoxFullScreen;
 import ProjetPatron.src.controller.Graphics.Box.ComboBoxResolution;
 import ProjetPatron.src.controller.Graphics.Box.ComboBoxTheme;
@@ -44,6 +45,7 @@ public class Param {
         ComboBoxTheme cbt = ComboBoxTheme.getInstance();
         ThemeView tv = ThemeView.getInstance();
         CheckBoxFullScreen cf = CheckBoxFullScreen.getInstance();
+        ButtonReset br = new ButtonReset("reset","assets/images/jeu/rectangle.png");
         HashMap<String,String> balises = Parser.getAllBalise(new File("assets/param.yaml"));
         if (!balises.isEmpty()){
             balises.forEach((key, val) -> {
