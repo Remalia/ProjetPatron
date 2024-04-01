@@ -11,6 +11,11 @@ import java.io.IOException;
  */
 public class ButtonUndo extends Button {
 
+    /***
+     * Constructeur du bouton undo avec image
+     * @param name : le nom du bouton
+     * @param imgPath : le chemin de l'image
+     */
     public ButtonUndo(String name,String imgPath) {
         super(name,imgPath);
         this.addActionListener(e -> {
@@ -22,6 +27,10 @@ public class ButtonUndo extends Button {
         });
     }
 
+    /***
+     * Constructeur du bouton undo sans image
+     * @param name : le nom du bouton
+     */
     public ButtonUndo(String name) {
         super(name);
         this.addActionListener(e -> {
