@@ -16,17 +16,32 @@ public class AjoutTriangle implements Command{
 
     private Triangle triangle;
 
+    /***
+     * Constructeur pour l'ajout d'un triangle
+     */
     public AjoutTriangle(){}
 
+    /***
+     * Constructeur pour l'ajout d'un triangle avec arguments
+     * @param color : la couleur du triangle
+     * @param points : ses coordonnées
+     * @param locked : si il est bloqué au déplacement ou non
+     */
     public AjoutTriangle(Color color, List<Coord> points, Boolean locked){
         this.triangle = new Triangle(color,points,locked);
     }
 
+    /***
+     * Permet d'ajouter le triangle
+     */
     @Override
     public void execute() {
         MainModel.getInstance().getFormes().add(triangle);
     }
 
+    /***
+     * Permet d'annuler l'ajout du triangle
+     */
     @Override
     public void backtrack() {
         MainModel.getInstance().getFormes().remove(triangle);
@@ -49,6 +64,7 @@ public class AjoutTriangle implements Command{
 
     /***
      * Permet de reconstruire un ajout de triangle depuis une ligne de sauvegarde
+     * @param ligne La ligne en question
      */
     @Override
     public void readCommand(String ligne) {

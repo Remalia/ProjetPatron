@@ -2,18 +2,24 @@ package ProjetPatron.src.model.Action.Commandes;
 
 import ProjetPatron.src.model.Formes.Forme;
 
+/***
+ * Classe permettant le déplacement d'une forme
+ */
 public class DeplacementForme implements Command{
 
     private Forme forme;
     private int pixelX;
     private int pixelY;
 
+    /***
+     * Contructeur d'un déplacement de forme
+     */
     public DeplacementForme(){
 
     }
 
     /***
-     * Constructuer d'un déplacement de forme
+     * Constructuer d'un déplacement de forme avec arguments
      * @param forme La forme à déplacer
      * @param pixelX Le nombre de pixel à droite à déplacer la forme
      * @param pixelY Le nombre de pixel en bas à déplacer la forme
@@ -24,16 +30,26 @@ public class DeplacementForme implements Command{
         this.pixelY = pixelY;
     }
 
+    /***
+     * Permet le déplacement de la forme
+     */
     @Override
     public void execute() {
         //TODO LOGAN
     }
 
+    /***
+     * Permet de d'annuler le déplacement
+     */
     @Override
     public void backtrack() {
         //TODO LOGAN
     }
 
+    /***
+     * Permet d'écrire une commande de déplacement de forme dans le YAML de sauvegarde
+     * @param svg True --> Sauvegarde pour le Undo / False --> Sauvegarde pour le Redo
+     */
     @Override
     public String writeCommand(boolean svg) {
         String ligneDesc = " ";
@@ -41,6 +57,10 @@ public class DeplacementForme implements Command{
         return "  deplacement: " + forme.getId() + ligneDesc;
     }
 
+    /***
+     * Permet de lire une ligne de sauvegarde
+     * @param ligne La ligne en question
+     */
     @Override
     public void readCommand(String ligne) {
 
