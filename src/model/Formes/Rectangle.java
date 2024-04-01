@@ -26,6 +26,10 @@ public class Rectangle extends Forme{
 		calcLongeurLargeur();
 	}
 
+	/***
+	 * Permet de récupérer le chemin de l'image du rectangle
+	 * @return le chemin de l'image du rectangle
+	 */
 	@Override
 	public String getPathImg() {
 		return "assets/images/jeu/rectangle.png";
@@ -54,6 +58,10 @@ public class Rectangle extends Forme{
 		return largeur;
 	}
 
+	/***
+	 * Permet de créer le rectangle
+	 * @return le rectangle
+	 */
 	@Override
 	public FormeVue createFormeVue() {
 		if(this.getFv() == null)

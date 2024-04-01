@@ -23,6 +23,10 @@ public class Cercle extends Forme{
 		super(color,pts,locked);
 	}
 
+	/***
+	 * Permet de récupérer le chemin de l'image du cercle
+	 * @return le chemin de l'image du cercle
+	 */
 	@Override
 	public String getPathImg() {
 		return "assets/images/jeu/cercle.png";
@@ -38,11 +42,18 @@ public class Cercle extends Forme{
 		return distY+distX;
 	}
 
+	/***
+	 * Permet de set le rayon du cercle
+	 */
 	public void setRayon(){
 		//TODO set le rayon depuis le centre vers le points autre
 	}
 
 
+	/***
+	 * Permet de créer le cercle
+	 * @return le cercle
+	 */
 	@Override
 	public FormeVue createFormeVue() {
 		if(this.getFv() == null)

@@ -23,12 +23,20 @@ public class Triangle extends Forme {
 		super(color, points,locked);
 	}
 
+	/***
+	 * Permet de récupérer le chemin de l'image du triangle
+	 * @return le chemin de l'image du triangle
+	 */
 	@Override
 	public String getPathImg() {
 		return "assets/images/jeu/triangle.png";
 	}
 
 
+	/***
+	 * Permet de créer le triangle
+	 * @return le triangle
+	 */
 	@Override
 	public FormeVue createFormeVue() {
 		if(this.getFv() == null)
