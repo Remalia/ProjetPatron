@@ -118,6 +118,7 @@ public class MainVue extends JFrame{
         setFrameWidth(width);
         setFrameHeight(height);
         instance.setSize(new Dimension(width,height));
+
     }
 
     /***

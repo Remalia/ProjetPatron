@@ -16,6 +16,7 @@ public class ButtonReset extends Button implements MouseListener {
 
     public ButtonReset(String name, String imgPath) {
         super(name, imgPath);
+        this.addMouseListener(this);
         this.addActionListener(e -> {
             try {
                 SaveLevel.resetAll();
@@ -61,9 +62,8 @@ public class ButtonReset extends Button implements MouseListener {
      */
     @Override
     public void mouseEntered(MouseEvent e) {
-        if (this.getImgPath().contains("Menu"))
             try {
-                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal(this.getImgHoverPath())));
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal("assets/images/Menu/reset_hover.png")));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -74,11 +74,12 @@ public class ButtonReset extends Button implements MouseListener {
      */
     @Override
     public void mouseExited(MouseEvent e) {
-        if (this.getImgPath().contains("Menu"))
             try {
-                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal(this.getImgPath())));
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal("assets/images/Menu/reset.png")));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
     }
+
+
 }

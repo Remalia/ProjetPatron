@@ -34,13 +34,17 @@ public class MenuParametre extends MenuAbstract{
         JCheckBox checkBoxFullscreen = CheckBoxFullScreen.getInstance();
         JComboBox<String> cbResolution = ComboBoxResolution.getInstance();
         JComboBox<String> cbTheme = ComboBoxTheme.getInstance();
-        ButtonReset br = new ButtonReset("reset", "assets/images/jeu/rectangle.png");
+        ButtonReset br = new ButtonReset("reset", "assets/images/Menu/reset.png");
+
+
         this.add(checkBoxFullscreen);
         this.add(labelResolution);
         this.add(labelTheme);
         this.add(cbTheme);
         this.add(cbResolution);
         this.add(br);
+
+
     }
 
     @Override

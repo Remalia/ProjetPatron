@@ -29,7 +29,7 @@ public abstract class Button extends JButton {
         this.setBorderPainted(false);
         this.setBackground(ThemeView.getInstance().getColor());
         this.setName(name);
-        this.setIcon(new ImageIcon());
+        this.setIcon(new ImageIcon(imgPath));
     }
 
     /***
