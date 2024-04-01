@@ -1,57 +1,41 @@
 package ProjetPatron.src.controller.Graphics.Bouton.menus;
 
 import ProjetPatron.src.controller.Graphics.Bouton.Button;
+import ProjetPatron.src.controller.State.StateSelect;
+import ProjetPatron.src.model.Action.SaveLevel;
 import ProjetPatron.src.vue.ImageResizer;
 import ProjetPatron.src.vue.MainVue;
-import ProjetPatron.src.vue.Menu.MenuSelectionNiveau;
+import ProjetPatron.src.vue.Menu.MenuParametre;
+import ProjetPatron.src.vue.Menu.NavBarJeu;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
+public class ButtonReset extends Button implements MouseListener {
 
-/***
- * Classe de gestion du bouton de jouer
- */
-public class ButtonJouer extends Button implements MouseListener {
-
-    /***
-     * Constructeur du bouton de jouer sans image
-     * @param name nom du bouton
-     */
-    public ButtonJouer(String name) {
-        super(name);
-        this.addActionListener(e -> {
-            try {
-                MainVue.changeScene(MenuSelectionNiveau.getInstance());
-            } catch (IOException | InterruptedException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-    }
-
-    /***
-     * Constructeur du bouton de jouer avec image
-     * @param name nom du bouton
-     * @param imgPath chemin de l'image
-     */
-    public ButtonJouer(String name, String imgPath) {
+    public ButtonReset(String name, String imgPath) {
         super(name, imgPath);
         this.addMouseListener(this);
         this.addActionListener(e -> {
             try {
-                MainVue.changeScene(MenuSelectionNiveau.getInstance());
-            } catch (IOException | InterruptedException ex) {
+                SaveLevel.resetAll();
+            } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
     }
 
-    /***
-     * Méthode de gestion de l'événement de clic
-     */
+    public ButtonReset(String name){
+        super(name);
+        this.addActionListener(e -> {
+            try {
+                SaveLevel.resetAll();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+    }
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -74,13 +58,12 @@ public class ButtonJouer extends Button implements MouseListener {
     }
 
     /***
-     * Méthode de gestion de l'événement de survol
+     * Méthode de gestion de l'événement de survol de zone
      */
     @Override
     public void mouseEntered(MouseEvent e) {
-        if (this.getImgPath() != null)
             try {
-                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal(this.getImgHoverPath())));
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal("assets/images/Menu/reset_hover.png")));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -91,11 +74,12 @@ public class ButtonJouer extends Button implements MouseListener {
      */
     @Override
     public void mouseExited(MouseEvent e) {
-        if (this.getImgPath() != null)
             try {
-                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal(this.getImgPath())));
+                this.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal("assets/images/Menu/reset.png")));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
     }
+
+
 }

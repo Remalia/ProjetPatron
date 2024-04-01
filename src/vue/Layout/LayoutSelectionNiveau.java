@@ -2,27 +2,54 @@ package ProjetPatron.src.vue.Layout;
 
 import java.awt.*;
 
+/***
+ * Classe qui permet de gerer le layout de la selection du niveau
+ */
 public class LayoutSelectionNiveau implements LayoutManager {
+
+    /**
+     * Permet d'ajouter un composant
+     * @param name : nom du composant
+     * @param comp : composant
+     */
     @Override
     public void addLayoutComponent(String name, Component comp) {
 
     }
 
+    /**
+     * Permet de supprimer un composant
+     * @param comp : composant
+     */
     @Override
     public void removeLayoutComponent(Component comp) {
 
     }
 
+    /**
+     * Permet de definir la taille
+     * @param parent : conteneur parent
+     * @return null
+     */
     @Override
     public Dimension preferredLayoutSize(Container parent) {
         return null;
     }
 
+    /**
+     * Permet de definir la taille minimale
+     * @param parent : conteneur parent
+     * @return null
+     */
     @Override
     public Dimension minimumLayoutSize(Container parent) {
         return null;
     }
 
+    /**
+     * Permet de definir la position des composants
+     * @param parent : conteneur parent
+     */
     @Override
     public void layoutContainer(Container parent) {
         int width = parent.getWidth();

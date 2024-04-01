@@ -109,6 +109,10 @@ public abstract class Forme implements FormeVueFactory {
 		}
 	}
 
+	/***
+	 * Permet de récupérer le centre de la forme
+	 * @return le centre de la forme
+	 */
 	public Coord getCenter(){
 		int cumulX = 0;
 		int cumulY = 0;
@@ -119,6 +123,10 @@ public abstract class Forme implements FormeVueFactory {
 		return new Coord(cumulX/points.size(),cumulY/points.size());
 	}
 
+	/***
+	 * Permet de récupérer la largeur de la forme
+	 * @return la largeur de la forme
+	 */
 	public int getWidth(){
 		int x1 = points.get(0).getX();
 		int x2 = points.get(1).getX();
@@ -129,6 +137,10 @@ public abstract class Forme implements FormeVueFactory {
 		}
 	}
 
+	/***
+	 * Permet de récupérer la hauteur de la forme
+	 * @return la hauteur de la forme
+	 */
 	public int getHeight(){
 		int y1 = points.get(0).getY();
 		int y2 = points.get(1).getY();
@@ -138,25 +150,45 @@ public abstract class Forme implements FormeVueFactory {
 			return y2 - y1;
 		}
 	}
+  
+  public abstract float getAire();
 
-	public abstract float getAire();
-
+	/***
+	 * Permet de récupérer le point le plus à gauche de la forme
+	 * @return le point le plus à gauche
+	 */
 	public int getMostLeftCoord(){
 		return Math.min(points.get(0).getX(),points.get(1).getX());
 	}
 
+	/***
+	 * Permet de récupérer le point le plus en haut de la forme
+	 * @return le point le plus en haut
+	 */
 	public int getMostUpCoord(){
 		return Math.min(points.get(0).getY(),points.get(1).getY());
 	}
 
+	/***
+	 * Permet de récupérer le point le plus à droite de la forme
+	 * @return le point le plus à droite
+	 */
 	public int getMostRightCoord(){
 		return Math.max(points.get(0).getX(),points.get(1).getX());
 	}
 
+	/***
+	 * Permet de récupérer le point le plus en bas de la forme
+	 * @return le point le plus en bas
+	 */
 	public int getMostDownCoord(){
 		return Math.max(points.get(0).getY(),points.get(1).getY());
 	}
 
+	/***
+	 * Permet de récupérer la coordonnée x du point
+	 * @return la coordonnée x du point
+	 */
 	public int[] getPointX(){
 		int[] xs = new int[points.size()];
 		for (int i = 0; i < points.size(); i++) {
@@ -165,6 +197,11 @@ public abstract class Forme implements FormeVueFactory {
 		return xs;
 	}
 
+
+	/***
+	 * Permet de récupérer la coordonnée y du point
+	 * @return la coordonnée y du point
+	 */
 	public int[] getPointY(){
 		int[] ys = new int[points.size()];
 		for (int i = 0; i < points.size(); i++) {
@@ -173,12 +210,24 @@ public abstract class Forme implements FormeVueFactory {
 		return ys;
 	}
 
+	/***
+	 * Permet de récupérer le chemin de l'image de la forme
+	 * @return le chemin de l'image de la forme
+	 */
 	public abstract String getPathImg();
 
+	/***
+	 * Permet de récupérer la forme
+	 * @return la forme
+	 */
 	public FormeVue getFv() {
 		return fv;
 	}
 
+	/***
+	 * Permet de changer la forme
+	 * @param fv la nouvelle forme
+	 */
 	public void setFv(FormeVue fv) {
 		this.fv = fv;
 	}

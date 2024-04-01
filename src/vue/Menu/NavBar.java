@@ -10,11 +10,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/***
+ * Permet de créer et d'initialiser la barre de navigation
+ *
+ */
 public class NavBar extends MenuAbstract{
 
     private static NavBar instance;
     private final ButtonRetour btnRetour;
 
+    /***
+     * Constructeur de la barre de navigation
+     */
     private NavBar(){
         super();
         this.setName("NavBar");
@@ -26,6 +33,10 @@ public class NavBar extends MenuAbstract{
         this.addAllButtons();
     }
 
+    /***
+     * Permet de changer le background de la barre de navigation
+     * @param color La couleur du background
+     */
     @Override
     public void changeBackground(Color color) {
         super.changeBackground(color);
@@ -34,6 +45,10 @@ public class NavBar extends MenuAbstract{
         }
     }
 
+    /***
+     * Permet de remettre à échelle toutes les images de la barre de navigation
+     * @throws IOException Image non trouvée
+     */
     @Override
     public void reScaleAllComponentsImg() throws IOException {
         for (Button button : buttons){
@@ -43,6 +58,11 @@ public class NavBar extends MenuAbstract{
         }
     }
 
+    /***
+     * Permet de récupérer l'instance unique de la barre de navigation
+     * @return L'instance unique de la barre de navigation
+     * @throws IOException Image non trouvée
+     */
     public static NavBar getInstance() throws IOException {
         if(instance == null){
             instance = new NavBar();
@@ -51,6 +71,10 @@ public class NavBar extends MenuAbstract{
         return instance;
     }
 
+    /***
+     * Renvoie le nom de la frame
+     * @return le nom de la frame
+     */
     @Override
     public String getNameFrame() {
         return "NavBar";

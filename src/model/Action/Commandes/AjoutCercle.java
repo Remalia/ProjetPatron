@@ -17,17 +17,32 @@ public class AjoutCercle implements Command{
 
     private Cercle circle;
 
+    /***
+     * Constructeur pour l'ajout d'un cercle
+     */
     public AjoutCercle(){}
 
+    /***
+     * Constructeur pour l'ajout d'un cercle avec arguments
+     * @param color : la couleur du cercle
+     * @param points : ses coordonnées
+     * @param locked : si il est bloqué au déplacement ou non
+     */
     public AjoutCercle(Color color, List<Coord> points, Boolean locked){
         this.circle = new Cercle(color,points,locked);
     }
 
+    /***
+     * Permet d'ajouter le cercle
+     */
     @Override
     public void execute() {
         MainModel.getInstance().getFormes().add(circle);
     }
 
+    /***
+     * Permet d'annuler l'ajout du cercle
+     */
     @Override
     public void backtrack() {
         MainModel.getInstance().getFormes().remove(circle);

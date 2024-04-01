@@ -12,10 +12,18 @@ import java.io.IOException;
 
 import static ProjetPatron.src.vue.ImageResizer.getGoodImageSizeMenuPrincipal;
 
+/***
+ * Permet de créer et d'initialiser le menu principal
+ * 
+ */
 public class MenuPrincipal extends MenuAbstract {
 
     private static MenuPrincipal instance;
 
+    /***
+     * Constructeur d'un menu principal
+     * @throws IOException Fichier image introuvable
+     */
     private MenuPrincipal() throws IOException {
         super();
         this.setName("MenuPrincipal");
@@ -27,6 +35,10 @@ public class MenuPrincipal extends MenuAbstract {
         reScaleAllComponentsImg();
     }
 
+    /***
+     * Permet de remettre à échelle toutes les images du menu
+     * @throws IOException Image non trouvée
+     */
     @Override
     public void reScaleAllComponentsImg() throws IOException {
         for (Button button : buttons){
@@ -36,6 +48,10 @@ public class MenuPrincipal extends MenuAbstract {
         }
     }
 
+    /***
+     * Permet de changer le background du menu
+     * @param color La couleur du background
+     */
     @Override
     public void changeBackground(Color color) {
         super.changeBackground(color);
@@ -44,6 +60,11 @@ public class MenuPrincipal extends MenuAbstract {
         }
     }
 
+    /***
+     * Permet de retourner l'instance unique du menu principal
+     * @return L'instance du menu principal
+     * @throws IOException  Image non trouvée
+     */
     public static MenuPrincipal getInstance() throws IOException {
         if(instance == null){
             instance = new MenuPrincipal();
@@ -52,6 +73,10 @@ public class MenuPrincipal extends MenuAbstract {
         return instance;
     }
 
+    /***
+     * Permet de retourner le nom du menu
+     * @return Le nom du menu
+     */
     @Override
     public String getNameFrame() {
         return "Menu Principal";

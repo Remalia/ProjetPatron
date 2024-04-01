@@ -19,10 +19,17 @@ public class StateSuppression implements State {
 
     private static StateSuppression instance;
 
+    /***
+     * Constructeur de la classe
+     */
     private StateSuppression(){
 
     }
 
+    /***
+     * Méthode qui retourne l'instance de la classe
+     * @return instance
+     */
     public static State getInstance(){
         if (instance == null){
             instance = new StateSuppression();
@@ -31,10 +38,19 @@ public class StateSuppression implements State {
     }
 
 
+    /***
+     * Méthode qui gère le clic de la souris
+     * @param e MouseEvent
+     */
     @Override
     public void hasClicked(MouseEvent e){
     }
 
+    /***
+     * Méthode qui gère le relâchement de la souris
+     * @param e MouseEvent
+     * @throws IOException Exception par rapport à l'instance
+     */
     @Override
     public void hasReleased(MouseEvent e) throws IOException {
         if(GamePane.getColorAt(GamePane.getInstance(), new Point(e.getX(), e.getY())).equals(Color.GREEN)){
@@ -48,16 +64,28 @@ public class StateSuppression implements State {
         }
     }
 
+    /***
+     * Méthode qui gère l'appui de la souris
+     * @param e MouseEvent
+     */
     @Override
     public void hasPressed(MouseEvent e) {
 
     }
 
+    /***
+     * Méthode qui gère l'entrée de la souris
+     * @param e MouseEvent
+     */
     @Override
     public void hasEntered(MouseEvent e) {
 
     }
 
+    /***
+     * Méthode qui gère la sortie de la souris
+     * @param e MouseEvent
+     */
     @Override
     public void hasExited(MouseEvent e) {
 

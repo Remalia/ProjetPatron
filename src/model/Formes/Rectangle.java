@@ -33,6 +33,10 @@ public class Rectangle extends Forme{
 		super(color,pts,locked,id);
 	}
 
+	/***
+	 * Permet de récupérer le chemin de l'image du rectangle
+	 * @return le chemin de l'image du rectangle
+	 */
 	@Override
 	public String writeForme() {
 		String ligneDesc = " ";
@@ -47,6 +51,10 @@ public class Rectangle extends Forme{
 		return "assets/images/jeu/rectangle.png";
 	}
 
+	/***
+	 * Permet de créer le rectangle
+	 * @return le rectangle
+	 */
 	@Override
 	public FormeVue createFormeVue() {
 		if(this.getFv() == null)

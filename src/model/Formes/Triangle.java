@@ -24,6 +24,10 @@ public class Triangle extends Forme {
 	}
 
 	/***
+	 * Permet de récupérer le chemin de l'image du triangle
+	 * @return le chemin de l'image du triangle
+	 */
+	/***
 	 * Constructeur de triangle
 	 * @param color La couleur du triangle
 	 * @param points Les coordonées des points du triangle
@@ -49,6 +53,10 @@ public class Triangle extends Forme {
 		return super.writeForme()+"triangle-"+this.getId()+":"+ligneDesc;
 	}
 
+	/***
+	 * Permet de créer le triangle
+	 * @return le triangle
+	 */
 	@Override
 	public FormeVue createFormeVue() {
 		if(this.getFv() == null)

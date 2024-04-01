@@ -24,6 +24,10 @@ public class MainVue extends JFrame{
     private static MainVue instance;
     private final List<MenuAbstract> allInstance;
 
+    /***
+     * Constructeur de la classe MainVue
+     * @throws IOException : si il y a un problème avec les instances
+     */
     private MainVue() throws IOException {
         allInstance = new ArrayList<>();
         this.setSize(width,height);
@@ -38,6 +42,12 @@ public class MainVue extends JFrame{
         this.addAllInstance();
     }
 
+    /***
+     * Permet de changer de scène
+     * @param menu : la nouvelle scène
+     * @throws IOException : si il y a un problème avec l'instance
+     * @throws InterruptedException : si il y a un problème avec l'instance
+     */
     public static void changeScene(MenuAbstract menu) throws IOException, InterruptedException {
         lastTitleNames.push(instance.getTitle());
         MenuAbstract navBarNeeded;
@@ -67,35 +77,64 @@ public class MainVue extends JFrame{
         instance.validate();
     }
 
-
+    /***
+     * Permet de récupérer la largeur de la fenêtre
+     * @return
+     */
     public static int getFrameWidth() {
         return width;
     }
 
+    /***
+     * Permet de changer la largeur de la fenêtre
+     * @param width : la nouvelle largeur
+     */
     public static void setFrameWidth(int width) {
         MainVue.width = width;
     }
 
+    /***
+     * Permet de récupérer la hauteur de la fenêtre
+     * @return
+     */
     public static int getFrameHeight() {
         return height;
     }
 
+    /***
+     * Permet de changer la hauteur de la fenêtre
+     * @param height : la nouvelle hauteur
+     */
     public static void setFrameHeight(int height) {
         MainVue.height = height;
     }
 
+    /***
+     * Permet de changer la résolution de la fenêtre
+     * @param width : la nouvelle largeur
+     * @param height : la nouvelle hauteur
+     */
     public static void swapResolution(int width,int height){
         setFrameWidth(width);
         setFrameHeight(height);
         instance.setSize(new Dimension(width,height));
+
     }
 
+    /***
+     * Permet de re-actualiser tous les composants
+     * @throws IOException : si il y a un problème avec l'instance MenuJeu
+     */
     public void repaintAll() throws IOException {
         MenuJeu.getInstance().reScaleAllComponentsImg();
         repaint();
         validate();
     }
 
+    /***
+     * Permet d'ajouter toutes les instances
+     * @throws IOException : si il y a un problème avec les instances
+     */
     private void addAllInstance() throws IOException {
         this.allInstance.add(MenuJeu.getInstance());
         this.allInstance.add(MenuParametre.getInstance());
@@ -107,12 +146,20 @@ public class MainVue extends JFrame{
         this.allInstance.add(NavBarSelectionLVL.getInstance());
     }
 
+    /***
+     * Permet de changer le background
+     * @param color : la nouvelle couleur
+     */
     public void backgroundHasChanged(Color color){
         for(MenuAbstract mA: this.allInstance){
             mA.changeBackground(color);
         }
     }
 
+    /***
+     * Permet de retourner à la scène précédente
+     * @throws IOException : si il y a un problème avec l'instance
+     */
     public static void backScene() throws IOException {
         if(lastTitleNames.empty()) {
             System.out.println("Closing game");
@@ -139,6 +186,11 @@ public class MainVue extends JFrame{
         }
     }
 
+    /***
+     * Permet de récupérer l'instance unique de la classe MainVue
+     * @return l'instance en question
+     * @throws IOException : si il y a un problème avec l'instance
+     */
     public static MainVue getInstance() throws IOException {
         if(instance == null){
             instance = new MainVue();
