@@ -10,10 +10,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/***
+ * Permet de créer et d'initialiser le menu des paramètres
+ *
+ */
 public class MenuParametre extends MenuAbstract{
 
     private static MenuParametre instance;
 
+    /***
+     * Constructeur du menu des paramètres
+     * 
+     */
     private MenuParametre() throws IOException {
         super();
         this.setName("Paramètre");
@@ -37,6 +45,10 @@ public class MenuParametre extends MenuAbstract{
 
     }
 
+    /***
+     * Permet de changer le background du menu
+     * @param color La couleur du background
+     */
     @Override
     public void changeBackground(Color color) {
         super.changeBackground(color);
@@ -46,6 +58,10 @@ public class MenuParametre extends MenuAbstract{
             }
     }
 
+    /***
+     * Permet de retourner l'instance unique du menu des paramètres
+     * @return l'instance en question
+     */
     public static MenuParametre getInstance() throws IOException {
         if(instance == null){
             instance = new MenuParametre();
@@ -53,6 +69,10 @@ public class MenuParametre extends MenuAbstract{
         return instance;
     }
 
+    /***
+     * Permet de retourner le nom de la frame
+     * @return le nom de la frame
+     */
     @Override
     public String getNameFrame() {
         return "Paramètre";
