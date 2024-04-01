@@ -17,6 +17,11 @@ public abstract class Button extends JButton {
     private Boolean selected;
     private MainController mc;
 
+    /***
+     * Constructeur de la classe Button avec image
+     * @param name : nom du bouton
+     * @param imgPath : chemin de l'image du bouton
+     */
     public Button(String name,String imgPath){
         this.imgPath = imgPath;
         this.imgHoverPath = imgPath.split(".png")[0]+"_hover.png";
@@ -29,6 +34,10 @@ public abstract class Button extends JButton {
         this.setIcon(new ImageIcon());
     }
 
+    /***
+     * Constructeur de la classe Button sans image
+     * @param name : nom du bouton
+     */
     public Button(String name){
         this.selected = false;
         this.name = name;
@@ -39,18 +48,33 @@ public abstract class Button extends JButton {
         this.setText(name);
     }
 
+    /***
+     * Permet de récupérer le chemin de l'image du bouton
+     * @return : chemin de l'image du bouton
+     */
     public String getImgPath() {
         return imgPath;
     }
 
+    /***
+     * Permet de récupérer le chemin de l'image du bouton lorsqu'il est survolé
+     * @return : chemin de l'image du bouton survolé
+     */
     public String getImgHoverPath(){
         return imgHoverPath;
     }
 
+    /*** 
+     * Permet de savoir si le bouton est sélectionné ou non
+     */
     public boolean isSelected(){
         return selected;
     }
 
+    /***
+     * Permet de récupérer le mainController
+     * @return : mainController
+     */
     public MainController getMc() {
         return mc;
     }
