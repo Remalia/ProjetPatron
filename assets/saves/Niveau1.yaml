@@ -1,6 +1,6 @@
 level: 1
 formes: #( cercle --> centre(x/y) | ext(x/y) ) ( rectangle --> pts1(x/y) | pts2(x/y) ) (triangle --> pts1(x/y) | pts2(x/y) | pts3(x/y) ) + T/F --> Locked ou non
-  0-rectangle: (190/184) | (166/190) | T
-  1-triangle: (225/225) | (266/290) | (230/345) | T
+  f-rectangle-0: (190/184) | (166/190) | T
+  f-triangle-1: (225/225) | (266/290) | (230/345) | T
 historySvg: #( Pile Undo )
 historyRecup: #( Pile Redo )

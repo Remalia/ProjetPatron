@@ -167,4 +167,8 @@ public abstract class Forme implements FormeVueFactory {
 	public void setFv(FormeVue fv) {
 		this.fv = fv;
 	}
+
+	public String writeForme(){
+		return "  f-";
+	}
 }

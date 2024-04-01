@@ -23,6 +23,15 @@ public class Rectangle extends Forme{
 	}
 
 	@Override
+	public String writeForme() {
+		String ligneDesc = " ";
+		ligneDesc += "("+this.getPoints().get(0).getX()+"/"+this.getPoints().get(0).getY()+") |";
+		ligneDesc += "("+this.getPoints().get(1).getX()+"/"+this.getPoints().get(1).getY()+") | ";
+		ligneDesc += this.isLocked() ? "T\n" : "F\n";
+		return super.writeForme()+"rectangle-"+this.getId()+":"+ligneDesc;
+	}
+
+	@Override
 	public String getPathImg() {
 		return "assets/images/jeu/rectangle.png";
 	}

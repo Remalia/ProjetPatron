@@ -3,8 +3,6 @@ package ProjetPatron.src.model.Action.Commandes;
 import ProjetPatron.src.model.Formes.Coord;
 import ProjetPatron.src.model.Formes.Forme;
 
-import java.awt.*;
-
 public class DeplacementForme implements Command{
 
     private Forme forme;
@@ -45,9 +43,9 @@ public class DeplacementForme implements Command{
     }
 
     @Override
-    public String writeCommand(boolean svg) {
+    public String writeCommand() {
         String ligneDesc = " ";
-        ligneDesc += pixelX + " + " + pixelY;
+        ligneDesc += pixelX + " + " + pixelY +"\n";
         return "  deplacement: " + forme.getId() + ligneDesc;
     }
 

@@ -33,15 +33,14 @@ public class AjoutCercle implements Command{
 
     /***
      * Permet d'écrire une commande d'ajout de cercle dans le Yaml de sauvegarde
-     * @param svg True --> Sauvegarde pour le Undo / False --> Sauvegarde pour le Redo
      * @return La commande de sauvegarde
      */
     @Override
-    public String writeCommand(boolean svg) {
+    public String writeCommand() {
         String ligneDesc = " ";
         ligneDesc += "("+circle.getPoints().get(0).getX()+"/"+circle.getPoints().get(0).getY()+") |";
         ligneDesc += "("+circle.getPoints().get(1).getX()+"/"+circle.getPoints().get(1).getY()+") | ";
-        ligneDesc += circle.isLocked() ? "T" : "F";
+        ligneDesc += circle.isLocked() ? "T\n" : "F\n";
         return "  cercle-"+circle.getId()+": " + ligneDesc;
     }
 

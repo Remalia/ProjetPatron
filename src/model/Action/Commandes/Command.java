@@ -7,7 +7,7 @@ public interface Command {
 
     void execute();
     void backtrack();
-    String writeCommand(boolean svg);
+    String writeCommand();
     void readCommand(String ligne);
 
 }

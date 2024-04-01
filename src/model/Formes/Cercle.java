@@ -28,6 +28,15 @@ public class Cercle extends Forme{
 		return "assets/images/jeu/cercle.png";
 	}
 
+	@Override
+	public String writeForme() {
+		String ligneDesc = " ";
+		ligneDesc += "("+this.getPoints().get(0).getX()+"/"+this.getPoints().get(0).getY()+") |";
+		ligneDesc += "("+this.getPoints().get(1).getX()+"/"+this.getPoints().get(1).getY()+") | ";
+		ligneDesc += this.isLocked() ? "T\n" : "F\n";
+		return super.writeForme()+"cercle-"+this.getId()+":"+ligneDesc;
+	}
+
 	/***
 	 * Permet de récupérer le rayon du cercle
 	 * @return la taille du rayon du cercle

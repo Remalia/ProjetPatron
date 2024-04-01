@@ -33,15 +33,14 @@ public class AjoutRectangle implements Command{
 
     /***
      * Permet d'écrire une commande d'ajout de rectangle dans le Yaml de sauvegarde
-     * @param svg True --> Sauvegarde pour le Undo / False --> Sauvegarde pour le Redo
      * @return La commande de sauvegarde
      */
     @Override
-    public String writeCommand(boolean svg) {
+    public String writeCommand() {
         String ligneDesc = " ";
         ligneDesc += "("+rectangle.getPoints().get(0).getX()+"/"+rectangle.getPoints().get(0).getY()+") |";
         ligneDesc += "("+rectangle.getPoints().get(1).getX()+"/"+rectangle.getPoints().get(1).getY()+") | ";
-        ligneDesc += rectangle.isLocked() ? "T" : "F";
+        ligneDesc += rectangle.isLocked() ? "T\n" : "F\n";
         return "  rectangle-"+rectangle.getId()+": " +ligneDesc;
     }
 
