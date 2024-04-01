@@ -7,9 +7,14 @@ import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.List;
 
+/***
+ * Classe qui permet de parser un fichier
+ */
 public class Parser {
-    /**
-     * @param file Fichier à lire
+
+    /***
+     * Permet de récupérer toutes les balises et les valeurs associées dans un fichier
+     * @param file : Fichier à lire
      * @return une liste HashMap clé/valeur avec toutes les balises et les valeurs associées sous forme de string
      * @throws FileNotFoundException Fichier Introuvable
      */
@@ -34,7 +39,7 @@ public class Parser {
 
     /**
      * Supprime les espaces en début de chaine de caractère
-     * @param chaine la chaine en question
+     * @param chaine : la chaine en question
      * @return la chaine sans les espaces
      */
     private static String deleteStartSpace(String chaine) {
