@@ -101,7 +101,7 @@ public class MainModel {
      * Permet de charger un niveau
      * @param id : id du niveau
      */
-    public void loadLevel(int id){
+    public void loadLevel(int id) throws IOException {
         instance = new MainModel(id);
         if(!LoadLevel.loadGameFromYAML("assets/saves/Niveau"+instance.getActualLevel()+"Save.yaml") && instance.getActualLevel() != 0)
             LoadLevel.loadGameFromYAML("assets/saves/Niveau"+instance.getActualLevel()+".yaml");

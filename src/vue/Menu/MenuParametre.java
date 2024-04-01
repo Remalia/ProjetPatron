@@ -4,6 +4,7 @@ import ProjetPatron.src.controller.Graphics.Bouton.menus.ButtonReset;
 import ProjetPatron.src.controller.Graphics.Box.CheckBoxFullScreen;
 import ProjetPatron.src.controller.Graphics.Box.ComboBoxResolution;
 import ProjetPatron.src.controller.Graphics.Box.ComboBoxTheme;
+import ProjetPatron.src.vue.ImageResizer;
 import ProjetPatron.src.vue.Layout.LayoutMenuParametre;
 import ProjetPatron.src.vue.ThemeView;
 
@@ -18,6 +19,7 @@ import java.io.IOException;
 public class MenuParametre extends MenuAbstract{
 
     private static MenuParametre instance;
+    private ButtonReset br;
 
     /***
      * Constructeur du menu des paramètres
@@ -34,22 +36,19 @@ public class MenuParametre extends MenuAbstract{
         JCheckBox checkBoxFullscreen = CheckBoxFullScreen.getInstance();
         JComboBox<String> cbResolution = ComboBoxResolution.getInstance();
         JComboBox<String> cbTheme = ComboBoxTheme.getInstance();
-        ButtonReset br = new ButtonReset("reset", "assets/images/Menu/reset.png");
-
-
+        br = new ButtonReset("reset", "assets/images/Menu/reset.png");
         this.add(checkBoxFullscreen);
         this.add(labelResolution);
         this.add(labelTheme);
         this.add(cbTheme);
         this.add(cbResolution);
-        this.add(br);
-
-
+        buttons.add(br);
+        this.addAllButtons();
     }
 
     @Override
-    public void reScaleAllComponentsImg() {
-
+    public void reScaleAllComponentsImg() throws IOException {
+        br.setIcon(new ImageIcon(ImageResizer.getGoodImageSizeMenuPrincipal(br.getImgPath())));
     }
 
     /***

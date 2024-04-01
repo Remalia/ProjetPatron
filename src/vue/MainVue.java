@@ -1,5 +1,7 @@
 package ProjetPatron.src.vue;
 
+import ProjetPatron.src.model.Action.LoadLevel;
+import ProjetPatron.src.model.Param;
 import ProjetPatron.src.vue.Layout.LayoutMenuGlobal;
 import ProjetPatron.src.vue.Menu.*;
 
@@ -17,8 +19,6 @@ import java.util.Stack;
  */
 public class MainVue extends JFrame{
 
-    private static int width = 800;
-    private static int height = 600;
     private static final Stack<String> lastTitleNames = new Stack<>();;
     private static final Stack<Container> backupPanel = new Stack<>();;
     private static MainVue instance;
@@ -30,7 +30,7 @@ public class MainVue extends JFrame{
      */
     private MainVue() throws IOException {
         allInstance = new ArrayList<>();
-        this.setSize(width,height);
+        this.setSize(Param.width,Param.height);
         this.getContentPane().setLayout(new LayoutMenuGlobal());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Menu Principal");
@@ -73,8 +73,7 @@ public class MainVue extends JFrame{
         instance.getContentPane().add(navBarNeeded);
         instance.getContentPane().add(menu);
         instance.setTitle(menu.getNameFrame());
-        instance.repaint();
-        instance.validate();
+        instance.repaintAll();
     }
 
     /***
@@ -82,7 +81,7 @@ public class MainVue extends JFrame{
      * @return
      */
     public static int getFrameWidth() {
-        return width;
+        return Param.width;
     }
 
     /***
@@ -90,7 +89,7 @@ public class MainVue extends JFrame{
      * @param width : la nouvelle largeur
      */
     public static void setFrameWidth(int width) {
-        MainVue.width = width;
+        Param.width = width;
     }
 
     /***
@@ -98,7 +97,7 @@ public class MainVue extends JFrame{
      * @return
      */
     public static int getFrameHeight() {
-        return height;
+        return Param.height;
     }
 
     /***
@@ -106,7 +105,7 @@ public class MainVue extends JFrame{
      * @param height : la nouvelle hauteur
      */
     public static void setFrameHeight(int height) {
-        MainVue.height = height;
+        Param.height = height;
     }
 
     /***
@@ -118,7 +117,6 @@ public class MainVue extends JFrame{
         setFrameWidth(width);
         setFrameHeight(height);
         instance.setSize(new Dimension(width,height));
-
     }
 
     /***
@@ -127,6 +125,7 @@ public class MainVue extends JFrame{
      */
     public void repaintAll() throws IOException {
         MenuJeu.getInstance().reScaleAllComponentsImg();
+        MenuParametre.getInstance().reScaleAllComponentsImg();
         repaint();
         validate();
     }

@@ -64,7 +64,8 @@ public class AjoutTriangle implements Command{
 
     /***
      * Permet de reconstruire un ajout de triangle depuis une ligne de sauvegarde
-     * @param ligne La ligne en question
+     * @param key La clé de la ligne en question
+     * @param val La valeur de la ligne en question
      */
     @Override
     public void readCommand(String key, String val) {

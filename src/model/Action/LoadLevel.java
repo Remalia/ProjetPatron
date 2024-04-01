@@ -19,10 +19,13 @@ import java.util.Map;
  */
 public class LoadLevel {
 
-    private static List<Forme> temp;
-
+    /***
+     * Permet de charger un niveau
+     * @param path le path du niveau a charger
+     * @return Si le niveau a pus etre charger
+     * @throws IOException si fichier non trouver
+     */
     public static boolean loadGameFromYAML(String path) throws IOException {
-        temp = new ArrayList<>();
         String lastBalise = "";
         HashMap<String,String> hashMap =  Parser.getAllBalise(new File(path));
         if(!hashMap.isEmpty()){
@@ -33,25 +36,35 @@ public class LoadLevel {
                     default: traiter(lastBalise, entry.getKey(),entry.getValue()); break;
                 }
             }
-            MainModel.getInstance().setFormes(temp);
             return true;
         }else{
             return false;
         }
     }
 
+    /***
+     * permet de traiter la ligne
+     * @param lastBalise la dernière balise lus
+     * @param key la clé de la ligne
+     * @param val la valeur de la ligne
+     */
     private static void traiter(String lastBalise,String key,String val){
         switch (lastBalise){
             case "level": MainModel.getInstance().setActualLevel(Integer.parseInt(val)); break;
-            case "formes": Forme f = traiterForme(key,val); if (f!= null) temp.add(f); break;
+            case "formes": traiterForme(key,val); break;
             case "historySvg": traiterActions(key,val,true); break;
             case "historyRecup": traiterActions(key,val,false); break;
         }
     }
 
-    private static Forme traiterForme(String key,String val){
-        Forme f = null;
+    /***
+     * Permet de traiter les formes de l'app
+     * @param key la clé de la ligne
+     * @param val la valeur de la ligne
+     */
+    private static void traiterForme(String key,String val){
         if(val.contains("T")){
+            Forme f = null;
             int id = Integer.parseInt(key.substring(key.lastIndexOf("-")+1));
             List<Coord> pts = new ArrayList<>();
             String firstPT = val.substring(0,val.indexOf("|")-1);
@@ -76,14 +89,25 @@ public class LoadLevel {
                 pts.add(LoadLevel.getCoord(secondPT));
                 f = new Rectangle(col,pts,locked,id);
             }
+            MainModel.getInstance().getFormes().add(f);
         }
-        return f;
     }
 
+    /***
+     * Permet de récupérer les coordonnées depuis une ligne d'un fichier de sauvegarde
+     * @param line la ligne ou l'on doit recup les coordonnées
+     * @return les coordonées sous forme x,y
+     */
     public static Coord getCoord(String line){
         return new Coord(Integer.parseInt(line.substring(1,line.indexOf("/"))),Integer.parseInt(line.substring(line.indexOf("/")+1,line.lastIndexOf(")"))));
     }
 
+    /***
+     * Permet de traiter les actions de l'app
+     * @param key La clé de la ligne
+     * @param val La valeur de la ligne
+     * @param svg Si il se situe dans la pile de undo --> true sinon false si pile de redo
+     */
     private static void traiterActions(String key,String val,boolean svg){
         Command c = null;
         if(key.contains("suppr")){

@@ -37,6 +37,10 @@ public class SaveLevel {
         writer.close();
     }
 
+    /***
+     * Permet de reset toutes les sauvegardes du jeu
+     * @throws IOException fichier non trouvé
+     */
     public static void resetAll() throws IOException{
         for(int i = 0; i < 4; i++){
             FileWriter fileWriter = new FileWriter("assets/saves/Niveau"+ i +"Save.yaml", false);

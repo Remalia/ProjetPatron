@@ -18,6 +18,8 @@ import java.util.HashMap;
  */
 public class Param {
 
+    public static int width = 800;
+    public static int height = 600;
     private static boolean fullScreen;
 
     /***
@@ -45,16 +47,15 @@ public class Param {
         ComboBoxTheme cbt = ComboBoxTheme.getInstance();
         ThemeView tv = ThemeView.getInstance();
         CheckBoxFullScreen cf = CheckBoxFullScreen.getInstance();
-        ButtonReset br = new ButtonReset("reset","assets/images/jeu/rectangle.png");
         HashMap<String,String> balises = Parser.getAllBalise(new File("assets/param.yaml"));
         if (!balises.isEmpty()){
             balises.forEach((key, val) -> {
                 switch (key){
                     case "Resolution" :
                         switch (val) {
-                            case "800x600": cbr.setSelectedIndex(2); break;
-                            case "1920x1080": cbr.setSelectedIndex(0); break;
-                            case "1280x1024": cbr.setSelectedIndex(1); break;
+                            case "800x600": cbr.setSelectedIndex(2); width = 800; height = 600; break;
+                            case "1920x1080": cbr.setSelectedIndex(0); width = 1920; height = 1080; break;
+                            case "1280x1024": cbr.setSelectedIndex(1); width = 1280; height = 1024; break;
                         }
                         break;
                     case "Theme" :

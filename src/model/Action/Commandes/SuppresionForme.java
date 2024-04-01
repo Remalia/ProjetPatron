@@ -41,7 +41,6 @@ public class SuppresionForme implements Command {
 
     /***
      * Permet d'écrire une commande de suppression de forme dans le Yaml de sauvegarde
-     * @param svg True --> Sauvegarde pour le Undo / False --> Sauvegarde pour le Redo
      */
     @Override
     public String writeCommand() {
@@ -51,7 +50,8 @@ public class SuppresionForme implements Command {
 
     /***
      * Permet de lire une ligne de sauvegarde
-     * @param ligne La ligne en question
+     * @param key La clé de la ligne en question
+     * @param val La valeur de la ligne en question
      */
     @Override
     public void readCommand(String key, String val) {
