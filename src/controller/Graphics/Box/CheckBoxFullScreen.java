@@ -11,10 +11,18 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
 
+/***
+ * Classe permettant de gérer la CheckBox du mode plein écran
+ */
 public class CheckBoxFullScreen extends JCheckBox {
 
     private static CheckBoxFullScreen instance;
 
+    /***
+     * Constructeur de la classe 
+     * Gère le mode plein écran à l'aide d'une CheckBox
+     * @throws IOException : exception liée à l'entrée/sortie
+     */
     private CheckBoxFullScreen() throws IOException {
         this.setText("Fullscreen (ignore resolution)");
         this.setName("cbFullScreen");
@@ -49,6 +57,11 @@ public class CheckBoxFullScreen extends JCheckBox {
         });
     }
 
+    /***
+     * Permet de récupérer l'instance de la classe
+     * @return : instance de la classe
+     * @throws IOException : problème lié à l'instance     
+     */
     public static CheckBoxFullScreen getInstance() throws IOException {
         if (instance == null){
             instance = new CheckBoxFullScreen();

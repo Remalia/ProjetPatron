@@ -7,10 +7,18 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+/***
+ * Classe permettant de gérer la ComboBox des résolutions de l'écran
+ 
+ */
 public class ComboBoxResolution extends JComboBox<String> implements ActionListener {
 
     private static ComboBoxResolution instance;
 
+    /***
+     * Constructeur de la classe,
+     * Ajoute les différentes résolutions possibles 
+     */
     private ComboBoxResolution(){
         String[] resolutions = {"1920x1080","1280x1024","800x600"};
         this.setName("cbResolution");
@@ -47,6 +55,10 @@ public class ComboBoxResolution extends JComboBox<String> implements ActionListe
 
     }
 
+    /***
+     * Permet de récupérer l'instance de la classe
+     * @return : instance de la classe
+     */
     public static ComboBoxResolution getInstance(){
         if(instance == null){
             instance = new ComboBoxResolution();
