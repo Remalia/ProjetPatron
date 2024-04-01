@@ -25,7 +25,7 @@ public class SuppresionForme implements Command {
     }
 
     /***
-     * Permet de supprimer une forme
+     * Permet la supression de la forme
      */
     @Override
     public void execute() {
@@ -51,7 +51,7 @@ public class SuppresionForme implements Command {
 
 
     /***
-     * Permet de reconstruire une forme depuis une ligne de sauvegarde
+     * Permet de lire une ligne de sauvegarde
      * @param ligne La ligne en question
      */
     @Override
