@@ -7,10 +7,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/***
+ * Permet de créer et d'initialiser le menu du jeu
+ *
+ */
 public class MenuJeu extends MenuAbstract {
 
     private static MenuJeu instance;
 
+    /***
+     * Constructeur du menu du jeu
+     * @throws IOException Erreur pendant la construction du menu
+     */
     private MenuJeu() throws IOException {
         super();
         this.setName("MenuJeu");
@@ -22,6 +30,10 @@ public class MenuJeu extends MenuAbstract {
         this.add(GamePane.getInstance());
     }
 
+    /***
+     * Permet de mettre à l'échelle toutes les images du menu
+     * @throws IOException Erreur pendant la redimension des images
+     */
     @Override
     public void reScaleAllComponentsImg() throws IOException {
         for (Component comp: this.getComponents()){
@@ -31,6 +43,10 @@ public class MenuJeu extends MenuAbstract {
         }
     }
 
+    /***
+     * Permet de changer le background du menu
+     * @param color La couleur du background
+     */
     @Override
     public void changeBackground(Color color) {
         super.changeBackground(color);
@@ -40,6 +56,10 @@ public class MenuJeu extends MenuAbstract {
         }
     }
 
+    /***
+     * Permet de récupérer l'instance unique du menu du jeu
+     * @return L'instance du menu du jeu
+     */
     public static MenuJeu getInstance() throws IOException {
         if(instance == null){
             instance = new MenuJeu();
@@ -47,6 +67,10 @@ public class MenuJeu extends MenuAbstract {
         return instance;
     }
 
+    /***
+     * Permet de retourner le nom de la frame
+     * @return le nom de la frame
+     */ 
     @Override
     public String getNameFrame() {
         return "Jeu";

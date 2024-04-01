@@ -7,8 +7,16 @@ import ProjetPatron.src.vue.Menu.NavBarJeu;
 
 import java.io.IOException;
 
+/***
+ * Classe de gestion du bouton select
+ */
 public class ButtonSelect extends Button {
 
+    /***
+     * Constructeur du bouton select avec image
+     * @param name : le nom du bouton
+     * @param imgPath : le chemin de l'image
+     */
     public ButtonSelect(String name, String imgPath) {
         super(name, imgPath);
         this.addActionListener(e -> {
@@ -21,6 +29,10 @@ public class ButtonSelect extends Button {
         });
     }
 
+    /***
+     * Constructeur du bouton select sans image
+     * @param name : le nom du bouton
+     */
     public ButtonSelect(String name) {
         super(name);
         this.addActionListener(e -> getMc().setState(StateSelect.getInstance()));

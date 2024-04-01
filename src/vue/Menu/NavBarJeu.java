@@ -16,10 +16,17 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
 
+/***
+ * Permet de créer et d'initialiser la barre de navigation en jeu
+ *
+ */
 public class NavBarJeu extends MenuAbstract{
 
     private static NavBarJeu instance;
 
+    /***
+     * Constructeur de la barre de navigation en jeu
+     */
     private NavBarJeu(){
         super();
         this.setName("NavBarJeu");
@@ -48,6 +55,10 @@ public class NavBarJeu extends MenuAbstract{
         this.addAllButtons();
     }
 
+    /***
+     * Permet de changer le background de la barre de navigation en jeu
+     * @param color La couleur du background
+     */
     @Override
     public void changeBackground(Color color) {
         super.changeBackground(color);
@@ -60,6 +71,11 @@ public class NavBarJeu extends MenuAbstract{
         }
     }
 
+
+    /***
+     * Permet de connaitre le bouton selectionné
+     * @param b : le bouton
+     */
     public void newButtonSelected(Button b){
         for (Button button: this.buttons){
                 button.setBackground(ThemeView.getInstance().getColor());
@@ -67,8 +83,11 @@ public class NavBarJeu extends MenuAbstract{
             b.setBackground(ThemeView.getInstance().getIlluminateColor());
         }
 
+    /***
+     * Permet de remettre à échelle toutes les images de la barre de navigation en jeu
+     * @throws IOException Image non trouvée
+     */
     @Override
-
     public void reScaleAllComponentsImg() throws IOException {
         for (Button button : buttons){
             if(button.getIcon() != null){
@@ -77,6 +96,11 @@ public class NavBarJeu extends MenuAbstract{
         }
     }
 
+    /***
+     * Permet de récupérer l'instance unique de la barre de navigation en jeu
+     * @return l'instance en question
+     * @throws IOException Image non trouvée
+     */
     public static NavBarJeu getInstance() throws IOException {
         if(instance == null){
             instance = new NavBarJeu();
@@ -85,6 +109,10 @@ public class NavBarJeu extends MenuAbstract{
         return instance;
     }
 
+    /***
+     * Renvoie le nom de la frame
+     * @return Son nom
+     */
     @Override
     public String getNameFrame() {
         return "NavBarJeu";

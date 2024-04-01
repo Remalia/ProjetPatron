@@ -18,10 +18,18 @@ public class CommandHandler{
     private final Stack<Command> stackCommand;
     private final Stack<Command> stackRedo;
 
+    /***
+     * Permet de récuperer la stack des commandes
+     * @return la stack des commandes
+     */
     public Stack<Command> getStackCommand() {
         return stackCommand;
     }
 
+    /***
+     * Permet de récupérer la stack Redo
+     * @return la stack redo
+     */
     public Stack<Command> getStackRedo() {
         return stackRedo;
     }

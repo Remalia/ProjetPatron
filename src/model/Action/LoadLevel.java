@@ -11,7 +11,13 @@ import java.util.HashMap;
  */
 public class LoadLevel {
 
+    /***
+     * Permet de charger une partie depuis un fichier YAML
+     * @param path : le chemin du fichier
+     * @throws FileNotFoundException Fichier Yaml non trouvé
+     */
     public static void loadGameFromYAML(String path) throws FileNotFoundException {
         HashMap<String,String> hashMap =  Parser.getAllBalise(new File(path));
+
     }
 }

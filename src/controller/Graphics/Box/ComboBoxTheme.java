@@ -8,10 +8,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+/***
+ * classe permettant de gérer la ComboBox des thèmes
+ 
+ */
 public class ComboBoxTheme extends JComboBox<String> {
 
     private static ComboBoxTheme instance;
 
+    /***
+     * Constructeur de la classe,
+     * Ajoute les différents thèmes possibles (noir, blanc) pour l'interface
+     */
     private ComboBoxTheme(){
         String[] themes = {"White","Black"};
         this.setName("cbTheme");
@@ -29,11 +37,18 @@ public class ComboBoxTheme extends JComboBox<String> {
         });
     }
 
+    /***
+     * Permet de savoir si une action a été effectuée
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
     }
 
+    /***
+     * Permet de récupérer l'instance de la classe
+     * @return : instance de la classe
+     */
     public static ComboBoxTheme getInstance(){
         if(instance == null){
             instance = new ComboBoxTheme();

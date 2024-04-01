@@ -15,17 +15,32 @@ public class AjoutRectangle implements Command{
 
     private Rectangle rectangle;
 
+    /***
+     * Constructeur de l'ajout de rectangle
+     */
     public AjoutRectangle(){}
 
+    /***
+     * Constructeur de l'ajout de rectangle avec arguments
+     * @param color : la couleur du rectangle
+     * @param points : ses coordonnées
+     * @param locked : si il est bloqué au déplacement ou non
+     */
     public AjoutRectangle(Color color, List<Coord> points, Boolean locked){
         this.rectangle = new Rectangle(color,points,locked);
     }
 
+    /***
+     * Permet d'ajouter le rectangle
+     */
     @Override
     public void execute() {
         MainModel.getInstance().getFormes().add(rectangle);
     }
 
+    /***
+     * Permet d'annuler l'ajout du rectangle
+     */
     @Override
     public void backtrack() {
         MainModel.getInstance().getFormes().remove(rectangle);
@@ -46,6 +61,7 @@ public class AjoutRectangle implements Command{
 
     /***
      * Permet de reconstruire un ajout de rectangle depuis une ligne de sauvegarde
+     * @param ligne La ligne en question
      */
     @Override
     public void readCommand(String ligne) {

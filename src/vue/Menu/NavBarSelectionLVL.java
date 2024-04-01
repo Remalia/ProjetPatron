@@ -10,10 +10,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/***
+ * Permet de créer et d'initialiser la barre de navigation pour la selection des niveaux
+ *
+ */
 public class NavBarSelectionLVL extends MenuAbstract{
 
     private static NavBarSelectionLVL instance;
 
+    /***
+     * Constructeur de la barre de navigation pour la selection des niveaux
+     */
     private NavBarSelectionLVL(){
         super();
         this.setName("NavBar");
@@ -25,6 +32,10 @@ public class NavBarSelectionLVL extends MenuAbstract{
         this.addAllButtons();
     }
 
+    /***
+     * Permet de changer le background de la barre de navigation pour la selection des niveaux
+     * @param color La couleur du background
+     */
     @Override
     public void changeBackground(Color color) {
         super.changeBackground(color);
@@ -33,6 +44,10 @@ public class NavBarSelectionLVL extends MenuAbstract{
         }
     }
 
+    /***
+     * Permet de remettre à échelle toutes les images de la barre de navigation pour la selection des niveaux
+     * @throws IOException Image non trouvée
+     */
     @Override
     public void reScaleAllComponentsImg() throws IOException {
         for (Button button : buttons){
@@ -42,6 +57,11 @@ public class NavBarSelectionLVL extends MenuAbstract{
         }
     }
 
+    /***
+     * Permet de retourner l'instance de la barre de navigation pour la selection des niveaux
+     * @return l'instance de la barre de navigation pour la selection des niveaux
+     * @throws IOException Image non trouvée
+     */
     public static NavBarSelectionLVL getInstance() throws IOException {
         if(instance == null){
             instance = new NavBarSelectionLVL();
@@ -50,6 +70,10 @@ public class NavBarSelectionLVL extends MenuAbstract{
         return instance;
     }
 
+    /***
+     * Permet de retourner le nom de la frame
+     * @return le nom de la frame
+     */
     @Override
     public String getNameFrame() {
         return "NavBar";

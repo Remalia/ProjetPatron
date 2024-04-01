@@ -12,6 +12,11 @@ import java.io.IOException;
  */
 public class ButtonRedo extends Button {
 
+    /***
+     * Constructeur du bouton redo avec image
+     * @param name : le nom du bouton
+     * @param imgPath : le chemin de l'image
+     */
     public ButtonRedo(String name,String imgPath) {
         super(name,imgPath);
         this.addActionListener(e -> {
@@ -23,6 +28,10 @@ public class ButtonRedo extends Button {
         });
     }
 
+    /***
+     * Constructeur du bouton redo sans image
+     * @param name : le nom du bouton
+     */
     public ButtonRedo(String name) {
         super(name);
         this.addActionListener(e -> {

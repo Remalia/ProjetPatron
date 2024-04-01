@@ -12,18 +12,33 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
+/***
+ * Classe qui permet de gérer les paramètres de l'application
+ */
 public class Param {
 
     private static boolean fullScreen;
 
+    /***
+     * Permet de changer le mode plein écran
+     * @param b : true si on veut le mode plein écran, false sinon
+     */
     public static void setFullScreen(boolean b){
         fullScreen = b;
     }
 
+    /***
+     * Permet de savoir si on est en mode plein écran
+     * @return true si on est en mode plein écran, false sinon
+     */
     public static boolean isFullScreen(){
         return fullScreen;
     }
 
+    /***
+     * Permet de charger les paramètres de l'application
+     * @throws IOException Exception si le fichier n'est pas trouvé
+     */
     public static void loadParam() throws IOException {
         ComboBoxResolution cbr = ComboBoxResolution.getInstance();
         ComboBoxTheme cbt = ComboBoxTheme.getInstance();
@@ -64,6 +79,10 @@ public class Param {
         MainVue.getInstance().backgroundHasChanged(tv.getColor());
     }
 
+    /***
+     * Permet de sauvegarder les paramètres de l'application
+     * @throws IOException Exception si le fichier n'est pas trouvé
+     */
     public static void saveParam() throws IOException {
         ComboBoxResolution cbr = ComboBoxResolution.getInstance();
         ComboBoxTheme cbt = ComboBoxTheme.getInstance();

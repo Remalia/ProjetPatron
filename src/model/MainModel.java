@@ -20,6 +20,7 @@ public class MainModel {
 
     /***
      * Permet la création d'un mainModel
+     * @param idLevel : l'id du niveau
      */
     private MainModel(int idLevel){
         this.actualLevel = idLevel;
@@ -28,22 +29,42 @@ public class MainModel {
         this.score = new Score();
     }
 
+    /***
+     * Permet de récupérer le niveau actuel
+     * @return le niveau actuel
+     */
     public int getActualLevel() {
         return actualLevel;
     }
 
+    /***
+     * Permet de changer le niveau actuel
+     * @param actualLevel : le nouveau niveau
+     */
     public void setActualLevel(int actualLevel) {
         this.actualLevel = actualLevel;
     }
 
+    /***
+     * Permet de récupérer toutes les formes
+     * @return la liste des formes
+     */
     public List<Forme> getFormes() {
         return formes;
     }
 
+    /***
+     * Permet de récupérer une forme par son id
+     * @return l'id de la forme 
+     */
     public static int getNextIdForme(){
         return nbForme++;
     }
 
+    /***
+     * Permet de récupérer l'instance unique du MainModel
+     * @return l'instance
+     */
     public static MainModel getInstance() {
         if(instance == null){
             instance = new MainModel(-1);
@@ -59,19 +80,35 @@ public class MainModel {
         return ch;
     }
 
+    /***
+     * Permet de récupérer le nombre de formes
+     * @return le nombre de formes
+     */
     public static int getNbForme() {
         return nbForme;
     }
 
+    /***
+     * Permet de charger un niveau
+     * @param id : id du niveau
+     */
     public void loadLevel(int id){
         instance = new MainModel(id);
         System.out.println("Loading");
     }
 
+    /***
+     * Permet de placer les formes du niveau
+     * @param formes : liste de formes
+     */
     public void setFormes(List<Forme> formes) {
         this.formes = formes;
     }
 
+    /***
+     * Permet de récupérer le score
+     * @return le score
+     */
     public Score getScore() {
         return score;
     }

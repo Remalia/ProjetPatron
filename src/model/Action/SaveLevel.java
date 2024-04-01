@@ -13,6 +13,10 @@ import java.io.IOException;
  */
 public class SaveLevel {
 
+    /***
+     * Permet de sauvegarder une partie dans un fichier YAML
+     * @param path : le chemin  du fichier Yaml
+     */       
     public static void saveGameToYAML(String path) throws IOException {
         FileWriter fileWriter = new FileWriter(path, false);
         BufferedWriter writer = new BufferedWriter(fileWriter);

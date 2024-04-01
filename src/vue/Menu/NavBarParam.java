@@ -9,10 +9,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/***
+ * Permet de créer et d'initialiser la barre de navigation des paramètres
+ *
+ */
 public class NavBarParam extends MenuAbstract{
 
     private static NavBarParam instance;
 
+    /***
+     * Constructeur de la barre de navigation des paramètres
+     * 
+     */
     private NavBarParam(){
         super();
         this.setName("NavBar");
@@ -22,6 +30,10 @@ public class NavBarParam extends MenuAbstract{
         this.addAllButtons();
     }
 
+    /***
+     * Permet de changer le background de la barre de navigation des paramètres
+     * @param color la couleur du background
+     */
     @Override
     public void changeBackground(Color color) {
         super.changeBackground(color);
@@ -30,6 +42,10 @@ public class NavBarParam extends MenuAbstract{
         }
     }
 
+    /***
+     * Permet de remettre à échelle toutes les images de la barre de navigation des paramètres
+     * @throws IOException Image non trouvée
+     */
     @Override
     public void reScaleAllComponentsImg() throws IOException {
         for (Button button : buttons){
@@ -39,11 +55,20 @@ public class NavBarParam extends MenuAbstract{
         }
     }
 
+    /***
+     * Permet de retourner le nom de la frame
+     * @return le nom de la frame
+     */
     @Override
     public String getNameFrame() {
         return "NavBarParam";
     }
 
+    /***
+     * Permet de récupérer l'instance unique de la barre de navigation des paramètres
+     * @return L'instance unique de la barre de navigation des paramètres
+     * @throws IOException Image non trouvée
+     */
     public static NavBarParam getInstance() throws IOException {
         if(instance == null){
             instance = new NavBarParam();
